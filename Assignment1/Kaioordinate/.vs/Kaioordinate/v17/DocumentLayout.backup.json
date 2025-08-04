@@ -1,0 +1,90 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|e:\\study\\unitec\\gui programming\\gui programming code\\gui-programming\\assignment1\\kaioordinate\\kaioordinate\\kaimanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|solutionrelative:kaioordinate\\kaimanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|e:\\study\\unitec\\gui programming\\gui programming code\\gui-programming\\assignment1\\kaioordinate\\kaioordinate\\kaimanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|solutionrelative:kaioordinate\\kaimanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|e:\\study\\unitec\\gui programming\\gui programming code\\gui-programming\\assignment1\\kaioordinate\\kaioordinate\\kaioordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|solutionrelative:kaioordinate\\kaioordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|e:\\study\\unitec\\gui programming\\gui programming code\\gui-programming\\assignment1\\kaioordinate\\kaioordinate\\kaioordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FFFB5585-03EF-4090-B2AF-1193864B377F}|Kaioordinate\\Kaioordinate.csproj|solutionrelative:kaioordinate\\kaioordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "kaiManagement.cs",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaiManagement.cs",
+              "RelativeDocumentMoniker": "Kaioordinate\\kaiManagement.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaiManagement.cs",
+              "RelativeToolTip": "Kaioordinate\\kaiManagement.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAwwCQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T23:07:29.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "kaiManagement.cs [Design]",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaiManagement.cs",
+              "RelativeDocumentMoniker": "Kaioordinate\\kaiManagement.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaiManagement.cs [Design]",
+              "RelativeToolTip": "Kaioordinate\\kaiManagement.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T21:44:35.901Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "kaioordinate.cs",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaioordinate.cs",
+              "RelativeDocumentMoniker": "Kaioordinate\\kaioordinate.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaioordinate.cs",
+              "RelativeToolTip": "Kaioordinate\\kaioordinate.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAswCAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T04:38:59.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "kaioordinate.cs [Design]",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaioordinate.cs",
+              "RelativeDocumentMoniker": "Kaioordinate\\kaioordinate.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Assignment1\\Kaioordinate\\Kaioordinate\\kaioordinate.cs [Design]",
+              "RelativeToolTip": "Kaioordinate\\kaioordinate.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T04:25:09.402Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
