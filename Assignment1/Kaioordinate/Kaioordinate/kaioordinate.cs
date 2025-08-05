@@ -24,7 +24,8 @@ namespace Kaioordinate
 
         private void iconButton_report_Click(object sender, EventArgs e)
         {
-
+            reportPreview reportPreview = new reportPreview();
+            reportPreview.ShowDialog();
         }
 
         private void iconButton_exit_Click(object sender, EventArgs e)
@@ -50,8 +51,20 @@ namespace Kaioordinate
 
         private void iconButton_whanau_Click(object sender, EventArgs e)
         {
-            WhānauManagement whanauManagement = new WhānauManagement();
+            whānauManagement whanauManagement = new whānauManagement();
             whanauManagement.ShowDialog();
+        }
+
+        private void iconButton_location_Click(object sender, EventArgs e)
+        {
+            locationManagement locationManagement = new locationManagement();
+            locationManagement.ShowDialog();
+        }
+
+        private void iconButton_registration_Click(object sender, EventArgs e)
+        {
+            registration registration = new registration();
+            registration.ShowDialog();
         }
     }
 }

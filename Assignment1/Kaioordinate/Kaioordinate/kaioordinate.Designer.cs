@@ -116,6 +116,7 @@
             this.iconButton_location.TabIndex = 4;
             this.iconButton_location.Text = "\r\n\r\n\r\n\r\n\r\nLOCATIONS";
             this.iconButton_location.UseVisualStyleBackColor = false;
+            this.iconButton_location.Click += new System.EventHandler(this.iconButton_location_Click);
             // 
             // iconButton_registration
             // 
@@ -131,6 +132,7 @@
             this.iconButton_registration.TabIndex = 5;
             this.iconButton_registration.Text = "\r\n\r\n\r\n\r\n\r\nREGISTRATION";
             this.iconButton_registration.UseVisualStyleBackColor = false;
+            this.iconButton_registration.Click += new System.EventHandler(this.iconButton_registration_Click);
             // 
             // iconButton_report
             // 

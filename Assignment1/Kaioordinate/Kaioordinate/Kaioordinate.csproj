@@ -71,13 +71,31 @@
     <Compile Include="kaioordinate.Designer.cs">
       <DependentUpon>kaioordinate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhānauManagement.cs">
+    <Compile Include="locationManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WhānauManagement.Designer.cs">
-      <DependentUpon>WhānauManagement.cs</DependentUpon>
+    <Compile Include="locationManagement.Designer.cs">
+      <DependentUpon>locationManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registration.Designer.cs">
+      <DependentUpon>registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportPreview.Designer.cs">
+      <DependentUpon>reportPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="whānauManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="whānauManagement.Designer.cs">
+      <DependentUpon>whānauManagement.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="eventManagement.resx">
       <DependentUpon>eventManagement.cs</DependentUpon>
@@ -88,6 +106,9 @@
     <EmbeddedResource Include="kaioordinate.resx">
       <DependentUpon>kaioordinate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="locationManagement.resx">
+      <DependentUpon>locationManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -97,8 +118,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WhānauManagement.resx">
-      <DependentUpon>WhānauManagement.cs</DependentUpon>
+    <EmbeddedResource Include="registration.resx">
+      <DependentUpon>registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportPreview.resx">
+      <DependentUpon>reportPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="whānauManagement.resx">
+      <DependentUpon>whānauManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

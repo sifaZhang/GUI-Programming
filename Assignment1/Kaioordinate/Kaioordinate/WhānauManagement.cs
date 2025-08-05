@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Kaioordinate
 {
-    public partial class WhānauManagement : Form
+    public partial class whānauManagement : Form
     {
-        public WhānauManagement()
+        public whānauManagement()
         {
             InitializeComponent();
         }

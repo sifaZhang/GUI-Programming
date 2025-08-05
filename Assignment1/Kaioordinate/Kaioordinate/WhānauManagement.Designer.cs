@@ -1,6 +1,6 @@
 ﻿namespace Kaioordinate
 {
-    partial class WhānauManagement
+    partial class whānauManagement
     {
         /// <summary>
         /// Required designer variable.
