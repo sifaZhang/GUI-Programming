@@ -444,6 +444,7 @@
             this.Controls.Add(this.iconButton_up);
             this.Controls.Add(this.listBox_kaiName);
             this.Name = "kaiManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kai Management";
             this.Load += new System.EventHandler(this.kaiManagement_Load);
             this.panel1.ResumeLayout(false);

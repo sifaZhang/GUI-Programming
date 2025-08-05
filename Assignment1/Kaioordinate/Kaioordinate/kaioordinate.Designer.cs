@@ -84,6 +84,7 @@
             this.iconButton_event.TabIndex = 2;
             this.iconButton_event.Text = "\r\n\r\n\r\n\r\n\r\nEVENTS";
             this.iconButton_event.UseVisualStyleBackColor = false;
+            this.iconButton_event.Click += new System.EventHandler(this.iconButton_event_Click);
             // 
             // iconButton_whanau
             // 
@@ -99,6 +100,7 @@
             this.iconButton_whanau.TabIndex = 3;
             this.iconButton_whanau.Text = "\r\n\r\n\r\n\r\n\r\nWHᾹNAU";
             this.iconButton_whanau.UseVisualStyleBackColor = false;
+            this.iconButton_whanau.Click += new System.EventHandler(this.iconButton_whanau_Click);
             // 
             // iconButton_location
             // 

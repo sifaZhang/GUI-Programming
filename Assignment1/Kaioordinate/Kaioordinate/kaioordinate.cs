@@ -41,5 +41,17 @@ namespace Kaioordinate
             kaiManagement kaiManagement = new kaiManagement();
             kaiManagement.ShowDialog();
         }
+
+        private void iconButton_event_Click(object sender, EventArgs e)
+        {
+            eventManagement eventManagement = new eventManagement();
+            eventManagement.ShowDialog();
+        }
+
+        private void iconButton_whanau_Click(object sender, EventArgs e)
+        {
+            WhānauManagement whanauManagement = new WhānauManagement();
+            whanauManagement.ShowDialog();
+        }
     }
 }
