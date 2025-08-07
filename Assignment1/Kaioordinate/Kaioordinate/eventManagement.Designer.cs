@@ -36,6 +36,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtBox_eventName = new System.Windows.Forms.TextBox();
             this.txtBox_date = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBox_location = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.iconButton_down = new FontAwesome.Sharp.IconButton();
             this.iconButton_up = new FontAwesome.Sharp.IconButton();
             this.listBox_eventName = new System.Windows.Forms.ListBox();
-            this.txtBox_eventName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,6 +148,14 @@
             this.panel1.Size = new System.Drawing.Size(1155, 605);
             this.panel1.TabIndex = 39;
             this.panel1.Visible = false;
+            // 
+            // txtBox_eventName
+            // 
+            this.txtBox_eventName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_eventName.Location = new System.Drawing.Point(406, 63);
+            this.txtBox_eventName.Name = "txtBox_eventName";
+            this.txtBox_eventName.Size = new System.Drawing.Size(669, 49);
+            this.txtBox_eventName.TabIndex = 21;
             // 
             // txtBox_date
             // 
@@ -322,14 +330,6 @@
             this.listBox_eventName.Name = "listBox_eventName";
             this.listBox_eventName.Size = new System.Drawing.Size(670, 550);
             this.listBox_eventName.TabIndex = 20;
-            // 
-            // txtBox_eventName
-            // 
-            this.txtBox_eventName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_eventName.Location = new System.Drawing.Point(406, 63);
-            this.txtBox_eventName.Name = "txtBox_eventName";
-            this.txtBox_eventName.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_eventName.TabIndex = 21;
             // 
             // eventManagement
             // 

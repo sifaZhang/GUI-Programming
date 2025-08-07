@@ -48,8 +48,8 @@
             this.pictureBox_barLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_barLogo.Image")));
             this.pictureBox_barLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBox_barLogo.Name = "pictureBox_barLogo";
-            this.pictureBox_barLogo.Size = new System.Drawing.Size(1500, 458);
-            this.pictureBox_barLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_barLogo.Size = new System.Drawing.Size(1500, 449);
+            this.pictureBox_barLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_barLogo.TabIndex = 0;
             this.pictureBox_barLogo.TabStop = false;
             // 
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(73)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(1500, 1161);
             this.Controls.Add(this.iconButton_exit);
             this.Controls.Add(this.iconButton_report);

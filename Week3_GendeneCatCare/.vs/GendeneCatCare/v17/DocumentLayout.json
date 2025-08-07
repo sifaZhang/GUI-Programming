@@ -1,0 +1,136 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|e:\\study\\unitec\\gui programming\\gui programming code\\gui-programming\\week3_gendenecatcare\\gendenecatcare\\treatmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|solutionrelative:gendenecatcare\\treatmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\gendenecatcare\\treatmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|solutionrelative:gendenecatcare\\treatmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\gendenecatcare\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|solutionrelative:gendenecatcare\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\gendenecatcare\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|solutionrelative:gendenecatcare\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|e:\\study\\unitec\\gui programming\\gui programming code\\gui-programming\\week3_gendenecatcare\\gendenecatcare\\datamodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|solutionrelative:gendenecatcare\\datamodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\gendenecatcare\\ownerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|solutionrelative:gendenecatcare\\ownerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\gendenecatcare\\dsglendene.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{2324DC85-B027-4AB9-9ABD-3C96FF59D84D}|GendeneCatCare\\GendeneCatCare.csproj|solutionrelative:gendenecatcare\\dsglendene.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataModule.cs [Design]",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\DataModule.cs",
+              "RelativeDocumentMoniker": "GendeneCatCare\\DataModule.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\DataModule.cs [Design]",
+              "RelativeToolTip": "GendeneCatCare\\DataModule.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T23:17:50.75Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TreatmentForm.cs",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\TreatmentForm.cs",
+              "RelativeDocumentMoniker": "GendeneCatCare\\TreatmentForm.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\TreatmentForm.cs",
+              "RelativeToolTip": "GendeneCatCare\\TreatmentForm.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAWwB0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T23:12:05.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TreatmentForm.cs [Design]",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\TreatmentForm.cs",
+              "RelativeDocumentMoniker": "GendeneCatCare\\TreatmentForm.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\TreatmentForm.cs [Design]",
+              "RelativeToolTip": "GendeneCatCare\\TreatmentForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T21:49:26.767Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\MainForm.cs",
+              "RelativeDocumentMoniker": "GendeneCatCare\\MainForm.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\MainForm.cs",
+              "RelativeToolTip": "GendeneCatCare\\MainForm.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAWwCUAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T21:57:01.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\MainForm.cs",
+              "RelativeDocumentMoniker": "GendeneCatCare\\MainForm.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\MainForm.cs [Design]",
+              "RelativeToolTip": "GendeneCatCare\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T07:25:56.775Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "dsGlendene.xsd",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\dsGlendene.xsd",
+              "RelativeDocumentMoniker": "GendeneCatCare\\dsGlendene.xsd",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\dsGlendene.xsd",
+              "RelativeToolTip": "GendeneCatCare\\dsGlendene.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2025-08-07T22:30:00.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OwnerForm.cs [Design]",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week3_GendeneCatCare\\GendeneCatCare\\OwnerForm.cs",
+              "RelativeDocumentMoniker": "GendeneCatCare\\OwnerForm.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\GendeneCatCare\\GendeneCatCare\\OwnerForm.cs [Design]",
+              "RelativeToolTip": "..\\GendeneCatCare\\GendeneCatCare\\OwnerForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T21:56:40.587Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

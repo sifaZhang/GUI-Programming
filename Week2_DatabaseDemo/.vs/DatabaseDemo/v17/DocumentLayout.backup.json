@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Study\\C#repos\\DatabaseDemo\\",
+  "WorkspaceRootPath": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week2_DatabaseDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D75ED79E-A5CF-413B-ACD7-000775A3AC5D}|DatabaseDemo\\DatabaseDemo.csproj|e:\\study\\c#repos\\databasedemo\\databasedemo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D75ED79E-A5CF-413B-ACD7-000775A3AC5D}|DatabaseDemo\\DatabaseDemo.csproj|e:\\study\\unitec\\gui programming\\gui programming code\\gui-programming\\week2_databasedemo\\databasedemo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D75ED79E-A5CF-413B-ACD7-000775A3AC5D}|DatabaseDemo\\DatabaseDemo.csproj|solutionrelative:databasedemo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D75ED79E-A5CF-413B-ACD7-000775A3AC5D}|DatabaseDemo\\DatabaseDemo.csproj|e:\\study\\c#repos\\databasedemo\\databasedemo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D75ED79E-A5CF-413B-ACD7-000775A3AC5D}|DatabaseDemo\\DatabaseDemo.csproj|E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week2_DatabaseDemo\\databasedemo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D75ED79E-A5CF-413B-ACD7-000775A3AC5D}|DatabaseDemo\\DatabaseDemo.csproj|solutionrelative:databasedemo\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "E:\\Study\\C#repos\\DatabaseDemo\\DatabaseDemo\\Form1.cs",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week2_DatabaseDemo\\DatabaseDemo\\Form1.cs",
               "RelativeDocumentMoniker": "DatabaseDemo\\Form1.cs",
-              "ToolTip": "E:\\Study\\C#repos\\DatabaseDemo\\DatabaseDemo\\Form1.cs",
+              "ToolTip": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week2_DatabaseDemo\\DatabaseDemo\\Form1.cs",
               "RelativeToolTip": "DatabaseDemo\\Form1.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAwwCgAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAswCgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T08:00:57.788Z",
               "EditorCaption": ""
@@ -41,13 +41,12 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "E:\\Study\\C#repos\\DatabaseDemo\\DatabaseDemo\\Form1.cs",
+              "DocumentMoniker": "E:\\Study\\Unitec\\GUI Programming\\GUI Programming code\\GUI-Programming\\Week2_DatabaseDemo\\DatabaseDemo\\Form1.cs",
               "RelativeDocumentMoniker": "DatabaseDemo\\Form1.cs",
               "ToolTip": "E:\\Study\\C#repos\\DatabaseDemo\\DatabaseDemo\\Form1.cs [Design]",
-              "RelativeToolTip": "DatabaseDemo\\Form1.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\C#repos\\DatabaseDemo\\DatabaseDemo\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T07:56:15.535Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-07-31T07:56:15.535Z"
             }
           ]
         }
