@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Kaioordinate
 {
     public partial class MianFrm : Form
     {
+        private DataModule DM;
+        private eventManagement eventManagementFrm;
+        private kaiManagement kaiManagementFrm;
+        private whānauManagement whanauManagementFrm;
+        private locationManagement locationManagementFrm;
+        private registration registrationFrm;
+
         public MianFrm()
         {
             InitializeComponent();
@@ -19,7 +27,7 @@ namespace Kaioordinate
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.BackColor = System.Drawing.Color.FromArgb(6, 73, 41);
+            DM = new DataModule();
         }
 
         private void iconButton_report_Click(object sender, EventArgs e)
@@ -45,8 +53,11 @@ namespace Kaioordinate
 
         private void iconButton_event_Click(object sender, EventArgs e)
         {
-            eventManagement eventManagement = new eventManagement();
-            eventManagement.ShowDialog();
+            if (eventManagementFrm == null)
+            {
+                eventManagementFrm = new eventManagement(DM, this);
+            }
+            eventManagementFrm.ShowDialog();
         }
 
         private void iconButton_whanau_Click(object sender, EventArgs e)

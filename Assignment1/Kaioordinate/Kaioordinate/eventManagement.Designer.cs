@@ -45,7 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtBox_eventID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.iconButton_reture = new FontAwesome.Sharp.IconButton();
+            this.iconButton_return = new FontAwesome.Sharp.IconButton();
             this.iconButton_delete = new FontAwesome.Sharp.IconButton();
             this.iconButton_update = new FontAwesome.Sharp.IconButton();
             this.iconButton_add = new FontAwesome.Sharp.IconButton();
@@ -66,7 +66,7 @@
             this.iconButton_cancel.Name = "iconButton_cancel";
             this.iconButton_cancel.Size = new System.Drawing.Size(280, 100);
             this.iconButton_cancel.TabIndex = 34;
-            this.iconButton_cancel.Text = "   CANCEL";
+            this.iconButton_cancel.Text = "  CANCEL";
             this.iconButton_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton_cancel.UseVisualStyleBackColor = true;
             this.iconButton_cancel.Click += new System.EventHandler(this.iconButton_cancel_Click);
@@ -74,6 +74,7 @@
             // dateTimePicker_date
             // 
             this.dateTimePicker_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_date.Location = new System.Drawing.Point(406, 360);
             this.dateTimePicker_date.Name = "dateTimePicker_date";
             this.dateTimePicker_date.Size = new System.Drawing.Size(669, 49);
@@ -93,9 +94,11 @@
             this.iconButton_save.Text = "   SAVE";
             this.iconButton_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton_save.UseVisualStyleBackColor = true;
+            this.iconButton_save.Click += new System.EventHandler(this.iconButton_save_Click);
             // 
             // comboBox_location
             // 
+            this.comboBox_location.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_location.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_location.FormattingEnabled = true;
             this.comboBox_location.Location = new System.Drawing.Point(406, 211);
@@ -107,6 +110,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(162, 366);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(203, 42);
@@ -117,6 +121,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(205, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(160, 42);
@@ -127,6 +132,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(142, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(223, 42);
@@ -143,7 +149,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtBox_eventName);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(819, 0);
+            this.panel1.Location = new System.Drawing.Point(722, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1155, 605);
             this.panel1.TabIndex = 39;
@@ -160,8 +166,9 @@
             // txtBox_date
             // 
             this.txtBox_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_date.Location = new System.Drawing.Point(1227, 439);
+            this.txtBox_date.Location = new System.Drawing.Point(1027, 494);
             this.txtBox_date.Name = "txtBox_date";
+            this.txtBox_date.ReadOnly = true;
             this.txtBox_date.Size = new System.Drawing.Size(669, 49);
             this.txtBox_date.TabIndex = 36;
             // 
@@ -169,7 +176,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(961, 442);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(802, 497);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(203, 42);
             this.label5.TabIndex = 35;
@@ -178,8 +186,9 @@
             // txtBox_location
             // 
             this.txtBox_location.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_location.Location = new System.Drawing.Point(1227, 306);
+            this.txtBox_location.Location = new System.Drawing.Point(1027, 354);
             this.txtBox_location.Name = "txtBox_location";
+            this.txtBox_location.ReadOnly = true;
             this.txtBox_location.Size = new System.Drawing.Size(669, 49);
             this.txtBox_location.TabIndex = 34;
             // 
@@ -187,7 +196,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(996, 308);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(837, 356);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 42);
             this.label4.TabIndex = 33;
@@ -196,8 +206,9 @@
             // txtBox_eventNameShow
             // 
             this.txtBox_eventNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_eventNameShow.Location = new System.Drawing.Point(1227, 173);
+            this.txtBox_eventNameShow.Location = new System.Drawing.Point(1027, 214);
             this.txtBox_eventNameShow.Name = "txtBox_eventNameShow";
+            this.txtBox_eventNameShow.ReadOnly = true;
             this.txtBox_eventNameShow.Size = new System.Drawing.Size(669, 49);
             this.txtBox_eventNameShow.TabIndex = 32;
             // 
@@ -205,7 +216,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(941, 174);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(782, 215);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(223, 42);
             this.label3.TabIndex = 31;
@@ -214,8 +226,9 @@
             // txtBox_eventID
             // 
             this.txtBox_eventID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_eventID.Location = new System.Drawing.Point(1227, 40);
+            this.txtBox_eventID.Location = new System.Drawing.Point(1027, 74);
             this.txtBox_eventID.Name = "txtBox_eventID";
+            this.txtBox_eventID.ReadOnly = true;
             this.txtBox_eventID.Size = new System.Drawing.Size(669, 49);
             this.txtBox_eventID.TabIndex = 28;
             // 
@@ -223,27 +236,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1004, 40);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(845, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 42);
             this.label1.TabIndex = 27;
             this.label1.Text = "Event ID";
             // 
-            // iconButton_reture
+            // iconButton_return
             // 
-            this.iconButton_reture.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_reture.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_reture.IconChar = FontAwesome.Sharp.IconChar.SignOut;
-            this.iconButton_reture.IconColor = System.Drawing.Color.Black;
-            this.iconButton_reture.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_reture.IconSize = 150;
-            this.iconButton_reture.Location = new System.Drawing.Point(1684, 659);
-            this.iconButton_reture.Name = "iconButton_reture";
-            this.iconButton_reture.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_reture.TabIndex = 26;
-            this.iconButton_reture.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
-            this.iconButton_reture.UseVisualStyleBackColor = false;
-            this.iconButton_reture.Click += new System.EventHandler(this.iconButton_reture_Click);
+            this.iconButton_return.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.iconButton_return.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton_return.IconChar = FontAwesome.Sharp.IconChar.SignOut;
+            this.iconButton_return.IconColor = System.Drawing.Color.Black;
+            this.iconButton_return.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton_return.IconSize = 150;
+            this.iconButton_return.Location = new System.Drawing.Point(1576, 642);
+            this.iconButton_return.Name = "iconButton_return";
+            this.iconButton_return.Size = new System.Drawing.Size(280, 280);
+            this.iconButton_return.TabIndex = 26;
+            this.iconButton_return.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
+            this.iconButton_return.UseVisualStyleBackColor = false;
+            this.iconButton_return.Click += new System.EventHandler(this.iconButton_reture_Click);
             // 
             // iconButton_delete
             // 
@@ -253,12 +267,13 @@
             this.iconButton_delete.IconColor = System.Drawing.Color.Black;
             this.iconButton_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_delete.IconSize = 150;
-            this.iconButton_delete.Location = new System.Drawing.Point(1306, 659);
+            this.iconButton_delete.Location = new System.Drawing.Point(1245, 642);
             this.iconButton_delete.Name = "iconButton_delete";
             this.iconButton_delete.Size = new System.Drawing.Size(280, 280);
             this.iconButton_delete.TabIndex = 25;
             this.iconButton_delete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
             this.iconButton_delete.UseVisualStyleBackColor = false;
+            this.iconButton_delete.Click += new System.EventHandler(this.iconButton_delete_Click);
             // 
             // iconButton_update
             // 
@@ -268,7 +283,7 @@
             this.iconButton_update.IconColor = System.Drawing.Color.Black;
             this.iconButton_update.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_update.IconSize = 150;
-            this.iconButton_update.Location = new System.Drawing.Point(1010, 659);
+            this.iconButton_update.Location = new System.Drawing.Point(949, 642);
             this.iconButton_update.Name = "iconButton_update";
             this.iconButton_update.Size = new System.Drawing.Size(280, 280);
             this.iconButton_update.TabIndex = 24;
@@ -284,12 +299,13 @@
             this.iconButton_add.IconColor = System.Drawing.Color.Black;
             this.iconButton_add.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_add.IconSize = 150;
-            this.iconButton_add.Location = new System.Drawing.Point(714, 659);
+            this.iconButton_add.Location = new System.Drawing.Point(657, 642);
             this.iconButton_add.Name = "iconButton_add";
             this.iconButton_add.Size = new System.Drawing.Size(280, 280);
             this.iconButton_add.TabIndex = 23;
             this.iconButton_add.Text = "\r\n\r\n\r\n\r\n\r\nADD";
             this.iconButton_add.UseVisualStyleBackColor = false;
+            this.iconButton_add.Click += new System.EventHandler(this.iconButton_add_Click);
             // 
             // iconButton_down
             // 
@@ -299,12 +315,13 @@
             this.iconButton_down.IconColor = System.Drawing.Color.Black;
             this.iconButton_down.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_down.IconSize = 150;
-            this.iconButton_down.Location = new System.Drawing.Point(335, 659);
+            this.iconButton_down.Location = new System.Drawing.Point(316, 642);
             this.iconButton_down.Name = "iconButton_down";
             this.iconButton_down.Size = new System.Drawing.Size(280, 280);
             this.iconButton_down.TabIndex = 22;
             this.iconButton_down.Text = "\r\n\r\n\r\n\r\n\r\nDOWN";
             this.iconButton_down.UseVisualStyleBackColor = false;
+            this.iconButton_down.Click += new System.EventHandler(this.iconButton_down_Click);
             // 
             // iconButton_up
             // 
@@ -314,12 +331,13 @@
             this.iconButton_up.IconColor = System.Drawing.Color.Black;
             this.iconButton_up.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_up.IconSize = 150;
-            this.iconButton_up.Location = new System.Drawing.Point(39, 659);
+            this.iconButton_up.Location = new System.Drawing.Point(20, 642);
             this.iconButton_up.Name = "iconButton_up";
             this.iconButton_up.Size = new System.Drawing.Size(280, 280);
             this.iconButton_up.TabIndex = 21;
             this.iconButton_up.Text = "\r\n\r\n\r\n\r\n\r\nUP";
             this.iconButton_up.UseVisualStyleBackColor = false;
+            this.iconButton_up.Click += new System.EventHandler(this.iconButton_up_Click);
             // 
             // listBox_eventName
             // 
@@ -333,9 +351,8 @@
             // 
             // eventManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2006, 1010);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1898, 947);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBox_date);
             this.Controls.Add(this.label5);
@@ -345,7 +362,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBox_eventID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.iconButton_reture);
+            this.Controls.Add(this.iconButton_return);
             this.Controls.Add(this.iconButton_delete);
             this.Controls.Add(this.iconButton_update);
             this.Controls.Add(this.iconButton_add);
@@ -381,7 +398,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBox_eventID;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton iconButton_reture;
+        private FontAwesome.Sharp.IconButton iconButton_return;
         private FontAwesome.Sharp.IconButton iconButton_delete;
         private FontAwesome.Sharp.IconButton iconButton_update;
         private FontAwesome.Sharp.IconButton iconButton_add;

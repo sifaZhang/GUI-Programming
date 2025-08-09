@@ -126,7 +126,7 @@
   <metadata name="oleDbSelectCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
-  <metadata name="ctnGlendene.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ctnKaioordinate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>304, 17</value>
   </metadata>
   <metadata name="oleDbInsertCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -148,7 +148,7 @@
     <value>False</value>
   </metadata>
   <data name="oleDbUpdateCommand1.CommandText" xml:space="preserve">
-    <value>UPDATE `CAT` SET `Name` = ?, `Breed` = ?, `Gender` = ?, `DateOfBirth` = ?, `Neutered` = ?, `OwnerID` = ? WHERE ((`CatID` = ?) AND ((? = 1 AND `Name` IS NULL) OR (`Name` = ?)) AND ((? = 1 AND `Breed` IS NULL) OR (`Breed` = ?)) AND ((? = 1 AND `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `DateOfBirth` IS NULL) OR (`DateOfBirth` = ?)) AND ((? = 1 AND `Neutered` IS NULL) OR (`Neutered` = ?)) AND ((? = 1 AND `OwnerID` IS NULL) OR (`OwnerID` = ?)))</value>
+    <value>UPDATE `EVENT` SET `EventName` = ?, `LocationID` = ?, `EventDate` = ? WHERE ((`EventID` = ?) AND ((? = 1 AND `EventName` IS NULL) OR (`EventName` = ?)) AND ((? = 1 AND `LocationID` IS NULL) OR (`LocationID` = ?)) AND ((? = 1 AND `EventDate` IS NULL) OR (`EventDate` = ?)))</value>
   </data>
   <metadata name="oleDbDeleteCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -160,9 +160,9 @@
     <value>False</value>
   </metadata>
   <data name="oleDbDeleteCommand1.CommandText" xml:space="preserve">
-    <value>DELETE FROM `CAT` WHERE ((`CatID` = ?) AND ((? = 1 AND `Name` IS NULL) OR (`Name` = ?)) AND ((? = 1 AND `Breed` IS NULL) OR (`Breed` = ?)) AND ((? = 1 AND `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `DateOfBirth` IS NULL) OR (`DateOfBirth` = ?)) AND ((? = 1 AND `Neutered` IS NULL) OR (`Neutered` = ?)) AND ((? = 1 AND `OwnerID` IS NULL) OR (`OwnerID` = ?)))</value>
+    <value>DELETE FROM `EVENT` WHERE ((`EventID` = ?) AND ((? = 1 AND `EventName` IS NULL) OR (`EventName` = ?)) AND ((? = 1 AND `LocationID` IS NULL) OR (`LocationID` = ?)) AND ((? = 1 AND `EventDate` IS NULL) OR (`EventDate` = ?)))</value>
   </data>
-  <metadata name="daCat.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="daEvent.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="oleDbSelectCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -193,7 +193,7 @@
     <value>False</value>
   </metadata>
   <data name="oleDbUpdateCommand2.CommandText" xml:space="preserve">
-    <value>UPDATE `VETERINARIAN` SET `LastName` = ?, `FirstName` = ?, `Rate` = ? WHERE ((`VeterinarianID` = ?) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND ((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `Rate` IS NULL) OR (`Rate` = ?)))</value>
+    <value>UPDATE `EVENTREGISTER` SET `WhanauID` = ?, `EventID` = ?, `KaiPreparation` = ? WHERE ((`RegistrationID` = ?) AND ((? = 1 AND `WhanauID` IS NULL) OR (`WhanauID` = ?)) AND ((? = 1 AND `EventID` IS NULL) OR (`EventID` = ?)) AND ((? = 1 AND `KaiPreparation` IS NULL) OR (`KaiPreparation` = ?)))</value>
   </data>
   <metadata name="oleDbDeleteCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -205,9 +205,9 @@
     <value>False</value>
   </metadata>
   <data name="oleDbDeleteCommand2.CommandText" xml:space="preserve">
-    <value>DELETE FROM `VETERINARIAN` WHERE ((`VeterinarianID` = ?) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND ((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `Rate` IS NULL) OR (`Rate` = ?)))</value>
+    <value>DELETE FROM `EVENTREGISTER` WHERE ((`RegistrationID` = ?) AND ((? = 1 AND `WhanauID` IS NULL) OR (`WhanauID` = ?)) AND ((? = 1 AND `EventID` IS NULL) OR (`EventID` = ?)) AND ((? = 1 AND `KaiPreparation` IS NULL) OR (`KaiPreparation` = ?)))</value>
   </data>
-  <metadata name="daVeterinarian.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="daRegistration.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>581, 17</value>
   </metadata>
   <metadata name="oleDbSelectCommand3.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -238,7 +238,7 @@
     <value>False</value>
   </metadata>
   <data name="oleDbUpdateCommand3.CommandText" xml:space="preserve">
-    <value>UPDATE `OWNER` SET `LastName` = ?, `FirstName` = ?, `StreetAddress` = ?, `Suburb` = ?, `PhoneNumber` = ? WHERE ((`OwnerID` = ?) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND ((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `StreetAddress` IS NULL) OR (`StreetAddress` = ?)) AND ((? = 1 AND `Suburb` IS NULL) OR (`Suburb` = ?)) AND ((? = 1 AND `PhoneNumber` IS NULL) OR (`PhoneNumber` = ?)))</value>
+    <value>UPDATE `KAI` SET `EventID` = ?, `KaiName` = ?, `PreparationRequired` = ?, `PreparationMinutes` = ?, `ServeQuantity` = ? WHERE ((`KaiID` = ?) AND ((? = 1 AND `EventID` IS NULL) OR (`EventID` = ?)) AND ((? = 1 AND `KaiName` IS NULL) OR (`KaiName` = ?)) AND ((? = 1 AND `PreparationRequired` IS NULL) OR (`PreparationRequired` = ?)) AND ((? = 1 AND `PreparationMinutes` IS NULL) OR (`PreparationMinutes` = ?)) AND ((? = 1 AND `ServeQuantity` IS NULL) OR (`ServeQuantity` = ?)))</value>
   </data>
   <metadata name="oleDbDeleteCommand3.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -250,10 +250,10 @@
     <value>False</value>
   </metadata>
   <data name="oleDbDeleteCommand3.CommandText" xml:space="preserve">
-    <value>DELETE FROM `OWNER` WHERE ((`OwnerID` = ?) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND ((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `StreetAddress` IS NULL) OR (`StreetAddress` = ?)) AND ((? = 1 AND `Suburb` IS NULL) OR (`Suburb` = ?)) AND ((? = 1 AND `PhoneNumber` IS NULL) OR (`PhoneNumber` = ?)))</value>
+    <value>DELETE FROM `KAI` WHERE ((`KaiID` = ?) AND ((? = 1 AND `EventID` IS NULL) OR (`EventID` = ?)) AND ((? = 1 AND `KaiName` IS NULL) OR (`KaiName` = ?)) AND ((? = 1 AND `PreparationRequired` IS NULL) OR (`PreparationRequired` = ?)) AND ((? = 1 AND `PreparationMinutes` IS NULL) OR (`PreparationMinutes` = ?)) AND ((? = 1 AND `ServeQuantity` IS NULL) OR (`ServeQuantity` = ?)))</value>
   </data>
-  <metadata name="daOwner.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>868, 17</value>
+  <metadata name="daKai.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>810, 17</value>
   </metadata>
   <metadata name="oleDbSelectCommand4.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -282,6 +282,9 @@
   <metadata name="oleDbUpdateCommand4.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
+  <data name="oleDbUpdateCommand4.CommandText" xml:space="preserve">
+    <value>UPDATE `LOCATION` SET `LocationName` = ?, `Address` = ? WHERE ((`LocationID` = ?) AND ((? = 1 AND `LocationName` IS NULL) OR (`LocationName` = ?)) AND ((? = 1 AND `Address` IS NULL) OR (`Address` = ?)))</value>
+  </data>
   <metadata name="oleDbDeleteCommand4.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
@@ -291,8 +294,8 @@
   <metadata name="oleDbDeleteCommand4.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="daTreatment.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1155, 17</value>
+  <metadata name="daLocation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>945, 17</value>
   </metadata>
   <metadata name="oleDbSelectCommand5.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -322,7 +325,7 @@
     <value>False</value>
   </metadata>
   <data name="oleDbUpdateCommand5.CommandText" xml:space="preserve">
-    <value>UPDATE `VISIT` SET `CatID` = ?, `VeterinarianID` = ?, `VisitDate` = ?, `Status` = ? WHERE ((`VisitID` = ?) AND ((? = 1 AND `CatID` IS NULL) OR (`CatID` = ?)) AND ((? = 1 AND `VeterinarianID` IS NULL) OR (`VeterinarianID` = ?)) AND ((? = 1 AND `VisitDate` IS NULL) OR (`VisitDate` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)))</value>
+    <value>UPDATE `WHANAU` SET `FirstName` = ?, `LastName` = ?, `Email` = ?, `Phone` = ?, `Address` = ? WHERE ((`WhanauID` = ?) AND ((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND ((? = 1 AND `Email` IS NULL) OR (`Email` = ?)) AND ((? = 1 AND `Phone` IS NULL) OR (`Phone` = ?)) AND ((? = 1 AND `Address` IS NULL) OR (`Address` = ?)))</value>
   </data>
   <metadata name="oleDbDeleteCommand5.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -334,54 +337,15 @@
     <value>False</value>
   </metadata>
   <data name="oleDbDeleteCommand5.CommandText" xml:space="preserve">
-    <value>DELETE FROM `VISIT` WHERE ((`VisitID` = ?) AND ((? = 1 AND `CatID` IS NULL) OR (`CatID` = ?)) AND ((? = 1 AND `VeterinarianID` IS NULL) OR (`VeterinarianID` = ?)) AND ((? = 1 AND `VisitDate` IS NULL) OR (`VisitDate` = ?)) AND ((? = 1 AND `Status` IS NULL) OR (`Status` = ?)))</value>
+    <value>DELETE FROM `WHANAU` WHERE ((`WhanauID` = ?) AND ((? = 1 AND `FirstName` IS NULL) OR (`FirstName` = ?)) AND ((? = 1 AND `LastName` IS NULL) OR (`LastName` = ?)) AND ((? = 1 AND `Email` IS NULL) OR (`Email` = ?)) AND ((? = 1 AND `Phone` IS NULL) OR (`Phone` = ?)) AND ((? = 1 AND `Address` IS NULL) OR (`Address` = ?)))</value>
   </data>
-  <metadata name="daVisit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1366, 17</value>
+  <metadata name="daWhanau.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1138, 17</value>
   </metadata>
-  <metadata name="oleDbSelectCommand6.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="oleDbSelectCommand6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
-  <metadata name="oleDbSelectCommand6.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="oleDbInsertCommand6.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="oleDbInsertCommand6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
-  <metadata name="oleDbInsertCommand6.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="oleDbUpdateCommand6.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="oleDbUpdateCommand6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
-  <metadata name="oleDbUpdateCommand6.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="oleDbDeleteCommand6.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="oleDbDeleteCommand6.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
-  <metadata name="oleDbDeleteCommand6.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="daVisitTreatment.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 44</value>
-  </metadata>
-  <metadata name="dsGlendene.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>273, 44</value>
+  <metadata name="dsKaioordinate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1329, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>160</value>
+    <value>170</value>
   </metadata>
 </root>

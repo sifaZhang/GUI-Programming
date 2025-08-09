@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+  <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+</PropertyGroup>
+
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -53,6 +58,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataModule.Designer.cs">
+      <DependentUpon>DataModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsGlendene.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsGlendene.xsd</DependentUpon>
+    </Compile>
     <Compile Include="eventManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +113,9 @@
     <Compile Include="whānauManagement.Designer.cs">
       <DependentUpon>whānauManagement.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DataModule.resx">
+      <DependentUpon>DataModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="eventManagement.resx">
       <DependentUpon>eventManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +146,17 @@
     <EmbeddedResource Include="whānauManagement.resx">
       <DependentUpon>whānauManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsGlendene.xsc">
+      <DependentUpon>dsGlendene.xsd</DependentUpon>
+    </None>
+    <None Include="dsGlendene.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsGlendene.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsGlendene.xss">
+      <DependentUpon>dsGlendene.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

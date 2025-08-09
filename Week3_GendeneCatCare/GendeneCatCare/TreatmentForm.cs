@@ -85,7 +85,7 @@ namespace GendeneCatCare
             DataRow[] VisitTreatmentRow = DM.dtVisitTreatment.Select("TreatmentID = " + lblTreatmentID.Text);
             if (VisitTreatmentRow.Length != 0)
             {
-                MessageBox.Show("You may only delete Treatments that are not allocated to visits", "Error");
+                MessageBox.Show("You may only delete an event that has no kai", "Error");
             }
             else
             {
