@@ -19,11 +19,11 @@ namespace Kaioordinate
         public DataTable whanauTable;
         public DataTable registrationTable;
         public DataTable locationTable;
-        public DataView kaiView;
-        public DataView eventView;
-        public DataView whanauView;
-        public DataView registrationView;
-        public DataView locationView;
+        //public DataView kaiView;
+        //public DataView eventView;
+        //public DataView whanauView;
+        //public DataView registrationView;
+        //public DataView locationView;
 
 
         public DataModule()
@@ -130,5 +130,27 @@ namespace Kaioordinate
                 e.Row["LocationID"] = newID;
             }
         }
+
+        public void UpdateRegistration()
+        {
+            daRegistration.Update(registrationTable);
+        }
+
+        private void daRegistration_RowUpdated(object sender, System.Data.OleDb.OleDbRowUpdatedEventArgs e)
+        {
+            // Include a variable and a command to retrieve
+            // the identity value from the Access database.
+            int newID = 0;
+            OleDbCommand idCMD = new OleDbCommand("SELECT @@IDENTITY", ctnKaioordinate);
+            if (e.StatementType == StatementType.Insert)
+            {
+                // Retrieve the identity value and
+                // store it in the TreatmentID column.
+                newID = (int)idCMD.ExecuteScalar();
+                e.Row["RegistrationID"] = newID;
+            }
+        }
+
+        
     }
 }

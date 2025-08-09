@@ -177,6 +177,7 @@
                         new System.Data.Common.DataColumnMapping("EventID", "EventID"),
                         new System.Data.Common.DataColumnMapping("KaiPreparation", "KaiPreparation")})});
             this.daRegistration.UpdateCommand = this.oleDbUpdateCommand2;
+            this.daRegistration.RowUpdated += new System.Data.OleDb.OleDbRowUpdatedEventHandler(this.daRegistration_RowUpdated);
             // 
             // oleDbSelectCommand3
             // 
@@ -301,6 +302,7 @@
                         new System.Data.Common.DataColumnMapping("LocationName", "LocationName"),
                         new System.Data.Common.DataColumnMapping("Address", "Address")})});
             this.daLocation.UpdateCommand = this.oleDbUpdateCommand4;
+            this.daLocation.RowUpdated += new System.Data.OleDb.OleDbRowUpdatedEventHandler(this.daLocation_RowUpdated);
             // 
             // oleDbSelectCommand5
             // 

@@ -59,7 +59,7 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.iconButton_cancel);
             this.panel1.Controls.Add(this.iconButton_save);
-            this.panel1.Location = new System.Drawing.Point(737, 10);
+            this.panel1.Location = new System.Drawing.Point(701, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1060, 580);
             this.panel1.TabIndex = 87;
@@ -78,6 +78,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(149, 199);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(156, 42);
@@ -96,6 +97,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(36, 93);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(269, 42);
@@ -147,6 +149,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(886, 324);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 42);
@@ -165,6 +168,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(773, 189);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(269, 42);
@@ -183,6 +187,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(836, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(206, 42);
@@ -197,7 +202,7 @@
             this.iconButton_return.IconColor = System.Drawing.Color.Black;
             this.iconButton_return.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_return.IconSize = 150;
-            this.iconButton_return.Location = new System.Drawing.Point(1548, 641);
+            this.iconButton_return.Location = new System.Drawing.Point(1518, 641);
             this.iconButton_return.Name = "iconButton_return";
             this.iconButton_return.Size = new System.Drawing.Size(280, 280);
             this.iconButton_return.TabIndex = 74;
@@ -213,7 +218,7 @@
             this.iconButton_delete.IconColor = System.Drawing.Color.Black;
             this.iconButton_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_delete.IconSize = 150;
-            this.iconButton_delete.Location = new System.Drawing.Point(1232, 641);
+            this.iconButton_delete.Location = new System.Drawing.Point(1210, 641);
             this.iconButton_delete.Name = "iconButton_delete";
             this.iconButton_delete.Size = new System.Drawing.Size(280, 280);
             this.iconButton_delete.TabIndex = 73;
@@ -229,7 +234,7 @@
             this.iconButton_update.IconColor = System.Drawing.Color.Black;
             this.iconButton_update.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_update.IconSize = 150;
-            this.iconButton_update.Location = new System.Drawing.Point(936, 641);
+            this.iconButton_update.Location = new System.Drawing.Point(919, 641);
             this.iconButton_update.Name = "iconButton_update";
             this.iconButton_update.Size = new System.Drawing.Size(280, 280);
             this.iconButton_update.TabIndex = 72;
@@ -245,7 +250,7 @@
             this.iconButton_add.IconColor = System.Drawing.Color.Black;
             this.iconButton_add.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_add.IconSize = 150;
-            this.iconButton_add.Location = new System.Drawing.Point(640, 641);
+            this.iconButton_add.Location = new System.Drawing.Point(629, 641);
             this.iconButton_add.Name = "iconButton_add";
             this.iconButton_add.Size = new System.Drawing.Size(280, 280);
             this.iconButton_add.TabIndex = 71;
@@ -261,7 +266,7 @@
             this.iconButton_down.IconColor = System.Drawing.Color.Black;
             this.iconButton_down.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_down.IconSize = 150;
-            this.iconButton_down.Location = new System.Drawing.Point(323, 641);
+            this.iconButton_down.Location = new System.Drawing.Point(310, 641);
             this.iconButton_down.Name = "iconButton_down";
             this.iconButton_down.Size = new System.Drawing.Size(280, 280);
             this.iconButton_down.TabIndex = 70;
@@ -277,7 +282,7 @@
             this.iconButton_up.IconColor = System.Drawing.Color.Black;
             this.iconButton_up.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_up.IconSize = 150;
-            this.iconButton_up.Location = new System.Drawing.Point(27, 641);
+            this.iconButton_up.Location = new System.Drawing.Point(20, 641);
             this.iconButton_up.Name = "iconButton_up";
             this.iconButton_up.Size = new System.Drawing.Size(280, 280);
             this.iconButton_up.TabIndex = 69;
@@ -299,7 +304,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1867, 970);
+            this.ClientSize = new System.Drawing.Size(1815, 970);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBox_addressShow);
             this.Controls.Add(this.label3);
