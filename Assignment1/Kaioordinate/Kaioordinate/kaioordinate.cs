@@ -19,6 +19,7 @@ namespace Kaioordinate
         private whānauManagement whanauManagementFrm;
         private locationManagement locationManagementFrm;
         private registration registrationFrm;
+        private reportPreview reportPreviewFrm;
 
         public MianFrm()
         {
@@ -32,8 +33,11 @@ namespace Kaioordinate
 
         private void iconButton_report_Click(object sender, EventArgs e)
         {
-            reportPreview reportPreview = new reportPreview();
-            reportPreview.ShowDialog();
+            if (reportPreviewFrm == null)
+            {
+                reportPreviewFrm = new reportPreview(DM);
+            }
+            reportPreviewFrm.ShowDialog();
         }
 
         private void iconButton_exit_Click(object sender, EventArgs e)
@@ -47,8 +51,11 @@ namespace Kaioordinate
 
         private void iconButton_Kai_Click(object sender, EventArgs e)
         {
-            kaiManagement kaiManagement = new kaiManagement(DM);
-            kaiManagement.ShowDialog();
+            if (kaiManagementFrm == null)
+            {
+                kaiManagementFrm = new kaiManagement(DM);
+            }
+            kaiManagementFrm.ShowDialog();
         }
 
         private void iconButton_event_Click(object sender, EventArgs e)
@@ -62,20 +69,29 @@ namespace Kaioordinate
 
         private void iconButton_whanau_Click(object sender, EventArgs e)
         {
-            whānauManagement whanauManagement = new whānauManagement(DM);
-            whanauManagement.ShowDialog();
+            if (whanauManagementFrm == null)
+            {
+                whanauManagementFrm = new whānauManagement(DM);
+            }
+            whanauManagementFrm.ShowDialog();
         }
 
         private void iconButton_location_Click(object sender, EventArgs e)
         {
-            locationManagement locationManagement = new locationManagement();
-            locationManagement.ShowDialog();
+            if (locationManagementFrm == null)
+            {
+                locationManagementFrm = new locationManagement(DM);
+            }
+            locationManagementFrm.ShowDialog();
         }
 
         private void iconButton_registration_Click(object sender, EventArgs e)
         {
-            registration registration = new registration();
-            registration.ShowDialog();
+            if (registrationFrm == null)
+            {
+                registrationFrm = new registration(DM);
+            }
+            registrationFrm.ShowDialog();
         }
     }
 }

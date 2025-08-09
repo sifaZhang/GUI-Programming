@@ -165,6 +165,10 @@ namespace Kaioordinate
                 {
                     MessageBox.Show("You must type in all datas", "Error");
                 }
+                else if (!txtBox_email.Text.Contains('@'))
+                {
+                    MessageBox.Show("Email is not valid", "Error");
+                }
                 else
                 {
                     newRow["FirstName"] = txtBox_firstName.Text;
@@ -188,6 +192,10 @@ namespace Kaioordinate
                     || txtBox_address.Text == "" )
                 {
                     MessageBox.Show("You must type in all datas", "Error");
+                }
+                else if (!txtBox_email.Text.Contains('@'))
+                {
+                    MessageBox.Show("Email is not valid", "Error");
                 }
                 else
                 {

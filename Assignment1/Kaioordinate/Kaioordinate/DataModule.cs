@@ -110,5 +110,25 @@ namespace Kaioordinate
                 e.Row["WhanauID"] = newID;
             }
         }
+
+        public void UpdateLocation()
+        {
+            daLocation.Update(locationTable);
+        }
+
+        private void daLocation_RowUpdated(object sender, System.Data.OleDb.OleDbRowUpdatedEventArgs e)
+        {
+            // Include a variable and a command to retrieve
+            // the identity value from the Access database.
+            int newID = 0;
+            OleDbCommand idCMD = new OleDbCommand("SELECT @@IDENTITY", ctnKaioordinate);
+            if (e.StatementType == StatementType.Insert)
+            {
+                // Retrieve the identity value and
+                // store it in the TreatmentID column.
+                newID = (int)idCMD.ExecuteScalar();
+                e.Row["LocationID"] = newID;
+            }
+        }
     }
 }

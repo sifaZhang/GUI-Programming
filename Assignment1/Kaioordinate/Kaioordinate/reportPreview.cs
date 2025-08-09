@@ -12,9 +12,13 @@ namespace Kaioordinate
 {
     public partial class reportPreview : Form
     {
-        public reportPreview()
+        private DataModule DM;
+
+        public reportPreview(DataModule dm)
         {
             InitializeComponent();
+
+            DM = dm;
         }
 
         private void reportPreview_Load(object sender, EventArgs e)

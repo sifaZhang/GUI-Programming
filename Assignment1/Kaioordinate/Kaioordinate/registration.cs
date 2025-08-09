@@ -12,9 +12,13 @@ namespace Kaioordinate
 {
     public partial class registration : Form
     {
-        public registration()
+        private DataModule DM;
+
+        public registration(DataModule dM)
         {
             InitializeComponent();
+
+            DM = dM;
         }
 
         private void registration_Load(object sender, EventArgs e)
