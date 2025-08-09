@@ -62,7 +62,7 @@ namespace Kaioordinate
 
         private void iconButton_whanau_Click(object sender, EventArgs e)
         {
-            whānauManagement whanauManagement = new whānauManagement();
+            whānauManagement whanauManagement = new whānauManagement(DM);
             whanauManagement.ShowDialog();
         }
 

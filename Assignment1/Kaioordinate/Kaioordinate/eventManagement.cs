@@ -192,9 +192,10 @@ namespace Kaioordinate
         {
             DataRow deleteEventRow = DM.eventTable.Rows[currencyManager.Position];
             DataRow[] dsRow = DM.kaiTable.Select("EventID = " + txtBox_eventID.Text);
-            if (dsRow.Length != 0)
+            DataRow[] dsRegisterRow = DM.registrationTable.Select("EventID = " + txtBox_eventID.Text);
+            if (dsRow.Length != 0 && dsRegisterRow.Length != 0)
             {
-                MessageBox.Show("You may only delete an event that has no kai", "Error");
+                MessageBox.Show("You may only delete an event that has no kai and register", "Error");
             }
             else
             {

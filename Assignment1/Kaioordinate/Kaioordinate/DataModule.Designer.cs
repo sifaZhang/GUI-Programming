@@ -373,6 +373,7 @@
                         new System.Data.Common.DataColumnMapping("Phone", "Phone"),
                         new System.Data.Common.DataColumnMapping("Address", "Address")})});
             this.daWhanau.UpdateCommand = this.oleDbUpdateCommand5;
+            this.daWhanau.RowUpdated += new System.Data.OleDb.OleDbRowUpdatedEventHandler(this.daWhanau_RowUpdated);
             // 
             // dsKaioordinate
             // 
