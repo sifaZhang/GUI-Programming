@@ -41,6 +41,14 @@ namespace Kaioordinate
             whanauTable = dsKaioordinate.Tables["Whanau"];
             registrationTable = dsKaioordinate.Tables["Registration"];
             locationTable = dsKaioordinate.Tables["Location"];
+
+            dsKaioordinate.Relations.Add("Kai_Event",
+                dsKaioordinate.Tables["Event"].Columns["EventID"],
+                dsKaioordinate.Tables["Kai"].Columns["EventID"]);
+            DataColumn eventNameCol = new DataColumn("EventName", typeof(string));
+            eventNameCol.Expression = "Parent(Kai_Event).EventName";
+            dsKaioordinate.Tables["Kai"].Columns.Add(eventNameCol);
+
             dsKaioordinate.EnforceConstraints = true;
         }
         public void UpdateEvent()
@@ -60,6 +68,26 @@ namespace Kaioordinate
                 // store it in the TreatmentID column.
                 newID = (int)idCMD.ExecuteScalar();
                 e.Row["EventID"] = newID;
+            }
+        }
+
+        public void UpdateKai()
+        {
+            daKai.Update(kaiTable);
+        }
+
+        private void daKai_RowUpdated(object sender, System.Data.OleDb.OleDbRowUpdatedEventArgs e)
+        {
+            // Include a variable and a command to retrieve
+            // the identity value from the Access database.
+            int newID = 0;
+            OleDbCommand idCMD = new OleDbCommand("SELECT @@IDENTITY", ctnKaioordinate);
+            if (e.StatementType == StatementType.Insert)
+            {
+                // Retrieve the identity value and
+                // store it in the TreatmentID column.
+                newID = (int)idCMD.ExecuteScalar();
+                e.Row["KaiID"] = newID;
             }
         }
     }

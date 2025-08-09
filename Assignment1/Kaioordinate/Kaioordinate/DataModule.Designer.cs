@@ -249,6 +249,7 @@
                         new System.Data.Common.DataColumnMapping("PreparationMinutes", "PreparationMinutes"),
                         new System.Data.Common.DataColumnMapping("ServeQuantity", "ServeQuantity")})});
             this.daKai.UpdateCommand = this.oleDbUpdateCommand3;
+            this.daKai.RowUpdated += new System.Data.OleDb.OleDbRowUpdatedEventHandler(this.daKai_RowUpdated);
             // 
             // oleDbSelectCommand4
             // 

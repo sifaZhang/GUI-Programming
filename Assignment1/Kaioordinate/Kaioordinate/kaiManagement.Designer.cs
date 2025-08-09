@@ -34,7 +34,7 @@
             this.iconButton_add = new FontAwesome.Sharp.IconButton();
             this.iconButton_update = new FontAwesome.Sharp.IconButton();
             this.iconButton_delete = new FontAwesome.Sharp.IconButton();
-            this.iconButton_reture = new FontAwesome.Sharp.IconButton();
+            this.iconButton_return = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBox_kaiID = new System.Windows.Forms.TextBox();
             this.txtBox_event = new System.Windows.Forms.TextBox();
@@ -50,7 +50,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconButton_cancel = new FontAwesome.Sharp.IconButton();
             this.numericUpDown_quantity = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker_time = new System.Windows.Forms.DateTimePicker();
             this.iconButton_save = new FontAwesome.Sharp.IconButton();
             this.checkBox_preparation = new System.Windows.Forms.CheckBox();
             this.comboBox_event = new System.Windows.Forms.ComboBox();
@@ -60,8 +59,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtBox_kaiName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDown_time = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_time)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox_kaiName
@@ -88,6 +89,7 @@
             this.iconButton_up.TabIndex = 1;
             this.iconButton_up.Text = "\r\n\r\n\r\n\r\n\r\nUP";
             this.iconButton_up.UseVisualStyleBackColor = false;
+            this.iconButton_up.Click += new System.EventHandler(this.iconButton_up_Click);
             // 
             // iconButton_down
             // 
@@ -103,6 +105,7 @@
             this.iconButton_down.TabIndex = 2;
             this.iconButton_down.Text = "\r\n\r\n\r\n\r\n\r\nDOWN";
             this.iconButton_down.UseVisualStyleBackColor = false;
+            this.iconButton_down.Click += new System.EventHandler(this.iconButton_down_Click);
             // 
             // iconButton_add
             // 
@@ -112,12 +115,13 @@
             this.iconButton_add.IconColor = System.Drawing.Color.Black;
             this.iconButton_add.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_add.IconSize = 150;
-            this.iconButton_add.Location = new System.Drawing.Point(706, 659);
+            this.iconButton_add.Location = new System.Drawing.Point(654, 659);
             this.iconButton_add.Name = "iconButton_add";
             this.iconButton_add.Size = new System.Drawing.Size(280, 280);
             this.iconButton_add.TabIndex = 3;
             this.iconButton_add.Text = "\r\n\r\n\r\n\r\n\r\nADD";
             this.iconButton_add.UseVisualStyleBackColor = false;
+            this.iconButton_add.Click += new System.EventHandler(this.iconButton_add_Click);
             // 
             // iconButton_update
             // 
@@ -127,7 +131,7 @@
             this.iconButton_update.IconColor = System.Drawing.Color.Black;
             this.iconButton_update.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_update.IconSize = 150;
-            this.iconButton_update.Location = new System.Drawing.Point(1002, 659);
+            this.iconButton_update.Location = new System.Drawing.Point(950, 659);
             this.iconButton_update.Name = "iconButton_update";
             this.iconButton_update.Size = new System.Drawing.Size(280, 280);
             this.iconButton_update.TabIndex = 4;
@@ -143,34 +147,35 @@
             this.iconButton_delete.IconColor = System.Drawing.Color.Black;
             this.iconButton_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_delete.IconSize = 150;
-            this.iconButton_delete.Location = new System.Drawing.Point(1298, 659);
+            this.iconButton_delete.Location = new System.Drawing.Point(1246, 659);
             this.iconButton_delete.Name = "iconButton_delete";
             this.iconButton_delete.Size = new System.Drawing.Size(280, 280);
             this.iconButton_delete.TabIndex = 5;
             this.iconButton_delete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
             this.iconButton_delete.UseVisualStyleBackColor = false;
+            this.iconButton_delete.Click += new System.EventHandler(this.iconButton_delete_Click);
             // 
-            // iconButton_reture
+            // iconButton_return
             // 
-            this.iconButton_reture.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_reture.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_reture.IconChar = FontAwesome.Sharp.IconChar.SignOut;
-            this.iconButton_reture.IconColor = System.Drawing.Color.Black;
-            this.iconButton_reture.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_reture.IconSize = 150;
-            this.iconButton_reture.Location = new System.Drawing.Point(1676, 659);
-            this.iconButton_reture.Name = "iconButton_reture";
-            this.iconButton_reture.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_reture.TabIndex = 6;
-            this.iconButton_reture.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
-            this.iconButton_reture.UseVisualStyleBackColor = false;
-            this.iconButton_reture.Click += new System.EventHandler(this.iconButton_reture_Click);
+            this.iconButton_return.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.iconButton_return.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton_return.IconChar = FontAwesome.Sharp.IconChar.SignOut;
+            this.iconButton_return.IconColor = System.Drawing.Color.Black;
+            this.iconButton_return.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton_return.IconSize = 150;
+            this.iconButton_return.Location = new System.Drawing.Point(1573, 659);
+            this.iconButton_return.Name = "iconButton_return";
+            this.iconButton_return.Size = new System.Drawing.Size(280, 280);
+            this.iconButton_return.TabIndex = 6;
+            this.iconButton_return.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
+            this.iconButton_return.UseVisualStyleBackColor = false;
+            this.iconButton_return.Click += new System.EventHandler(this.iconButton_reture_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1054, 40);
+            this.label1.Location = new System.Drawing.Point(922, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 42);
             this.label1.TabIndex = 7;
@@ -179,16 +184,18 @@
             // txtBox_kaiID
             // 
             this.txtBox_kaiID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_kaiID.Location = new System.Drawing.Point(1219, 40);
+            this.txtBox_kaiID.Location = new System.Drawing.Point(1064, 40);
             this.txtBox_kaiID.Name = "txtBox_kaiID";
+            this.txtBox_kaiID.ReadOnly = true;
             this.txtBox_kaiID.Size = new System.Drawing.Size(669, 49);
             this.txtBox_kaiID.TabIndex = 8;
             // 
             // txtBox_event
             // 
             this.txtBox_event.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_event.Location = new System.Drawing.Point(1219, 140);
+            this.txtBox_event.Location = new System.Drawing.Point(1064, 140);
             this.txtBox_event.Name = "txtBox_event";
+            this.txtBox_event.ReadOnly = true;
             this.txtBox_event.Size = new System.Drawing.Size(669, 49);
             this.txtBox_event.TabIndex = 10;
             // 
@@ -196,7 +203,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1058, 141);
+            this.label2.Location = new System.Drawing.Point(926, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 42);
             this.label2.TabIndex = 9;
@@ -205,8 +212,9 @@
             // txtBox_kaiNameShow
             // 
             this.txtBox_kaiNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_kaiNameShow.Location = new System.Drawing.Point(1219, 240);
+            this.txtBox_kaiNameShow.Location = new System.Drawing.Point(1064, 240);
             this.txtBox_kaiNameShow.Name = "txtBox_kaiNameShow";
+            this.txtBox_kaiNameShow.ReadOnly = true;
             this.txtBox_kaiNameShow.Size = new System.Drawing.Size(669, 49);
             this.txtBox_kaiNameShow.TabIndex = 12;
             // 
@@ -214,7 +222,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(991, 242);
+            this.label3.Location = new System.Drawing.Point(859, 242);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(181, 42);
             this.label3.TabIndex = 11;
@@ -223,8 +231,9 @@
             // txtBox_preparation
             // 
             this.txtBox_preparation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_preparation.Location = new System.Drawing.Point(1219, 340);
+            this.txtBox_preparation.Location = new System.Drawing.Point(1064, 340);
             this.txtBox_preparation.Name = "txtBox_preparation";
+            this.txtBox_preparation.ReadOnly = true;
             this.txtBox_preparation.Size = new System.Drawing.Size(669, 49);
             this.txtBox_preparation.TabIndex = 14;
             // 
@@ -232,7 +241,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(940, 343);
+            this.label4.Location = new System.Drawing.Point(808, 343);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(232, 42);
             this.label4.TabIndex = 13;
@@ -241,8 +250,9 @@
             // txtBox_time
             // 
             this.txtBox_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_time.Location = new System.Drawing.Point(1219, 440);
+            this.txtBox_time.Location = new System.Drawing.Point(1064, 440);
             this.txtBox_time.Name = "txtBox_time";
+            this.txtBox_time.ReadOnly = true;
             this.txtBox_time.Size = new System.Drawing.Size(669, 49);
             this.txtBox_time.TabIndex = 16;
             // 
@@ -250,7 +260,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(869, 444);
+            this.label5.Location = new System.Drawing.Point(737, 444);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(303, 42);
             this.label5.TabIndex = 15;
@@ -259,8 +269,9 @@
             // txtBox_quantity
             // 
             this.txtBox_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_quantity.Location = new System.Drawing.Point(1219, 540);
+            this.txtBox_quantity.Location = new System.Drawing.Point(1064, 540);
             this.txtBox_quantity.Name = "txtBox_quantity";
+            this.txtBox_quantity.ReadOnly = true;
             this.txtBox_quantity.Size = new System.Drawing.Size(669, 49);
             this.txtBox_quantity.TabIndex = 18;
             // 
@@ -268,7 +279,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(878, 545);
+            this.label6.Location = new System.Drawing.Point(746, 545);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(294, 42);
             this.label6.TabIndex = 17;
@@ -276,9 +287,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.numericUpDown_time);
             this.panel1.Controls.Add(this.iconButton_cancel);
             this.panel1.Controls.Add(this.numericUpDown_quantity);
-            this.panel1.Controls.Add(this.dateTimePicker_time);
             this.panel1.Controls.Add(this.iconButton_save);
             this.panel1.Controls.Add(this.checkBox_preparation);
             this.panel1.Controls.Add(this.comboBox_event);
@@ -288,7 +299,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtBox_kaiName);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(812, 0);
+            this.panel1.Location = new System.Drawing.Point(704, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1149, 605);
             this.panel1.TabIndex = 19;
@@ -318,14 +329,6 @@
             this.numericUpDown_quantity.Size = new System.Drawing.Size(669, 49);
             this.numericUpDown_quantity.TabIndex = 33;
             // 
-            // dateTimePicker_time
-            // 
-            this.dateTimePicker_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker_time.Location = new System.Drawing.Point(406, 313);
-            this.dateTimePicker_time.Name = "dateTimePicker_time";
-            this.dateTimePicker_time.Size = new System.Drawing.Size(669, 49);
-            this.dateTimePicker_time.TabIndex = 32;
-            // 
             // iconButton_save
             // 
             this.iconButton_save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,6 +343,7 @@
             this.iconButton_save.Text = "   SAVE";
             this.iconButton_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton_save.UseVisualStyleBackColor = true;
+            this.iconButton_save.Click += new System.EventHandler(this.iconButton_save_Click);
             // 
             // checkBox_preparation
             // 
@@ -353,6 +357,7 @@
             // 
             // comboBox_event
             // 
+            this.comboBox_event.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_event.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_event.FormattingEnabled = true;
             this.comboBox_event.Location = new System.Drawing.Point(406, 40);
@@ -418,11 +423,19 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Kai Name";
             // 
+            // numericUpDown_time
+            // 
+            this.numericUpDown_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown_time.Location = new System.Drawing.Point(406, 313);
+            this.numericUpDown_time.Name = "numericUpDown_time";
+            this.numericUpDown_time.Size = new System.Drawing.Size(669, 49);
+            this.numericUpDown_time.TabIndex = 35;
+            // 
             // kaiManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2006, 1010);
+            this.ClientSize = new System.Drawing.Size(1875, 966);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBox_quantity);
             this.Controls.Add(this.label6);
@@ -436,7 +449,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBox_kaiID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.iconButton_reture);
+            this.Controls.Add(this.iconButton_return);
             this.Controls.Add(this.iconButton_delete);
             this.Controls.Add(this.iconButton_update);
             this.Controls.Add(this.iconButton_add);
@@ -450,6 +463,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_time)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,7 +477,7 @@
         private FontAwesome.Sharp.IconButton iconButton_add;
         private FontAwesome.Sharp.IconButton iconButton_update;
         private FontAwesome.Sharp.IconButton iconButton_delete;
-        private FontAwesome.Sharp.IconButton iconButton_reture;
+        private FontAwesome.Sharp.IconButton iconButton_return;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBox_kaiID;
         private System.Windows.Forms.TextBox txtBox_event;
@@ -487,7 +501,7 @@
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton_cancel;
         private System.Windows.Forms.NumericUpDown numericUpDown_quantity;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_time;
         private FontAwesome.Sharp.IconButton iconButton_save;
+        private System.Windows.Forms.NumericUpDown numericUpDown_time;
     }
 }

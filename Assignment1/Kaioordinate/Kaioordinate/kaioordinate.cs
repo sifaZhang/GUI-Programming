@@ -47,7 +47,7 @@ namespace Kaioordinate
 
         private void iconButton_Kai_Click(object sender, EventArgs e)
         {
-            kaiManagement kaiManagement = new kaiManagement();
+            kaiManagement kaiManagement = new kaiManagement(DM);
             kaiManagement.ShowDialog();
         }
 
@@ -55,7 +55,7 @@ namespace Kaioordinate
         {
             if (eventManagementFrm == null)
             {
-                eventManagementFrm = new eventManagement(DM, this);
+                eventManagementFrm = new eventManagement(DM);
             }
             eventManagementFrm.ShowDialog();
         }

@@ -22,16 +22,14 @@ namespace Kaioordinate
         }
 
         private DataModule DM;
-        private MianFrm frmMenu;
         private CurrencyManager currencyManager;
         private EventAction eventAction = EventAction.none;
 
-        public eventManagement(DataModule dm, MianFrm mnu)
+        public eventManagement(DataModule dm)
         {
             InitializeComponent();
 
             DM = dm;
-            frmMenu = mnu;
             BindControls();
 
 
@@ -193,8 +191,8 @@ namespace Kaioordinate
         private void iconButton_delete_Click(object sender, EventArgs e)
         {
             DataRow deleteEventRow = DM.eventTable.Rows[currencyManager.Position];
-            DataRow[] VisitTreatmentRow = DM.kaiTable.Select("EventID = " + txtBox_eventID.Text);
-            if (VisitTreatmentRow.Length != 0)
+            DataRow[] dsRow = DM.kaiTable.Select("EventID = " + txtBox_eventID.Text);
+            if (dsRow.Length != 0)
             {
                 MessageBox.Show("You may only delete an event that has no kai", "Error");
             }
