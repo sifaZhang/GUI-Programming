@@ -62,6 +62,7 @@
             this.iconButton_report.TabIndex = 76;
             this.iconButton_report.Text = "\r\n\r\n\r\n\r\n\r\nGENERATE\r\nREPORT";
             this.iconButton_report.UseVisualStyleBackColor = false;
+            this.iconButton_report.Click += new System.EventHandler(this.iconButton_report_Click);
             // 
             // reportPreview
             // 

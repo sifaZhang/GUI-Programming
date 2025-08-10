@@ -19,12 +19,6 @@ namespace Kaioordinate
         public DataTable whanauTable;
         public DataTable registrationTable;
         public DataTable locationTable;
-        //public DataView kaiView;
-        //public DataView eventView;
-        //public DataView whanauView;
-        //public DataView registrationView;
-        //public DataView locationView;
-
 
         public DataModule()
         {
