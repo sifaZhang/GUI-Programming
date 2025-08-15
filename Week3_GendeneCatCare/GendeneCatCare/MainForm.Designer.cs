@@ -102,6 +102,7 @@
             this.btnVeterinarian.TabIndex = 1;
             this.btnVeterinarian.Text = "Veterinarian Maintenance";
             this.btnVeterinarian.UseVisualStyleBackColor = true;
+            this.btnVeterinarian.Click += new System.EventHandler(this.btnVeterinarian_Click);
             // 
             // btnOwner
             // 

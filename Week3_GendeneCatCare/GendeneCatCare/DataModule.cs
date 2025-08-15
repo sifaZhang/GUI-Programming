@@ -64,5 +64,10 @@ namespace GendeneCatCare
                 e.Row["TreatmentID"] = newID;
             }
         }
+
+        public void UpdateVeterinarian()
+        {
+            daVeterinarian.Update(dtVeterinarian);
+        }
     }
 }

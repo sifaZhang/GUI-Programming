@@ -17,7 +17,7 @@ namespace GendeneCatCare
         private OwnerForm ownerForm;
         private InvoiceForm invoiceForm;
         private TreatmentForm treatmentForm;
-        private VeterinarianForm veterinarianForm;
+        private VeterinarianForm frmVet;
         private VisitForm visitForm;
         private VisitTreatmentForm visitTreatmentForm;
 
@@ -43,6 +43,15 @@ namespace GendeneCatCare
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnVeterinarian_Click(object sender, EventArgs e)
+        {
+            if (frmVet == null)
+            {
+                frmVet = new VeterinarianForm(DM, this);
+            }
+            frmVet.ShowDialog();
         }
     }
 }
