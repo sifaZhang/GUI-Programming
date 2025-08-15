@@ -15,7 +15,7 @@ namespace GendeneCatCare
         private DataModule DM;
         private CatForm catForm;
         private OwnerForm ownerForm;
-        private InvoiceForm invoiceForm;
+        private InvoiceForm frmInvoice;
         private TreatmentForm treatmentForm;
         private VeterinarianForm frmVet;
         private VisitForm visitForm;
@@ -52,6 +52,15 @@ namespace GendeneCatCare
                 frmVet = new VeterinarianForm(DM, this);
             }
             frmVet.ShowDialog();
+        }
+
+        private void btnInvoices_Click(object sender, EventArgs e)
+        {
+            if (frmInvoice == null)
+            {
+                frmInvoice = new InvoiceForm(DM, this);
+            }
+            frmInvoice.ShowDialog();
         }
     }
 }

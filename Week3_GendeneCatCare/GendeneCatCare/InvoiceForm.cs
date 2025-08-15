@@ -12,9 +12,18 @@ namespace GendeneCatCare
 {
     public partial class InvoiceForm : Form
     {
-        public InvoiceForm()
+        private DataModule DM;
+        private MainForm frmMenu;
+        public InvoiceForm(DataModule dm, MainForm mnu)
         {
             InitializeComponent();
+            DM = dm;
+            frmMenu = mnu;
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
