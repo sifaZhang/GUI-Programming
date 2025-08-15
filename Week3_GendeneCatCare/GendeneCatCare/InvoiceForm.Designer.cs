@@ -60,6 +60,7 @@
             this.btnDisplayReport.TabIndex = 2;
             this.btnDisplayReport.Text = "Display Report";
             this.btnDisplayReport.UseVisualStyleBackColor = true;
+            this.btnDisplayReport.Click += new System.EventHandler(this.btnDisplayReport_Click);
             // 
             // btnReturn
             // 

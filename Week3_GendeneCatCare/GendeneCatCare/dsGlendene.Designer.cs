@@ -36,6 +36,8 @@ namespace GendeneCatCare {
         
         private VISITTREATMENTDataTable tableVISITTREATMENT;
         
+        private global::System.Data.DataRelation relationFK_VISIT_VISITTREATMENT;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -314,6 +316,7 @@ namespace GendeneCatCare {
                     this.tableVISITTREATMENT.InitVars();
                 }
             }
+            this.relationFK_VISIT_VISITTREATMENT = this.Relations["FK_VISIT_VISITTREATMENT"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -336,6 +339,18 @@ namespace GendeneCatCare {
             base.Tables.Add(this.tableVISIT);
             this.tableVISITTREATMENT = new VISITTREATMENTDataTable();
             base.Tables.Add(this.tableVISITTREATMENT);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_VISIT_VISITTREATMENT", new global::System.Data.DataColumn[] {
+                        this.tableVISIT.VisitIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableVISITTREATMENT.VisitIDColumn});
+            this.tableVISITTREATMENT.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.None;
+            this.relationFK_VISIT_VISITTREATMENT = new global::System.Data.DataRelation("FK_VISIT_VISITTREATMENT", 
+                new global::System.Data.DataColumn[] { this.tableVISIT.VisitIDColumn},
+                new global::System.Data.DataColumn[] { this.tableVISITTREATMENT.VisitIDColumn}, false);
+            this.Relations.Add(this.relationFK_VISIT_VISITTREATMENT);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2141,12 +2156,15 @@ namespace GendeneCatCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VISITTREATMENTRow AddVISITTREATMENTRow(int VisitID, int TreatmentID, int Quantity) {
+            public VISITTREATMENTRow AddVISITTREATMENTRow(VISITRow parentVISITRowByFK_VISIT_VISITTREATMENT, int TreatmentID, int Quantity) {
                 VISITTREATMENTRow rowVISITTREATMENTRow = ((VISITTREATMENTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        VisitID,
+                        null,
                         TreatmentID,
                         Quantity};
+                if ((parentVISITRowByFK_VISIT_VISITTREATMENT != null)) {
+                    columnValuesArray[0] = parentVISITRowByFK_VISIT_VISITTREATMENT[0];
+                }
                 rowVISITTREATMENTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVISITTREATMENTRow);
                 return rowVISITTREATMENTRow;
@@ -3010,6 +3028,17 @@ namespace GendeneCatCare {
             public void SetStatusNull() {
                 this[this.tableVISIT.StatusColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VISITTREATMENTRow[] GetVISITTREATMENTRows() {
+                if ((this.Table.ChildRelations["FK_VISIT_VISITTREATMENT"] == null)) {
+                    return new VISITTREATMENTRow[0];
+                }
+                else {
+                    return ((VISITTREATMENTRow[])(base.GetChildRows(this.Table.ChildRelations["FK_VISIT_VISITTREATMENT"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3061,6 +3090,17 @@ namespace GendeneCatCare {
                 }
                 set {
                     this[this.tableVISITTREATMENT.QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VISITRow VISITRow {
+                get {
+                    return ((VISITRow)(this.GetParentRow(this.Table.ParentRelations["FK_VISIT_VISITTREATMENT"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_VISIT_VISITTREATMENT"]);
                 }
             }
             

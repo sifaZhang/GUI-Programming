@@ -42,6 +42,14 @@ namespace GendeneCatCare
             dtVeterinarian = dsGlendene.Tables["Veterinarian"];
             dtVisit = dsGlendene.Tables["Visit"];
             dtVisitTreatment = dsGlendene.Tables["VisitTreatment"];
+            catView = new DataView(dtCat);
+            catView.Sort = "CatID";
+            ownerView = new DataView(dtOwner);
+            ownerView.Sort = "OwnerID";
+            treatmentView = new DataView(dtTreatment);
+            treatmentView.Sort = "TreatmentID";
+            veterinarianView = new DataView(dtVeterinarian);
+            veterinarianView.Sort = "VeterinarianID";
             dsGlendene.EnforceConstraints = true;
         }
 
