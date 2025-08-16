@@ -1,6 +1,6 @@
 ﻿namespace Kaioordinate
 {
-    partial class locationManagement
+    partial class locationFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,51 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(locationFrm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtBox_address = new System.Windows.Forms.TextBox();
+            this.txtboxAddress = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtBox_locationName = new System.Windows.Forms.TextBox();
+            this.txtboxLocationName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.iconButton_cancel = new FontAwesome.Sharp.IconButton();
-            this.iconButton_save = new FontAwesome.Sharp.IconButton();
-            this.txtBox_addressShow = new System.Windows.Forms.TextBox();
+            this.btnCancel = new FontAwesome.Sharp.IconButton();
+            this.btnSave = new FontAwesome.Sharp.IconButton();
+            this.txboxAddressShow = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBox_locationNameShow = new System.Windows.Forms.TextBox();
+            this.txtboxLocationNameShow = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtBox_locationID = new System.Windows.Forms.TextBox();
+            this.txtboxLocationID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.iconButton_return = new FontAwesome.Sharp.IconButton();
-            this.iconButton_delete = new FontAwesome.Sharp.IconButton();
-            this.iconButton_update = new FontAwesome.Sharp.IconButton();
-            this.iconButton_add = new FontAwesome.Sharp.IconButton();
-            this.iconButton_down = new FontAwesome.Sharp.IconButton();
-            this.iconButton_up = new FontAwesome.Sharp.IconButton();
-            this.listBox_locationName = new System.Windows.Forms.ListBox();
+            this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.btnUpdate = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
+            this.btnDown = new FontAwesome.Sharp.IconButton();
+            this.btnUp = new FontAwesome.Sharp.IconButton();
+            this.lstboxLocationName = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtBox_address);
+            this.panel1.Controls.Add(this.txtboxAddress);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.txtBox_locationName);
+            this.panel1.Controls.Add(this.txtboxLocationName);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.iconButton_cancel);
-            this.panel1.Controls.Add(this.iconButton_save);
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnSave);
             this.panel1.Location = new System.Drawing.Point(701, 8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1060, 580);
             this.panel1.TabIndex = 87;
             this.panel1.Visible = false;
             // 
-            // txtBox_address
+            // txtboxAddress
             // 
-            this.txtBox_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_address.Location = new System.Drawing.Point(338, 199);
-            this.txtBox_address.Multiline = true;
-            this.txtBox_address.Name = "txtBox_address";
-            this.txtBox_address.Size = new System.Drawing.Size(669, 212);
-            this.txtBox_address.TabIndex = 52;
+            this.txtboxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxAddress.Location = new System.Drawing.Point(338, 199);
+            this.txtboxAddress.Multiline = true;
+            this.txtboxAddress.Name = "txtboxAddress";
+            this.txtboxAddress.Size = new System.Drawing.Size(669, 212);
+            this.txtboxAddress.TabIndex = 52;
             // 
             // label12
             // 
@@ -85,13 +86,13 @@
             this.label12.TabIndex = 51;
             this.label12.Text = "Address";
             // 
-            // txtBox_locationName
+            // txtboxLocationName
             // 
-            this.txtBox_locationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_locationName.Location = new System.Drawing.Point(338, 86);
-            this.txtBox_locationName.Name = "txtBox_locationName";
-            this.txtBox_locationName.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_locationName.TabIndex = 48;
+            this.txtboxLocationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxLocationName.Location = new System.Drawing.Point(338, 86);
+            this.txtboxLocationName.Name = "txtboxLocationName";
+            this.txtboxLocationName.Size = new System.Drawing.Size(669, 49);
+            this.txtboxLocationName.TabIndex = 48;
             // 
             // label11
             // 
@@ -104,46 +105,46 @@
             this.label11.TabIndex = 47;
             this.label11.Text = "Location Name";
             // 
-            // iconButton_cancel
+            // btnCancel
             // 
-            this.iconButton_cancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_cancel.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.iconButton_cancel.IconColor = System.Drawing.Color.Black;
-            this.iconButton_cancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_cancel.IconSize = 100;
-            this.iconButton_cancel.Location = new System.Drawing.Point(709, 461);
-            this.iconButton_cancel.Name = "iconButton_cancel";
-            this.iconButton_cancel.Size = new System.Drawing.Size(280, 100);
-            this.iconButton_cancel.TabIndex = 46;
-            this.iconButton_cancel.Text = "  CANCEL";
-            this.iconButton_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton_cancel.UseVisualStyleBackColor = true;
-            this.iconButton_cancel.Click += new System.EventHandler(this.iconButton1_Click);
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnCancel.IconColor = System.Drawing.Color.Black;
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.IconSize = 100;
+            this.btnCancel.Location = new System.Drawing.Point(709, 461);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(280, 100);
+            this.btnCancel.TabIndex = 46;
+            this.btnCancel.Text = "  CANCEL";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // iconButton_save
+            // btnSave
             // 
-            this.iconButton_save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_save.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.iconButton_save.IconColor = System.Drawing.Color.Black;
-            this.iconButton_save.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_save.IconSize = 100;
-            this.iconButton_save.Location = new System.Drawing.Point(338, 464);
-            this.iconButton_save.Name = "iconButton_save";
-            this.iconButton_save.Size = new System.Drawing.Size(280, 100);
-            this.iconButton_save.TabIndex = 45;
-            this.iconButton_save.Text = "   SAVE";
-            this.iconButton_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton_save.UseVisualStyleBackColor = true;
-            this.iconButton_save.Click += new System.EventHandler(this.iconButton_save_Click);
+            this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.btnSave.IconColor = System.Drawing.Color.Black;
+            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSave.IconSize = 100;
+            this.btnSave.Location = new System.Drawing.Point(338, 464);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(280, 100);
+            this.btnSave.TabIndex = 45;
+            this.btnSave.Text = "   SAVE";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtBox_addressShow
+            // txboxAddressShow
             // 
-            this.txtBox_addressShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_addressShow.Location = new System.Drawing.Point(1076, 324);
-            this.txtBox_addressShow.Multiline = true;
-            this.txtBox_addressShow.Name = "txtBox_addressShow";
-            this.txtBox_addressShow.Size = new System.Drawing.Size(669, 199);
-            this.txtBox_addressShow.TabIndex = 86;
+            this.txboxAddressShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txboxAddressShow.Location = new System.Drawing.Point(1076, 324);
+            this.txboxAddressShow.Multiline = true;
+            this.txboxAddressShow.Name = "txboxAddressShow";
+            this.txboxAddressShow.Size = new System.Drawing.Size(669, 199);
+            this.txboxAddressShow.TabIndex = 86;
             // 
             // label3
             // 
@@ -156,13 +157,13 @@
             this.label3.TabIndex = 85;
             this.label3.Text = "Address";
             // 
-            // txtBox_locationNameShow
+            // txtboxLocationNameShow
             // 
-            this.txtBox_locationNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_locationNameShow.Location = new System.Drawing.Point(1076, 182);
-            this.txtBox_locationNameShow.Name = "txtBox_locationNameShow";
-            this.txtBox_locationNameShow.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_locationNameShow.TabIndex = 78;
+            this.txtboxLocationNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxLocationNameShow.Location = new System.Drawing.Point(1076, 182);
+            this.txtboxLocationNameShow.Name = "txtboxLocationNameShow";
+            this.txtboxLocationNameShow.Size = new System.Drawing.Size(669, 49);
+            this.txtboxLocationNameShow.TabIndex = 78;
             // 
             // label8
             // 
@@ -175,13 +176,13 @@
             this.label8.TabIndex = 77;
             this.label8.Text = "Location Name";
             // 
-            // txtBox_locationID
+            // txtboxLocationID
             // 
-            this.txtBox_locationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_locationID.Location = new System.Drawing.Point(1076, 40);
-            this.txtBox_locationID.Name = "txtBox_locationID";
-            this.txtBox_locationID.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_locationID.TabIndex = 76;
+            this.txtboxLocationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxLocationID.Location = new System.Drawing.Point(1076, 40);
+            this.txtboxLocationID.Name = "txtboxLocationID";
+            this.txtboxLocationID.Size = new System.Drawing.Size(669, 49);
+            this.txtboxLocationID.TabIndex = 76;
             // 
             // label1
             // 
@@ -194,135 +195,136 @@
             this.label1.TabIndex = 75;
             this.label1.Text = "Location ID";
             // 
-            // iconButton_return
+            // btnReturn
             // 
-            this.iconButton_return.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_return.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_return.IconChar = FontAwesome.Sharp.IconChar.SignOut;
-            this.iconButton_return.IconColor = System.Drawing.Color.Black;
-            this.iconButton_return.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_return.IconSize = 150;
-            this.iconButton_return.Location = new System.Drawing.Point(1518, 641);
-            this.iconButton_return.Name = "iconButton_return";
-            this.iconButton_return.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_return.TabIndex = 74;
-            this.iconButton_return.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
-            this.iconButton_return.UseVisualStyleBackColor = false;
-            this.iconButton_return.Click += new System.EventHandler(this.iconButton_reture_Click);
+            this.btnReturn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnReturn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.SignOut;
+            this.btnReturn.IconColor = System.Drawing.Color.Black;
+            this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReturn.IconSize = 150;
+            this.btnReturn.Location = new System.Drawing.Point(1518, 641);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(280, 280);
+            this.btnReturn.TabIndex = 74;
+            this.btnReturn.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // iconButton_delete
+            // btnDelete
             // 
-            this.iconButton_delete.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_delete.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_delete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton_delete.IconColor = System.Drawing.Color.Black;
-            this.iconButton_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_delete.IconSize = 150;
-            this.iconButton_delete.Location = new System.Drawing.Point(1210, 641);
-            this.iconButton_delete.Name = "iconButton_delete";
-            this.iconButton_delete.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_delete.TabIndex = 73;
-            this.iconButton_delete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
-            this.iconButton_delete.UseVisualStyleBackColor = false;
-            this.iconButton_delete.Click += new System.EventHandler(this.iconButton_delete_Click);
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnDelete.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.Black;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 150;
+            this.btnDelete.Location = new System.Drawing.Point(1210, 641);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(280, 280);
+            this.btnDelete.TabIndex = 73;
+            this.btnDelete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // iconButton_update
+            // btnUpdate
             // 
-            this.iconButton_update.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_update.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_update.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.iconButton_update.IconColor = System.Drawing.Color.Black;
-            this.iconButton_update.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_update.IconSize = 150;
-            this.iconButton_update.Location = new System.Drawing.Point(919, 641);
-            this.iconButton_update.Name = "iconButton_update";
-            this.iconButton_update.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_update.TabIndex = 72;
-            this.iconButton_update.Text = "\r\n\r\n\r\n\r\n\r\nUPDATE";
-            this.iconButton_update.UseVisualStyleBackColor = false;
-            this.iconButton_update.Click += new System.EventHandler(this.iconButton_update_Click);
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnUpdate.IconColor = System.Drawing.Color.Black;
+            this.btnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUpdate.IconSize = 150;
+            this.btnUpdate.Location = new System.Drawing.Point(919, 641);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(280, 280);
+            this.btnUpdate.TabIndex = 72;
+            this.btnUpdate.Text = "\r\n\r\n\r\n\r\n\r\nUPDATE";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // iconButton_add
+            // btnAdd
             // 
-            this.iconButton_add.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_add.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_add.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton_add.IconColor = System.Drawing.Color.Black;
-            this.iconButton_add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_add.IconSize = 150;
-            this.iconButton_add.Location = new System.Drawing.Point(629, 641);
-            this.iconButton_add.Name = "iconButton_add";
-            this.iconButton_add.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_add.TabIndex = 71;
-            this.iconButton_add.Text = "\r\n\r\n\r\n\r\n\r\nADD";
-            this.iconButton_add.UseVisualStyleBackColor = false;
-            this.iconButton_add.Click += new System.EventHandler(this.iconButton_add_Click);
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAdd.IconColor = System.Drawing.Color.Black;
+            this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAdd.IconSize = 150;
+            this.btnAdd.Location = new System.Drawing.Point(629, 641);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(280, 280);
+            this.btnAdd.TabIndex = 71;
+            this.btnAdd.Text = "\r\n\r\n\r\n\r\n\r\nADD";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // iconButton_down
+            // btnDown
             // 
-            this.iconButton_down.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_down.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_down.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
-            this.iconButton_down.IconColor = System.Drawing.Color.Black;
-            this.iconButton_down.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_down.IconSize = 150;
-            this.iconButton_down.Location = new System.Drawing.Point(310, 641);
-            this.iconButton_down.Name = "iconButton_down";
-            this.iconButton_down.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_down.TabIndex = 70;
-            this.iconButton_down.Text = "\r\n\r\n\r\n\r\n\r\nDOWN";
-            this.iconButton_down.UseVisualStyleBackColor = false;
-            this.iconButton_down.Click += new System.EventHandler(this.iconButton_down_Click);
+            this.btnDown.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
+            this.btnDown.IconColor = System.Drawing.Color.Black;
+            this.btnDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDown.IconSize = 150;
+            this.btnDown.Location = new System.Drawing.Point(310, 641);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(280, 280);
+            this.btnDown.TabIndex = 70;
+            this.btnDown.Text = "\r\n\r\n\r\n\r\n\r\nDOWN";
+            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
-            // iconButton_up
+            // btnUp
             // 
-            this.iconButton_up.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_up.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_up.IconChar = FontAwesome.Sharp.IconChar.CaretSquareUp;
-            this.iconButton_up.IconColor = System.Drawing.Color.Black;
-            this.iconButton_up.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_up.IconSize = 150;
-            this.iconButton_up.Location = new System.Drawing.Point(20, 641);
-            this.iconButton_up.Name = "iconButton_up";
-            this.iconButton_up.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_up.TabIndex = 69;
-            this.iconButton_up.Text = "\r\n\r\n\r\n\r\n\r\nUP";
-            this.iconButton_up.UseVisualStyleBackColor = false;
-            this.iconButton_up.Click += new System.EventHandler(this.iconButton_up_Click);
+            this.btnUp.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnUp.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.IconChar = FontAwesome.Sharp.IconChar.CaretSquareUp;
+            this.btnUp.IconColor = System.Drawing.Color.Black;
+            this.btnUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUp.IconSize = 150;
+            this.btnUp.Location = new System.Drawing.Point(20, 641);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(280, 280);
+            this.btnUp.TabIndex = 69;
+            this.btnUp.Text = "\r\n\r\n\r\n\r\n\r\nUP";
+            this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
-            // listBox_locationName
+            // lstboxLocationName
             // 
-            this.listBox_locationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox_locationName.FormattingEnabled = true;
-            this.listBox_locationName.ItemHeight = 42;
-            this.listBox_locationName.Location = new System.Drawing.Point(20, 40);
-            this.listBox_locationName.Name = "listBox_locationName";
-            this.listBox_locationName.Size = new System.Drawing.Size(670, 550);
-            this.listBox_locationName.TabIndex = 68;
+            this.lstboxLocationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstboxLocationName.FormattingEnabled = true;
+            this.lstboxLocationName.ItemHeight = 42;
+            this.lstboxLocationName.Location = new System.Drawing.Point(20, 40);
+            this.lstboxLocationName.Name = "lstboxLocationName";
+            this.lstboxLocationName.Size = new System.Drawing.Size(670, 550);
+            this.lstboxLocationName.TabIndex = 68;
             // 
-            // locationManagement
+            // locationFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1815, 970);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtBox_addressShow);
+            this.Controls.Add(this.txboxAddressShow);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtBox_locationNameShow);
+            this.Controls.Add(this.txtboxLocationNameShow);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtBox_locationID);
+            this.Controls.Add(this.txtboxLocationID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.iconButton_return);
-            this.Controls.Add(this.iconButton_delete);
-            this.Controls.Add(this.iconButton_update);
-            this.Controls.Add(this.iconButton_add);
-            this.Controls.Add(this.iconButton_down);
-            this.Controls.Add(this.iconButton_up);
-            this.Controls.Add(this.listBox_locationName);
-            this.Name = "locationManagement";
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnDown);
+            this.Controls.Add(this.btnUp);
+            this.Controls.Add(this.lstboxLocationName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "locationFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Location Management";
-            this.Load += new System.EventHandler(this.locationManagement_Load);
+            this.Load += new System.EventHandler(this.locationFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -333,24 +335,24 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtBox_address;
+        private System.Windows.Forms.TextBox txtboxAddress;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtBox_locationName;
+        private System.Windows.Forms.TextBox txtboxLocationName;
         private System.Windows.Forms.Label label11;
-        private FontAwesome.Sharp.IconButton iconButton_cancel;
-        private FontAwesome.Sharp.IconButton iconButton_save;
-        private System.Windows.Forms.TextBox txtBox_addressShow;
+        private FontAwesome.Sharp.IconButton btnCancel;
+        private FontAwesome.Sharp.IconButton btnSave;
+        private System.Windows.Forms.TextBox txboxAddressShow;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBox_locationNameShow;
+        private System.Windows.Forms.TextBox txtboxLocationNameShow;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtBox_locationID;
+        private System.Windows.Forms.TextBox txtboxLocationID;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton iconButton_return;
-        private FontAwesome.Sharp.IconButton iconButton_delete;
-        private FontAwesome.Sharp.IconButton iconButton_update;
-        private FontAwesome.Sharp.IconButton iconButton_add;
-        private FontAwesome.Sharp.IconButton iconButton_down;
-        private FontAwesome.Sharp.IconButton iconButton_up;
-        private System.Windows.Forms.ListBox listBox_locationName;
+        private FontAwesome.Sharp.IconButton btnReturn;
+        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnUpdate;
+        private FontAwesome.Sharp.IconButton btnAdd;
+        private FontAwesome.Sharp.IconButton btnDown;
+        private FontAwesome.Sharp.IconButton btnUp;
+        private System.Windows.Forms.ListBox lstboxLocationName;
     }
 }

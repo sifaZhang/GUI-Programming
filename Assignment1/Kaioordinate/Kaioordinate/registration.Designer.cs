@@ -1,6 +1,6 @@
 ﻿namespace Kaioordinate
 {
-    partial class registration
+    partial class registrationFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,68 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.iconButton_reture = new FontAwesome.Sharp.IconButton();
-            this.iconButton_delete = new FontAwesome.Sharp.IconButton();
-            this.iconButton_add = new FontAwesome.Sharp.IconButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(registrationFrm));
+            this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.dgEvent = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.dgWhanau = new System.Windows.Forms.DataGridView();
             this.dgRegistration = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox_preparation = new System.Windows.Forms.CheckBox();
+            this.ckboxPreparation = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgEvent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgWhanau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgRegistration)).BeginInit();
             this.SuspendLayout();
             // 
-            // iconButton_reture
+            // btnReturn
             // 
-            this.iconButton_reture.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_reture.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_reture.IconChar = FontAwesome.Sharp.IconChar.SignOut;
-            this.iconButton_reture.IconColor = System.Drawing.Color.Black;
-            this.iconButton_reture.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_reture.IconSize = 150;
-            this.iconButton_reture.Location = new System.Drawing.Point(1574, 898);
-            this.iconButton_reture.Name = "iconButton_reture";
-            this.iconButton_reture.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_reture.TabIndex = 49;
-            this.iconButton_reture.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
-            this.iconButton_reture.UseVisualStyleBackColor = false;
-            this.iconButton_reture.Click += new System.EventHandler(this.iconButton_reture_Click);
+            this.btnReturn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnReturn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.SignOut;
+            this.btnReturn.IconColor = System.Drawing.Color.Black;
+            this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReturn.IconSize = 150;
+            this.btnReturn.Location = new System.Drawing.Point(1574, 898);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(280, 280);
+            this.btnReturn.TabIndex = 49;
+            this.btnReturn.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // iconButton_delete
+            // btnDelete
             // 
-            this.iconButton_delete.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_delete.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_delete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton_delete.IconColor = System.Drawing.Color.Black;
-            this.iconButton_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_delete.IconSize = 150;
-            this.iconButton_delete.Location = new System.Drawing.Point(1255, 898);
-            this.iconButton_delete.Name = "iconButton_delete";
-            this.iconButton_delete.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_delete.TabIndex = 48;
-            this.iconButton_delete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
-            this.iconButton_delete.UseVisualStyleBackColor = false;
-            this.iconButton_delete.Click += new System.EventHandler(this.iconButton_delete_Click);
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnDelete.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.Black;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 150;
+            this.btnDelete.Location = new System.Drawing.Point(1255, 898);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(280, 280);
+            this.btnDelete.TabIndex = 48;
+            this.btnDelete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // iconButton_add
+            // btnAdd
             // 
-            this.iconButton_add.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_add.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_add.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton_add.IconColor = System.Drawing.Color.Black;
-            this.iconButton_add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_add.IconSize = 150;
-            this.iconButton_add.Location = new System.Drawing.Point(969, 898);
-            this.iconButton_add.Name = "iconButton_add";
-            this.iconButton_add.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_add.TabIndex = 47;
-            this.iconButton_add.Text = "\r\n\r\n\r\n\r\n\r\nADD";
-            this.iconButton_add.UseVisualStyleBackColor = false;
-            this.iconButton_add.Click += new System.EventHandler(this.iconButton_add_Click);
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAdd.IconColor = System.Drawing.Color.Black;
+            this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAdd.IconSize = 150;
+            this.btnAdd.Location = new System.Drawing.Point(969, 898);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(280, 280);
+            this.btnAdd.TabIndex = 47;
+            this.btnAdd.Text = "\r\n\r\n\r\n\r\n\r\nADD";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgEvent
             // 
@@ -162,37 +163,38 @@
             this.label3.TabIndex = 55;
             this.label3.Text = "Registrations";
             // 
-            // checkBox_preparation
+            // ckboxPreparation
             // 
-            this.checkBox_preparation.AutoSize = true;
-            this.checkBox_preparation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_preparation.ForeColor = System.Drawing.Color.White;
-            this.checkBox_preparation.Location = new System.Drawing.Point(969, 743);
-            this.checkBox_preparation.Name = "checkBox_preparation";
-            this.checkBox_preparation.Size = new System.Drawing.Size(469, 46);
-            this.checkBox_preparation.TabIndex = 56;
-            this.checkBox_preparation.Text = "Kai Preparation Assistant";
-            this.checkBox_preparation.UseVisualStyleBackColor = true;
+            this.ckboxPreparation.AutoSize = true;
+            this.ckboxPreparation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckboxPreparation.ForeColor = System.Drawing.Color.White;
+            this.ckboxPreparation.Location = new System.Drawing.Point(969, 743);
+            this.ckboxPreparation.Name = "ckboxPreparation";
+            this.ckboxPreparation.Size = new System.Drawing.Size(469, 46);
+            this.ckboxPreparation.TabIndex = 56;
+            this.ckboxPreparation.Text = "Kai Preparation Assistant";
+            this.ckboxPreparation.UseVisualStyleBackColor = true;
             // 
-            // registration
+            // registrationFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1887, 1224);
-            this.Controls.Add(this.checkBox_preparation);
+            this.Controls.Add(this.ckboxPreparation);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgRegistration);
             this.Controls.Add(this.dgWhanau);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgEvent);
-            this.Controls.Add(this.iconButton_reture);
-            this.Controls.Add(this.iconButton_delete);
-            this.Controls.Add(this.iconButton_add);
-            this.Name = "registration";
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnAdd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "registrationFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration Maintenance";
-            this.Load += new System.EventHandler(this.registration_Load);
+            this.Load += new System.EventHandler(this.registrationFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgEvent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgWhanau)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgRegistration)).EndInit();
@@ -203,15 +205,15 @@
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton iconButton_reture;
-        private FontAwesome.Sharp.IconButton iconButton_delete;
-        private FontAwesome.Sharp.IconButton iconButton_add;
+        private FontAwesome.Sharp.IconButton btnReturn;
+        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnAdd;
         private System.Windows.Forms.DataGridView dgEvent;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgWhanau;
         private System.Windows.Forms.DataGridView dgRegistration;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox_preparation;
+        private System.Windows.Forms.CheckBox ckboxPreparation;
     }
 }

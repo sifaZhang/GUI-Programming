@@ -1,4 +1,8 @@
-﻿using System;
+﻿// this file is entry point for the Kaioordinate application.
+// Author: Sifa Zhang
+// Date: 08/11/2025
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,24 +18,31 @@ namespace Kaioordinate
     public partial class MianFrm : Form
     {
         private DataModule DM;
-        private eventManagement eventManagementFrm;
-        private kaiManagement kaiManagementFrm;
-        private whānauManagement whanauManagementFrm;
-        private locationManagement locationManagementFrm;
-        private registration registrationFrm;
+        private eventManagementFrm eventManagementFrm;
+        private kaiManagementFrm kaiManagementFrm;
+        private whānauManagementFrm whanauManagementFrm;
+        private locationFrm locationManagementFrm;
+        private registrationFrm registrationFrm;
         private reportPreview reportPreviewFrm;
+        private calenderFrm calenderFrm;
 
+        /// <summary>
+        /// constructor for the main form of the Kaioordinate application.
+        /// </summary>
         public MianFrm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            DM = new DataModule();
-        }
-
-        private void iconButton_report_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the click event for the report button, displaying a report preview dialog.
+        /// </summary>
+        /// <remarks>If the report preview form has not been initialized, it is created before being
+        /// displayed. The dialog is shown modally, blocking interaction with other windows until it is
+        /// closed.</remarks>
+        /// <param name="sender">The source of the event, typically the button that was clicked.</param>
+        /// <param name="e">The event data associated with the click action.</param>
+        private void btnReport_Click(object sender, EventArgs e)
         {
             if (reportPreviewFrm == null)
             {
@@ -40,7 +51,12 @@ namespace Kaioordinate
             reportPreviewFrm.ShowDialog();
         }
 
-        private void iconButton_exit_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the exit button. Prompts the user for confirmation before closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure to exit？", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -49,49 +65,100 @@ namespace Kaioordinate
             }
         }
 
-        private void iconButton_Kai_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the kai management button. If the kai management form has not been
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnKai_Click(object sender, EventArgs e)
         {
             if (kaiManagementFrm == null)
             {
-                kaiManagementFrm = new kaiManagement(DM);
+                kaiManagementFrm = new kaiManagementFrm(DM);
             }
             kaiManagementFrm.ShowDialog();
         }
 
-        private void iconButton_event_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the event management button. If the event management form has not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEvent_Click(object sender, EventArgs e)
         {
             if (eventManagementFrm == null)
             {
-                eventManagementFrm = new eventManagement(DM);
+                eventManagementFrm = new eventManagementFrm(DM);
             }
             eventManagementFrm.ShowDialog();
         }
 
-        private void iconButton_whanau_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the whānau management button. If the whānau management form has not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnWhanau_Click(object sender, EventArgs e)
         {
             if (whanauManagementFrm == null)
             {
-                whanauManagementFrm = new whānauManagement(DM);
+                whanauManagementFrm = new whānauManagementFrm(DM);
             }
             whanauManagementFrm.ShowDialog();
         }
 
-        private void iconButton_location_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the location management button. If the location management form has not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLocation_Click(object sender, EventArgs e)
         {
             if (locationManagementFrm == null)
             {
-                locationManagementFrm = new locationManagement(DM);
+                locationManagementFrm = new locationFrm(DM);
             }
             locationManagementFrm.ShowDialog();
         }
 
-        private void iconButton_registration_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the registration button. If the registration form has not been
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRegistration_Click(object sender, EventArgs e)
         {
             if (registrationFrm == null)
             {
-                registrationFrm = new registration(DM);
+                registrationFrm = new registrationFrm(DM);
             }
             registrationFrm.ShowDialog();
+        }
+
+        /// <summary>
+        /// handles the click event for the calendar button. If the calendar form has not been initialized,
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCalender_Click(object sender, EventArgs e)
+        {
+            if (calenderFrm == null)
+            {
+                calenderFrm = new calenderFrm(DM);
+            }
+            calenderFrm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the load event of the main form. Creates a new instance of the <see cref="DataModule"/> class
+        /// </summary>
+        /// <remarks>This method initializes the <see cref="DataModule"/> instance when the form is
+        /// loaded.</remarks>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">An <see cref="EventArgs"/> object that contains the event data.</param>
+        private void MianFrm_Load(object sender, EventArgs e)
+        {
+            DM = new DataModule();
         }
     }
 }

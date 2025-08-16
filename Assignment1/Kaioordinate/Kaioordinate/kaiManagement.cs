@@ -1,4 +1,8 @@
-﻿using System;
+﻿// this file is used to manage kai (food) records in the Kaioordinate application.
+// Author: Sifa Zhang
+// Date: 08/11/2025
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +14,9 @@ using System.Windows.Forms;
 
 namespace Kaioordinate
 {
-    public partial class kaiManagement : Form
+    public partial class kaiManagementFrm : Form
     {
+        // define an enum to represent the action being performed on the kai records
         enum EventAction
         {
             none,
@@ -19,11 +24,16 @@ namespace Kaioordinate
             Update
         }
 
+        // define private fields for the data module, currency manager, and current event action
         private DataModule DM;
         private CurrencyManager currencyManager;
         private EventAction eventAction = EventAction.none;
 
-        public kaiManagement(DataModule dm)
+        /// <summary>
+        /// constructor for the kaiManagement form.
+        /// </summary>
+        /// <param name="dm"></param>
+        public kaiManagementFrm(DataModule dm)
         {
             InitializeComponent();
 
@@ -31,162 +41,231 @@ namespace Kaioordinate
             BindControls();
         }
 
+        /// <summary>
+        /// binds the controls on the form to the data source.
+        /// </summary>
         public void BindControls()
         {
-            txtBox_kaiID.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiID");
-            txtBox_kaiNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiName");
-            txtBox_preparation.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationRequired");
-            txtBox_time.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationMinutes");
-            txtBox_quantity.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.ServeQuantity");
-            txtBox_event.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.EventName");
+            // bind the text boxes to the corresponding fields in the data source
+            txtboxKaiID.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiID");
+            txtboxKaiNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiName");
+            txtboxPreparation.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationRequired");
+            txtboxTme.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationMinutes");
+            txtboxQuantity.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.ServeQuantity");
+            txtboxEvent.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.EventName");
 
-            listBox_kaiName.DataSource = DM.dsKaioordinate;
-            listBox_kaiName.DisplayMember = "Kai.KaiName";
-            listBox_kaiName.ValueMember = "Kai.KaiName";
+            // set the data source for the list box to the kai records in the data source
+            lstboxKaiName.DataSource = DM.dsKaioordinate;
+            lstboxKaiName.DisplayMember = "Kai.KaiName";
+            lstboxKaiName.ValueMember = "Kai.KaiName";
 
+            // create a currency manager to manage the current position in the kai records
             currencyManager = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "Kai"];
         }
 
-        private void iconButton_reture_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the return button, closing the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void kaiManagement_Load(object sender, EventArgs e)
+        /// <summary>
+        /// form load event handler, sets the background color of the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void kaiManagementFrm_Load(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.Color.FromArgb(6, 73, 41);
         }
 
-        private void iconButton_update_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the update button, allowing the user to update a kai record.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
+            // define the action as Update
             eventAction = EventAction.Update;
-            iconButton_up.Enabled = false;
-            iconButton_down.Enabled = false;
-            iconButton_delete.Enabled = false;
-            iconButton_return.Enabled = false;
-            iconButton_update.Enabled = false;
-            iconButton_add.Enabled = false;
-            listBox_kaiName.Hide();
+
+            // disable the buttons and controls that should not be used during the update process
+            btnUp.Enabled = false;
+            btnDown.Enabled = false;
+            btnDelete.Enabled = false;
+            btnReturn.Enabled = false;
+            btnUpdate.Enabled = false;
+            btnAdd.Enabled = false;
+            lstboxKaiName.Hide();
             panel1.Visible = true;
 
-            comboBox_event.DisplayMember = "EventName";
-            comboBox_event.ValueMember = "EventID";
-            comboBox_event.DataSource = DM.dsKaioordinate.Tables["Event"];
-            comboBox_event.SelectedItem = txtBox_event.Text;
+            // set the data source for the combo box to the event records in the data source
+            cmboxEvent.DisplayMember = "EventName";
+            cmboxEvent.ValueMember = "EventID";
+            cmboxEvent.DataSource = DM.dsKaioordinate.Tables["Event"];
+            cmboxEvent.SelectedItem = txtboxEvent.Text;
 
-            txtBox_kaiName.Text = txtBox_kaiNameShow.Text;
-            checkBox_preparation.Checked = txtBox_preparation.Text == "True";
+            // set the text boxes to the values from the data source
+            txtboxKaiName.Text = txtboxKaiNameShow.Text;
+            ckboxPreparation.Checked = txtboxPreparation.Text == "True";
 
-            numericUpDown_quantity.Value = string.IsNullOrEmpty(txtBox_quantity.Text) ? 0 : Convert.ToDecimal(txtBox_quantity.Text);
-            numericUpDown_time.Value = string.IsNullOrEmpty(txtBox_time.Text) ? 0 : Convert.ToDecimal(txtBox_time.Text);
+            // set the numeric up-down controls to the values from the text boxes, or 0 if the text boxes are empty
+            numericQuantity.Value = string.IsNullOrEmpty(txtboxQuantity.Text) ? 0 : Convert.ToDecimal(txtboxQuantity.Text);
+            numericTime.Value = string.IsNullOrEmpty(txtboxTme.Text) ? 0 : Convert.ToDecimal(txtboxTme.Text);
         }
 
-        private void iconButton_cancel_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the cancel button, resetting the form to its initial state.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            iconButton_up.Enabled = true;
-            iconButton_down.Enabled = true;
-            iconButton_delete.Enabled = true;
-            iconButton_return.Enabled = true;
-            iconButton_update.Enabled = true;
-            iconButton_add.Enabled = true;
-            listBox_kaiName.Show();
+            // reset the form to its initial state by enabling the buttons and controls
+            btnUp.Enabled = true;
+            btnDown.Enabled = true;
+            btnDelete.Enabled = true;
+            btnReturn.Enabled = true;
+            btnUpdate.Enabled = true;
+            btnAdd.Enabled = true;
+            lstboxKaiName.Show();
             panel1.Visible = false;
+
+            // clear the text boxes and numeric up-down controls
             eventAction = EventAction.none;
         }
 
-        private void iconButton_up_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the up button, moving the current position in the currency manager up by one.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUp_Click(object sender, EventArgs e)
         {
+            // if the current position is greater than 0, move up one position in the currency manager
             if (currencyManager.Position > 0)
             {
                 --currencyManager.Position;
             }
         }
 
-        private void iconButton_down_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the down button, moving the current position in the currency manager down by one.
+        /// </summary>
+        private void btnDown_Click(object sender, EventArgs e)
         {
+            // if the current position is less than the total count minus one, move down one position in the currency manager
             if (currencyManager.Position < currencyManager.Count - 1)
             {
                 ++currencyManager.Position;
             }
         }
 
-        private void iconButton_add_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the add button, allowing the user to add a new kai record.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAdd_Click(object sender, EventArgs e)
         {
+            // define the action as Add
             eventAction = EventAction.Add;
-            iconButton_up.Enabled = false;
-            iconButton_down.Enabled = false;
-            iconButton_delete.Enabled = false;
-            iconButton_return.Enabled = false;
-            iconButton_update.Enabled = false;
-            iconButton_add.Enabled = false;
-            listBox_kaiName.Hide();
+
+            // disable the buttons and controls that should not be used during the add process
+            btnUp.Enabled = false;
+            btnDown.Enabled = false;
+            btnDelete.Enabled = false;
+            btnReturn.Enabled = false;
+            btnUpdate.Enabled = false;
+            btnAdd.Enabled = false;
+            lstboxKaiName.Hide();
             panel1.Visible = true;
 
+            // set the data source for the combo box to the event records in the data source
+            cmboxEvent.DisplayMember = "EventName";
+            cmboxEvent.ValueMember = "EventID";
+            cmboxEvent.DataSource = DM.dsKaioordinate.Tables["Event"];
 
-            comboBox_event.DisplayMember = "EventName";
-            comboBox_event.ValueMember = "EventID";
-            comboBox_event.DataSource = DM.dsKaioordinate.Tables["Event"];
-
-            txtBox_kaiName.Text = "";
-            numericUpDown_quantity.Value = 0;
-            numericUpDown_time.Value = 0;
+            // clear the text boxes and numeric up-down controls
+            txtboxKaiName.Text = "";
+            numericQuantity.Value = 0;
+            numericTime.Value = 0;
         }
 
-        private void iconButton_save_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the save button, saving the changes made to the kai record.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            // if the event action is none, do nothing
             if (eventAction == EventAction.Add)
             {
                 DataRow newRow = DM.kaiTable.NewRow();
-                if (txtBox_kaiName.Text == ""
-                    || comboBox_event.Text == ""
-                    ||  numericUpDown_quantity.Text == ""
-                    || numericUpDown_time.Text == ""
-                    || Convert.ToInt32(numericUpDown_quantity.Text) <= 0
-                    || Convert.ToInt32(numericUpDown_time.Text) < 0)
+                if (txtboxKaiName.Text == ""
+                    || cmboxEvent.Text == ""
+                    ||  numericQuantity.Text == ""
+                    || numericTime.Text == ""
+                    || Convert.ToInt32(numericQuantity.Text) <= 0
+                    || Convert.ToInt32(numericTime.Text) < 0)
                 {
-                    MessageBox.Show("You must type in all datas", "Error");
+                    // if any of the required fields are empty or invalid, show an error message
+                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    newRow["EventID"] = Convert.ToInt32(comboBox_event.SelectedValue);
-                    newRow["KaiName"] = txtBox_kaiName.Text;
-                    newRow["PreparationRequired"] = checkBox_preparation.Checked;
-                    newRow["PreparationMinutes"] = numericUpDown_time.Value;
-                    newRow["ServeQuantity"] = numericUpDown_quantity.Value;
+                    // if all fields are valid, set the values for the new row and add it to the kai table
+                    newRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                    newRow["KaiName"] = txtboxKaiName.Text;
+                    newRow["PreparationRequired"] = ckboxPreparation.Checked;
+                    newRow["PreparationMinutes"] = numericTime.Value;
+                    newRow["ServeQuantity"] = numericQuantity.Value;
 
                     DM.kaiTable.Rows.Add(newRow);
-                    MessageBox.Show("Kai added successfully", "Success");
+                    MessageBox.Show("Kai added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DM.UpdateKai();
                 }
             }
             else if (eventAction == EventAction.Update)
             {
                 DataRow updateRow = DM.kaiTable.Rows[currencyManager.Position];
-                if (txtBox_kaiName.Text == ""
-                    || comboBox_event.Text == ""
-                    || numericUpDown_quantity.Text == ""
-                    || numericUpDown_time.Text == ""
-                    || Convert.ToInt32(numericUpDown_quantity.Text) <= 0
-                    || Convert.ToInt32(numericUpDown_time.Text) < 0)
+                if (txtboxKaiName.Text == ""
+                    || cmboxEvent.Text == ""
+                    || numericQuantity.Text == ""
+                    || numericTime.Text == ""
+                    || Convert.ToInt32(numericQuantity.Text) <= 0
+                    || Convert.ToInt32(numericTime.Text) < 0)
                 {
-                    MessageBox.Show("You must type in all datas", "Error");
+                    // if any of the required fields are empty or invalid, show an error message
+                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    updateRow["EventID"] = Convert.ToInt32(comboBox_event.SelectedValue);
-                    updateRow["KaiName"] = txtBox_kaiName.Text;
-                    updateRow["PreparationRequired"] = checkBox_preparation.Checked;
-                    updateRow["PreparationMinutes"] = numericUpDown_time.Value;
-                    updateRow["ServeQuantity"] = numericUpDown_quantity.Value;
+                    // if all fields are valid, set the values for the update row and save the changes
+                    updateRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                    updateRow["KaiName"] = txtboxKaiName.Text;
+                    updateRow["PreparationRequired"] = ckboxPreparation.Checked;
+                    updateRow["PreparationMinutes"] = numericTime.Value;
+                    updateRow["ServeQuantity"] = numericQuantity.Value;
 
                     currencyManager.EndCurrentEdit();
                     DM.UpdateKai();
-                    MessageBox.Show("Kai updated successfully", "Success");
+                    MessageBox.Show("Kai updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
-        private void iconButton_delete_Click(object sender, EventArgs e)
+        /// <summary>
+        /// handles the click event for the delete button, allowing the user to delete a kai record.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             DataRow deleteow = DM.kaiTable.Rows[currencyManager.Position];
             //if (txtBox_event.Text != "")
@@ -196,12 +275,13 @@ namespace Kaioordinate
             //else
             {
                 if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
-                MessageBoxButtons.OKCancel) == DialogResult.OK)
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     deleteow.Delete();
                     DM.UpdateKai();
                 }
             }
         }
+
     }
 }

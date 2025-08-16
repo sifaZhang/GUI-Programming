@@ -1,4 +1,8 @@
-﻿using System;
+﻿// this file is used to preview reports in the Kaioordinate application.
+// Author: Sifa Zhang
+// Date: 08/16/2025
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +22,10 @@ namespace Kaioordinate
         private DataModule DM;
         private int currentEventIndex = 0;
 
+        /// <summary>
+        /// Constructor for reportPreview
+        /// </summary>
+        /// <param name="dm"></param>
         public reportPreview(DataModule dm)
         {
             InitializeComponent();
@@ -25,25 +33,23 @@ namespace Kaioordinate
             DM = dm;
         }
 
+        /// <summary>
+        /// form load event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reportPreview_Load(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.Color.FromArgb(6, 73, 41);
         }
 
-        private void iconButton_reture_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void iconButton_report_Click(object sender, EventArgs e)
-        {
-            Print();
-        }
-
-        public void Print()
+        /// <summary>
+        /// Prepare the preview to print events report
+        /// </summary>
+        public void PrintEvents()
         {
             PrintDocument pd = new PrintDocument();
-            pd.PrintPage += PrintPage;
+            pd.PrintPage += DrawEventPage;
             PrintPreviewDialog preview = new PrintPreviewDialog
             {
                 Document = pd,
@@ -53,14 +59,95 @@ namespace Kaioordinate
             preview.ShowDialog();
         }
 
-        private void PrintPage(object sender, PrintPageEventArgs e)
+        /// <summary>
+        /// Prepare the preview to print whanaus report
+        /// </summary>
+        public void PrintWhanaus()
         {
+            PrintDocument pd = new PrintDocument();
+            pd.PrintPage += DrawWhanauPage;
+            PrintPreviewDialog preview = new PrintPreviewDialog
+            {
+                Document = pd,
+                Width = 800,
+                Height = 600
+            };
+            preview.ShowDialog();
+        }
+
+        /// <summary>
+        /// draw whanau page for printing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DrawWhanauPage(object sender, PrintPageEventArgs e)
+        {
+            // prepare the graphics and fonts for drawing
+            Graphics g = e.Graphics;
+            Font titleFont = new Font("Arial", 14, FontStyle.Bold);
+            Font detailFont = new Font("Arial", 14);
+            float y = 50;
+            int column1StartPoint = 20;
+            int column2StartPoint = 160;
+            int column3StartPoint = 360;
+            int column4StartPoint = 560;
+            int column5StartPoint = 700;
+            int rowHeight = 28;
+
+            // draw the title
+            g.DrawString($"WhanauID", titleFont, Brushes.Black, column1StartPoint, y);
+            g.DrawString($"Name", titleFont, Brushes.Black, column2StartPoint, y);
+            g.DrawString($"Phone", titleFont, Brushes.Black, column3StartPoint, y);
+            g.DrawString($"Participation", titleFont, Brushes.Black, column4StartPoint, y);
+            g.DrawString($"Preparation", titleFont, Brushes.Black, column5StartPoint, y);
+            g.DrawLine(Pens.Black, column1StartPoint, y + rowHeight, column5StartPoint + 200, y + rowHeight);
+            y += rowHeight * 2;
+
+            // draw the data rows
+            for (int i = 0; i < DM.whanauTable.Rows.Count - 1; i++)
+            {
+                DataRow whanauRow = DM.whanauTable.Rows[i];
+                string whanauID = whanauRow["WhanauID"].ToString();
+                g.DrawString($"{whanauID}", detailFont, Brushes.Black, column1StartPoint, y);
+
+                string firstName = whanauRow["FirstName"].ToString();
+                string lastName = whanauRow["LastName"].ToString();
+                g.DrawString($"{firstName} {lastName}", detailFont, Brushes.Black, column2StartPoint, y);
+
+                string phone = whanauRow["Phone"].ToString();
+                g.DrawString($"{phone}", detailFont, Brushes.Black, column3StartPoint, y);
+
+                int ParticipationCount = DM.registrationTable.Select("WhanauID = " + whanauID).Length;
+                g.DrawString($"{ParticipationCount}", detailFont, Brushes.Black, column4StartPoint, y);
+
+                int PreparationCount = DM.registrationTable.Select("WhanauID = " + whanauID + " AND KaiPreparation = true").Length;
+                g.DrawString($"{PreparationCount}", detailFont, Brushes.Black, column5StartPoint, y);
+
+                y += rowHeight;
+            }
+
+            // draw the horizontal line at the bottom
+            g.DrawLine(Pens.Black, column1StartPoint, y, column5StartPoint + 200, y);
+
+            // reset the current event index for the next print
+            e.HasMorePages = false;
+        }
+
+        /// <summary>
+        /// draw event page for printing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DrawEventPage(object sender, PrintPageEventArgs e)
+        {
+            // Check if there are more events to print
             if (currentEventIndex >= DM.eventTable.Rows.Count)
             {
                 e.HasMorePages = false;
                 return;
             }
 
+            // Prepare the graphics and fonts for drawing
             Graphics g = e.Graphics;
             Font titleFont = new Font("Arial", 14, FontStyle.Bold);
             Font detailFont = new Font("Arial", 14);
@@ -71,6 +158,7 @@ namespace Kaioordinate
             int column4StartPoint = 600;
             int rowHeight = 28;
 
+            // Draw the summary
             DataRow eventRow = DM.eventTable.Rows[currentEventIndex];
             string eventID = eventRow["EventID"].ToString();
             g.DrawString($"Event ID:", titleFont, Brushes.Black, column1StartPoint, y);
@@ -82,11 +170,13 @@ namespace Kaioordinate
             g.DrawString($"{eventName}", detailFont, Brushes.Black, column2StartPoint, y);
             y += rowHeight;
 
-            string eventDate = eventRow["EventDate"].ToString();
+            DateTime raw = Convert.ToDateTime(eventRow["EventDate"]);
+            string eventDate = raw.Date.ToString("MM-dd-yyyy");
             g.DrawString($"Date:", titleFont, Brushes.Black, column1StartPoint, y);
             g.DrawString($"{eventDate}", detailFont, Brushes.Black, column2StartPoint, y);
             y += rowHeight;
 
+            // Get the location information
             string locationID = eventRow["LocationID"].ToString(); ;
             DataRow[] locationRow = DM.locationTable.Select("locationID = " + locationID);
             if (locationRow.Length > 0)
@@ -97,11 +187,12 @@ namespace Kaioordinate
                 y += rowHeight;
 
                 string address = locationRow[0]["Address"].ToString();
-                g.DrawString($"Location:", titleFont, Brushes.Black, column1StartPoint, y);
+                g.DrawString($"Address:", titleFont, Brushes.Black, column1StartPoint, y);
                 g.DrawString($"{address}", detailFont, Brushes.Black, column2StartPoint, y);
                 y += rowHeight;
             }
 
+            // Draw the attendees section
             y += rowHeight / 2;
             g.DrawString($"Attendees:", titleFont, Brushes.Black, column1StartPoint, y);
             y += rowHeight + rowHeight / 2;
@@ -112,7 +203,7 @@ namespace Kaioordinate
             g.DrawString($"Helper", titleFont, Brushes.Black, column4StartPoint, y);
             y += rowHeight;
 
-            // 获取子表数据
+            // Draw whanaus registered for the event
             DataRow[] registrationRows = DM.registrationTable.Select("EventID = " + eventID);
             foreach (DataRow task in registrationRows)
             {
@@ -137,5 +228,37 @@ namespace Kaioordinate
             e.HasMorePages = currentEventIndex < DM.eventTable.Rows.Count;
         }
 
+        /// <summary>
+        /// Handles the click event of the Return button.
+        /// </summary>
+        /// <remarks>This method closes the current form when the Return button is clicked.</remarks>
+        /// <param name="sender">The source of the event, typically the button that was clicked.</param>
+        /// <param name="e">An <see cref="EventArgs"/> object containing event data.</param>
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Handles the click event for the Event Report button.
+        /// </summary>
+        /// <remarks>This method triggers the generation of an event report by invoking the <see
+        /// cref="PrintEvents"/> method.</remarks>
+        /// <param name="sender">The source of the event, typically the button that was clicked.</param>
+        /// <param name="e">An <see cref="EventArgs"/> object containing event data.</param>
+        private void btnEventReport_Click(object sender, EventArgs e)
+        {
+            PrintEvents();
+        }
+
+        /// <summary>
+        /// handles the click event for the Participation Report button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnParticipationRreport_Click(object sender, EventArgs e)
+        {
+            PrintWhanaus();
+        }
     }
 }

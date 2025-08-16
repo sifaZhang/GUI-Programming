@@ -1,6 +1,6 @@
 ﻿namespace Kaioordinate
 {
-    partial class whānauManagement
+    partial class whānauManagementFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,48 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBox_whanauID = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(whānauManagementFrm));
+            this.txtboxWhanauID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.iconButton_return = new FontAwesome.Sharp.IconButton();
-            this.iconButton_delete = new FontAwesome.Sharp.IconButton();
-            this.iconButton_update = new FontAwesome.Sharp.IconButton();
-            this.iconButton_add = new FontAwesome.Sharp.IconButton();
-            this.iconButton_down = new FontAwesome.Sharp.IconButton();
-            this.iconButton_up = new FontAwesome.Sharp.IconButton();
-            this.listBox_whanauName = new System.Windows.Forms.ListBox();
-            this.txtBox_addressShow = new System.Windows.Forms.TextBox();
+            this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.btnUpdate = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
+            this.btnDown = new FontAwesome.Sharp.IconButton();
+            this.btnUp = new FontAwesome.Sharp.IconButton();
+            this.lstboxWhanauName = new System.Windows.Forms.ListBox();
+            this.txtboxAddressShow = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBox_phoneShow = new System.Windows.Forms.TextBox();
-            this.txtBox_emailShow = new System.Windows.Forms.TextBox();
-            this.txtBox_lastNameShow = new System.Windows.Forms.TextBox();
+            this.txtboxPhoneShow = new System.Windows.Forms.TextBox();
+            this.txtboxEmailShow = new System.Windows.Forms.TextBox();
+            this.txtboxLastNameShow = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtBox_firstNameShow = new System.Windows.Forms.TextBox();
+            this.txtboxFirstNameShow = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtBox_address = new System.Windows.Forms.TextBox();
+            this.txtboxAddress = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtBox_phone = new System.Windows.Forms.TextBox();
-            this.txtBox_email = new System.Windows.Forms.TextBox();
-            this.txtBox_lastName = new System.Windows.Forms.TextBox();
+            this.txtboxPhone = new System.Windows.Forms.TextBox();
+            this.txtboxEmail = new System.Windows.Forms.TextBox();
+            this.txtboxLastName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnCancel = new FontAwesome.Sharp.IconButton();
+            this.btnSave = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtBox_firstName = new System.Windows.Forms.TextBox();
+            this.txtboxFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtBox_whanauID
+            // txtboxWhanauID
             // 
-            this.txtBox_whanauID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_whanauID.Location = new System.Drawing.Point(1038, 52);
-            this.txtBox_whanauID.Name = "txtBox_whanauID";
-            this.txtBox_whanauID.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_whanauID.TabIndex = 48;
+            this.txtboxWhanauID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxWhanauID.Location = new System.Drawing.Point(1038, 52);
+            this.txtboxWhanauID.Name = "txtboxWhanauID";
+            this.txtboxWhanauID.Size = new System.Drawing.Size(669, 49);
+            this.txtboxWhanauID.TabIndex = 48;
             // 
             // label1
             // 
@@ -82,120 +83,120 @@
             this.label1.TabIndex = 47;
             this.label1.Text = "Whanau ID";
             // 
-            // iconButton_return
+            // btnReturn
             // 
-            this.iconButton_return.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_return.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_return.IconChar = FontAwesome.Sharp.IconChar.SignOut;
-            this.iconButton_return.IconColor = System.Drawing.Color.Black;
-            this.iconButton_return.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_return.IconSize = 150;
-            this.iconButton_return.Location = new System.Drawing.Point(1585, 659);
-            this.iconButton_return.Name = "iconButton_return";
-            this.iconButton_return.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_return.TabIndex = 46;
-            this.iconButton_return.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
-            this.iconButton_return.UseVisualStyleBackColor = false;
-            this.iconButton_return.Click += new System.EventHandler(this.iconButton_reture_Click);
+            this.btnReturn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnReturn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.SignOut;
+            this.btnReturn.IconColor = System.Drawing.Color.Black;
+            this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReturn.IconSize = 150;
+            this.btnReturn.Location = new System.Drawing.Point(1585, 659);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(280, 280);
+            this.btnReturn.TabIndex = 46;
+            this.btnReturn.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // iconButton_delete
+            // btnDelete
             // 
-            this.iconButton_delete.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_delete.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_delete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.iconButton_delete.IconColor = System.Drawing.Color.Black;
-            this.iconButton_delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_delete.IconSize = 150;
-            this.iconButton_delete.Location = new System.Drawing.Point(1256, 659);
-            this.iconButton_delete.Name = "iconButton_delete";
-            this.iconButton_delete.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_delete.TabIndex = 45;
-            this.iconButton_delete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
-            this.iconButton_delete.UseVisualStyleBackColor = false;
-            this.iconButton_delete.Click += new System.EventHandler(this.iconButton_delete_Click);
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnDelete.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnDelete.IconColor = System.Drawing.Color.Black;
+            this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDelete.IconSize = 150;
+            this.btnDelete.Location = new System.Drawing.Point(1256, 659);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(280, 280);
+            this.btnDelete.TabIndex = 45;
+            this.btnDelete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // iconButton_update
+            // btnUpdate
             // 
-            this.iconButton_update.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_update.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_update.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.iconButton_update.IconColor = System.Drawing.Color.Black;
-            this.iconButton_update.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_update.IconSize = 150;
-            this.iconButton_update.Location = new System.Drawing.Point(960, 659);
-            this.iconButton_update.Name = "iconButton_update";
-            this.iconButton_update.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_update.TabIndex = 44;
-            this.iconButton_update.Text = "\r\n\r\n\r\n\r\n\r\nUPDATE";
-            this.iconButton_update.UseVisualStyleBackColor = false;
-            this.iconButton_update.Click += new System.EventHandler(this.iconButton_update_Click);
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnUpdate.IconColor = System.Drawing.Color.Black;
+            this.btnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUpdate.IconSize = 150;
+            this.btnUpdate.Location = new System.Drawing.Point(960, 659);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(280, 280);
+            this.btnUpdate.TabIndex = 44;
+            this.btnUpdate.Text = "\r\n\r\n\r\n\r\n\r\nUPDATE";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // iconButton_add
+            // btnAdd
             // 
-            this.iconButton_add.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_add.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_add.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.iconButton_add.IconColor = System.Drawing.Color.Black;
-            this.iconButton_add.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_add.IconSize = 150;
-            this.iconButton_add.Location = new System.Drawing.Point(664, 659);
-            this.iconButton_add.Name = "iconButton_add";
-            this.iconButton_add.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_add.TabIndex = 43;
-            this.iconButton_add.Text = "\r\n\r\n\r\n\r\n\r\nADD";
-            this.iconButton_add.UseVisualStyleBackColor = false;
-            this.iconButton_add.Click += new System.EventHandler(this.iconButton_add_Click);
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAdd.IconColor = System.Drawing.Color.Black;
+            this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAdd.IconSize = 150;
+            this.btnAdd.Location = new System.Drawing.Point(664, 659);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(280, 280);
+            this.btnAdd.TabIndex = 43;
+            this.btnAdd.Text = "\r\n\r\n\r\n\r\n\r\nADD";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // iconButton_down
+            // btnDown
             // 
-            this.iconButton_down.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_down.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_down.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
-            this.iconButton_down.IconColor = System.Drawing.Color.Black;
-            this.iconButton_down.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_down.IconSize = 150;
-            this.iconButton_down.Location = new System.Drawing.Point(331, 659);
-            this.iconButton_down.Name = "iconButton_down";
-            this.iconButton_down.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_down.TabIndex = 42;
-            this.iconButton_down.Text = "\r\n\r\n\r\n\r\n\r\nDOWN";
-            this.iconButton_down.UseVisualStyleBackColor = false;
-            this.iconButton_down.Click += new System.EventHandler(this.iconButton_down_Click);
+            this.btnDown.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
+            this.btnDown.IconColor = System.Drawing.Color.Black;
+            this.btnDown.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDown.IconSize = 150;
+            this.btnDown.Location = new System.Drawing.Point(331, 659);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(280, 280);
+            this.btnDown.TabIndex = 42;
+            this.btnDown.Text = "\r\n\r\n\r\n\r\n\r\nDOWN";
+            this.btnDown.UseVisualStyleBackColor = false;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
-            // iconButton_up
+            // btnUp
             // 
-            this.iconButton_up.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.iconButton_up.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_up.IconChar = FontAwesome.Sharp.IconChar.CaretSquareUp;
-            this.iconButton_up.IconColor = System.Drawing.Color.Black;
-            this.iconButton_up.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_up.IconSize = 150;
-            this.iconButton_up.Location = new System.Drawing.Point(35, 659);
-            this.iconButton_up.Name = "iconButton_up";
-            this.iconButton_up.Size = new System.Drawing.Size(280, 280);
-            this.iconButton_up.TabIndex = 41;
-            this.iconButton_up.Text = "\r\n\r\n\r\n\r\n\r\nUP";
-            this.iconButton_up.UseVisualStyleBackColor = false;
-            this.iconButton_up.Click += new System.EventHandler(this.iconButton_up_Click);
+            this.btnUp.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnUp.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.IconChar = FontAwesome.Sharp.IconChar.CaretSquareUp;
+            this.btnUp.IconColor = System.Drawing.Color.Black;
+            this.btnUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUp.IconSize = 150;
+            this.btnUp.Location = new System.Drawing.Point(35, 659);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(280, 280);
+            this.btnUp.TabIndex = 41;
+            this.btnUp.Text = "\r\n\r\n\r\n\r\n\r\nUP";
+            this.btnUp.UseVisualStyleBackColor = false;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
-            // listBox_whanauName
+            // lstboxWhanauName
             // 
-            this.listBox_whanauName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox_whanauName.FormattingEnabled = true;
-            this.listBox_whanauName.ItemHeight = 42;
-            this.listBox_whanauName.Location = new System.Drawing.Point(20, 40);
-            this.listBox_whanauName.Name = "listBox_whanauName";
-            this.listBox_whanauName.Size = new System.Drawing.Size(670, 550);
-            this.listBox_whanauName.TabIndex = 40;
+            this.lstboxWhanauName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstboxWhanauName.FormattingEnabled = true;
+            this.lstboxWhanauName.ItemHeight = 42;
+            this.lstboxWhanauName.Location = new System.Drawing.Point(20, 40);
+            this.lstboxWhanauName.Name = "lstboxWhanauName";
+            this.lstboxWhanauName.Size = new System.Drawing.Size(670, 550);
+            this.lstboxWhanauName.TabIndex = 40;
             // 
-            // txtBox_addressShow
+            // txtboxAddressShow
             // 
-            this.txtBox_addressShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_addressShow.Location = new System.Drawing.Point(1038, 451);
-            this.txtBox_addressShow.Multiline = true;
-            this.txtBox_addressShow.Name = "txtBox_addressShow";
-            this.txtBox_addressShow.Size = new System.Drawing.Size(669, 115);
-            this.txtBox_addressShow.TabIndex = 66;
+            this.txtboxAddressShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxAddressShow.Location = new System.Drawing.Point(1038, 451);
+            this.txtboxAddressShow.Multiline = true;
+            this.txtboxAddressShow.Name = "txtboxAddressShow";
+            this.txtboxAddressShow.Size = new System.Drawing.Size(669, 115);
+            this.txtboxAddressShow.TabIndex = 66;
             // 
             // label3
             // 
@@ -208,29 +209,29 @@
             this.label3.TabIndex = 65;
             this.label3.Text = "Address";
             // 
-            // txtBox_phoneShow
+            // txtboxPhoneShow
             // 
-            this.txtBox_phoneShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_phoneShow.Location = new System.Drawing.Point(1038, 370);
-            this.txtBox_phoneShow.Name = "txtBox_phoneShow";
-            this.txtBox_phoneShow.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_phoneShow.TabIndex = 64;
+            this.txtboxPhoneShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxPhoneShow.Location = new System.Drawing.Point(1038, 370);
+            this.txtboxPhoneShow.Name = "txtboxPhoneShow";
+            this.txtboxPhoneShow.Size = new System.Drawing.Size(669, 49);
+            this.txtboxPhoneShow.TabIndex = 64;
             // 
-            // txtBox_emailShow
+            // txtboxEmailShow
             // 
-            this.txtBox_emailShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_emailShow.Location = new System.Drawing.Point(1038, 289);
-            this.txtBox_emailShow.Name = "txtBox_emailShow";
-            this.txtBox_emailShow.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_emailShow.TabIndex = 63;
+            this.txtboxEmailShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxEmailShow.Location = new System.Drawing.Point(1038, 289);
+            this.txtboxEmailShow.Name = "txtboxEmailShow";
+            this.txtboxEmailShow.Size = new System.Drawing.Size(669, 49);
+            this.txtboxEmailShow.TabIndex = 63;
             // 
-            // txtBox_lastNameShow
+            // txtboxLastNameShow
             // 
-            this.txtBox_lastNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_lastNameShow.Location = new System.Drawing.Point(1038, 208);
-            this.txtBox_lastNameShow.Name = "txtBox_lastNameShow";
-            this.txtBox_lastNameShow.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_lastNameShow.TabIndex = 62;
+            this.txtboxLastNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxLastNameShow.Location = new System.Drawing.Point(1038, 208);
+            this.txtboxLastNameShow.Name = "txtboxLastNameShow";
+            this.txtboxLastNameShow.Size = new System.Drawing.Size(669, 49);
+            this.txtboxLastNameShow.TabIndex = 62;
             // 
             // label4
             // 
@@ -265,13 +266,13 @@
             this.label7.TabIndex = 59;
             this.label7.Text = "Email";
             // 
-            // txtBox_firstNameShow
+            // txtboxFirstNameShow
             // 
-            this.txtBox_firstNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_firstNameShow.Location = new System.Drawing.Point(1038, 127);
-            this.txtBox_firstNameShow.Name = "txtBox_firstNameShow";
-            this.txtBox_firstNameShow.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_firstNameShow.TabIndex = 58;
+            this.txtboxFirstNameShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxFirstNameShow.Location = new System.Drawing.Point(1038, 127);
+            this.txtboxFirstNameShow.Name = "txtboxFirstNameShow";
+            this.txtboxFirstNameShow.Size = new System.Drawing.Size(669, 49);
+            this.txtboxFirstNameShow.TabIndex = 58;
             // 
             // label8
             // 
@@ -286,17 +287,17 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtBox_address);
+            this.panel1.Controls.Add(this.txtboxAddress);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.txtBox_phone);
-            this.panel1.Controls.Add(this.txtBox_email);
-            this.panel1.Controls.Add(this.txtBox_lastName);
+            this.panel1.Controls.Add(this.txtboxPhone);
+            this.panel1.Controls.Add(this.txtboxEmail);
+            this.panel1.Controls.Add(this.txtboxLastName);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.iconButton2);
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtBox_firstName);
+            this.panel1.Controls.Add(this.txtboxFirstName);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(711, 5);
             this.panel1.Name = "panel1";
@@ -304,14 +305,14 @@
             this.panel1.TabIndex = 67;
             this.panel1.Visible = false;
             // 
-            // txtBox_address
+            // txtboxAddress
             // 
-            this.txtBox_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_address.Location = new System.Drawing.Point(344, 345);
-            this.txtBox_address.Multiline = true;
-            this.txtBox_address.Name = "txtBox_address";
-            this.txtBox_address.Size = new System.Drawing.Size(669, 115);
-            this.txtBox_address.TabIndex = 52;
+            this.txtboxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxAddress.Location = new System.Drawing.Point(344, 345);
+            this.txtboxAddress.Multiline = true;
+            this.txtboxAddress.Name = "txtboxAddress";
+            this.txtboxAddress.Size = new System.Drawing.Size(669, 115);
+            this.txtboxAddress.TabIndex = 52;
             // 
             // label12
             // 
@@ -324,29 +325,29 @@
             this.label12.TabIndex = 51;
             this.label12.Text = "Address";
             // 
-            // txtBox_phone
+            // txtboxPhone
             // 
-            this.txtBox_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_phone.Location = new System.Drawing.Point(344, 264);
-            this.txtBox_phone.Name = "txtBox_phone";
-            this.txtBox_phone.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_phone.TabIndex = 50;
+            this.txtboxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxPhone.Location = new System.Drawing.Point(344, 264);
+            this.txtboxPhone.Name = "txtboxPhone";
+            this.txtboxPhone.Size = new System.Drawing.Size(669, 49);
+            this.txtboxPhone.TabIndex = 50;
             // 
-            // txtBox_email
+            // txtboxEmail
             // 
-            this.txtBox_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_email.Location = new System.Drawing.Point(344, 183);
-            this.txtBox_email.Name = "txtBox_email";
-            this.txtBox_email.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_email.TabIndex = 49;
+            this.txtboxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxEmail.Location = new System.Drawing.Point(344, 183);
+            this.txtboxEmail.Name = "txtboxEmail";
+            this.txtboxEmail.Size = new System.Drawing.Size(669, 49);
+            this.txtboxEmail.TabIndex = 49;
             // 
-            // txtBox_lastName
+            // txtboxLastName
             // 
-            this.txtBox_lastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_lastName.Location = new System.Drawing.Point(344, 102);
-            this.txtBox_lastName.Name = "txtBox_lastName";
-            this.txtBox_lastName.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_lastName.TabIndex = 48;
+            this.txtboxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxLastName.Location = new System.Drawing.Point(344, 102);
+            this.txtboxLastName.Name = "txtboxLastName";
+            this.txtboxLastName.Size = new System.Drawing.Size(669, 49);
+            this.txtboxLastName.TabIndex = 48;
             // 
             // label11
             // 
@@ -359,37 +360,37 @@
             this.label11.TabIndex = 47;
             this.label11.Text = "Last Name";
             // 
-            // iconButton1
+            // btnCancel
             // 
-            this.iconButton1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 100;
-            this.iconButton1.Location = new System.Drawing.Point(718, 481);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(280, 100);
-            this.iconButton1.TabIndex = 46;
-            this.iconButton1.Text = "  CANCEL";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnCancel.IconColor = System.Drawing.Color.Black;
+            this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancel.IconSize = 100;
+            this.btnCancel.Location = new System.Drawing.Point(718, 481);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(280, 100);
+            this.btnCancel.TabIndex = 46;
+            this.btnCancel.Text = "  CANCEL";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // iconButton2
+            // btnSave
             // 
-            this.iconButton2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 100;
-            this.iconButton2.Location = new System.Drawing.Point(347, 484);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(280, 100);
-            this.iconButton2.TabIndex = 45;
-            this.iconButton2.Text = "   SAVE";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.btnSave.IconColor = System.Drawing.Color.Black;
+            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSave.IconSize = 100;
+            this.btnSave.Location = new System.Drawing.Point(347, 484);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(280, 100);
+            this.btnSave.TabIndex = 45;
+            this.btnSave.Text = "   SAVE";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label6
             // 
@@ -413,13 +414,13 @@
             this.label9.TabIndex = 43;
             this.label9.Text = "Email";
             // 
-            // txtBox_firstName
+            // txtboxFirstName
             // 
-            this.txtBox_firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBox_firstName.Location = new System.Drawing.Point(344, 21);
-            this.txtBox_firstName.Name = "txtBox_firstName";
-            this.txtBox_firstName.Size = new System.Drawing.Size(669, 49);
-            this.txtBox_firstName.TabIndex = 42;
+            this.txtboxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxFirstName.Location = new System.Drawing.Point(344, 21);
+            this.txtboxFirstName.Name = "txtboxFirstName";
+            this.txtboxFirstName.Size = new System.Drawing.Size(669, 49);
+            this.txtboxFirstName.TabIndex = 42;
             // 
             // label2
             // 
@@ -432,35 +433,36 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "First Name";
             // 
-            // whānauManagement
+            // whānauManagementFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1909, 963);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtBox_addressShow);
+            this.Controls.Add(this.txtboxAddressShow);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtBox_phoneShow);
-            this.Controls.Add(this.txtBox_emailShow);
-            this.Controls.Add(this.txtBox_lastNameShow);
+            this.Controls.Add(this.txtboxPhoneShow);
+            this.Controls.Add(this.txtboxEmailShow);
+            this.Controls.Add(this.txtboxLastNameShow);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtBox_firstNameShow);
+            this.Controls.Add(this.txtboxFirstNameShow);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtBox_whanauID);
+            this.Controls.Add(this.txtboxWhanauID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.iconButton_return);
-            this.Controls.Add(this.iconButton_delete);
-            this.Controls.Add(this.iconButton_update);
-            this.Controls.Add(this.iconButton_add);
-            this.Controls.Add(this.iconButton_down);
-            this.Controls.Add(this.iconButton_up);
-            this.Controls.Add(this.listBox_whanauName);
-            this.Name = "whānauManagement";
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnDown);
+            this.Controls.Add(this.btnUp);
+            this.Controls.Add(this.lstboxWhanauName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "whānauManagementFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Whānau Management";
-            this.Load += new System.EventHandler(this.WhānauManagement_Load);
+            this.Load += new System.EventHandler(this.whānauManagementFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -469,37 +471,37 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtBox_whanauID;
+        private System.Windows.Forms.TextBox txtboxWhanauID;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton iconButton_return;
-        private FontAwesome.Sharp.IconButton iconButton_delete;
-        private FontAwesome.Sharp.IconButton iconButton_update;
-        private FontAwesome.Sharp.IconButton iconButton_add;
-        private FontAwesome.Sharp.IconButton iconButton_down;
-        private FontAwesome.Sharp.IconButton iconButton_up;
-        private System.Windows.Forms.ListBox listBox_whanauName;
-        private System.Windows.Forms.TextBox txtBox_addressShow;
+        private FontAwesome.Sharp.IconButton btnReturn;
+        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnUpdate;
+        private FontAwesome.Sharp.IconButton btnAdd;
+        private FontAwesome.Sharp.IconButton btnDown;
+        private FontAwesome.Sharp.IconButton btnUp;
+        private System.Windows.Forms.ListBox lstboxWhanauName;
+        private System.Windows.Forms.TextBox txtboxAddressShow;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBox_phoneShow;
-        private System.Windows.Forms.TextBox txtBox_emailShow;
-        private System.Windows.Forms.TextBox txtBox_lastNameShow;
+        private System.Windows.Forms.TextBox txtboxPhoneShow;
+        private System.Windows.Forms.TextBox txtboxEmailShow;
+        private System.Windows.Forms.TextBox txtboxLastNameShow;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtBox_firstNameShow;
+        private System.Windows.Forms.TextBox txtboxFirstNameShow;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtBox_address;
+        private System.Windows.Forms.TextBox txtboxAddress;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtBox_phone;
-        private System.Windows.Forms.TextBox txtBox_email;
-        private System.Windows.Forms.TextBox txtBox_lastName;
+        private System.Windows.Forms.TextBox txtboxPhone;
+        private System.Windows.Forms.TextBox txtboxEmail;
+        private System.Windows.Forms.TextBox txtboxLastName;
         private System.Windows.Forms.Label label11;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnCancel;
+        private FontAwesome.Sharp.IconButton btnSave;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtBox_firstName;
+        private System.Windows.Forms.TextBox txtboxFirstName;
         private System.Windows.Forms.Label label2;
     }
 }
