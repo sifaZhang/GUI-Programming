@@ -73,6 +73,11 @@ namespace GendeneCatCare
             }
         }
 
+        public void UpdateCat()
+        {
+            daCat.Update(dtCat);
+        }
+
         public void UpdateVeterinarian()
         {
             daVeterinarian.Update(dtVeterinarian);

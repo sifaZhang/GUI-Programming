@@ -93,6 +93,7 @@
             this.btnCat.TabIndex = 2;
             this.btnCat.Text = "Cat Maintenance";
             this.btnCat.UseVisualStyleBackColor = true;
+            this.btnCat.Click += new System.EventHandler(this.btnCat_Click);
             // 
             // btnVeterinarian
             // 

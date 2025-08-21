@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceForm));
             this.txtInvoices = new System.Windows.Forms.TextBox();
             this.btnPrintReport = new System.Windows.Forms.Button();
             this.btnDisplayReport = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.printInvoices = new System.Drawing.Printing.PrintDocument();
+            this.prvInvoices = new System.Windows.Forms.PrintPreviewDialog();
             this.SuspendLayout();
             // 
             // txtInvoices
@@ -51,6 +54,7 @@
             this.btnPrintReport.TabIndex = 1;
             this.btnPrintReport.Text = "Print Report";
             this.btnPrintReport.UseVisualStyleBackColor = true;
+            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
             // 
             // btnDisplayReport
             // 
@@ -71,6 +75,21 @@
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // printInvoices
+            // 
+            this.printInvoices.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printInvoices_PrintPage);
+            // 
+            // prvInvoices
+            // 
+            this.prvInvoices.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.prvInvoices.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.prvInvoices.ClientSize = new System.Drawing.Size(400, 300);
+            this.prvInvoices.Document = this.printInvoices;
+            this.prvInvoices.Enabled = true;
+            this.prvInvoices.Icon = ((System.Drawing.Icon)(resources.GetObject("prvInvoices.Icon")));
+            this.prvInvoices.Name = "prvInvoices";
+            this.prvInvoices.Visible = false;
             // 
             // InvoiceForm
             // 
@@ -95,5 +114,7 @@
         private System.Windows.Forms.Button btnPrintReport;
         private System.Windows.Forms.Button btnDisplayReport;
         private System.Windows.Forms.Button btnReturn;
+        private System.Drawing.Printing.PrintDocument printInvoices;
+        private System.Windows.Forms.PrintPreviewDialog prvInvoices;
     }
 }

@@ -62,5 +62,14 @@ namespace GendeneCatCare
             }
             frmInvoice.ShowDialog();
         }
+
+        private void btnCat_Click(object sender, EventArgs e)
+        {
+            if (catForm == null)
+            {
+                catForm = new CatForm(DM, this);
+            }
+            catForm.ShowDialog();
+        }
     }
 }
