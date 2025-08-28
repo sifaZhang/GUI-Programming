@@ -16,6 +16,13 @@ namespace Kaioordinate
 {
     public partial class kaiManagementFrm : Form
     {
+        // add a class to save event names for combox
+        public class EventItem
+        {
+            public string EventName { get; set; }
+            public int? EventID { get; set; } //  nullable int
+        }
+
         // define an enum to represent the action being performed on the kai records
         enum EventAction
         {
@@ -28,6 +35,7 @@ namespace Kaioordinate
         private DataModule DM;
         private CurrencyManager currencyManager;
         private EventAction eventAction = EventAction.none;
+        private List<EventItem> eventList = new List<EventItem>();
 
         /// <summary>
         /// constructor for the kaiManagement form.
@@ -84,6 +92,27 @@ namespace Kaioordinate
         }
 
         /// <summary>
+        /// update eventList, add a default null to the first
+        /// </summary>
+        private void UpdateEventitems()
+        {
+            eventList.Clear();
+
+            // add default item
+            eventList.Add(new EventItem { EventName = "Please select", EventID = null });
+
+            // add real data
+            foreach (DataRow row in DM.dsKaioordinate.Tables["Event"].Rows)
+            {
+                eventList.Add(new EventItem
+                {
+                    EventName = row["EventName"].ToString(),
+                    EventID = Convert.ToInt32(row["EventID"])
+                });
+            }
+        }
+
+        /// <summary>
         /// handles the click event for the update button, allowing the user to update a kai record.
         /// </summary>
         /// <param name="sender"></param>
@@ -104,10 +133,16 @@ namespace Kaioordinate
             panel1.Visible = true;
 
             // set the data source for the combo box to the event records in the data source
+            UpdateEventitems();
             cmboxEvent.DisplayMember = "EventName";
             cmboxEvent.ValueMember = "EventID";
-            cmboxEvent.DataSource = DM.dsKaioordinate.Tables["Event"];
-            cmboxEvent.SelectedItem = txtboxEvent.Text;
+            cmboxEvent.DataSource = eventList;
+            // select current index according to the event name
+            int idx = cmboxEvent.FindStringExact(txtboxEvent.Text);
+            if (idx >= 0)
+            {
+                cmboxEvent.SelectedIndex = idx;
+            }
 
             // set the text boxes to the values from the data source
             txtboxKaiName.Text = txtboxKaiNameShow.Text;
@@ -186,9 +221,12 @@ namespace Kaioordinate
             panel1.Visible = true;
 
             // set the data source for the combo box to the event records in the data source
+            UpdateEventitems();
             cmboxEvent.DisplayMember = "EventName";
             cmboxEvent.ValueMember = "EventID";
-            cmboxEvent.DataSource = DM.dsKaioordinate.Tables["Event"];
+            cmboxEvent.DataSource = eventList;
+            //default to null
+            cmboxEvent.SelectedIndex = 0;
 
             // clear the text boxes and numeric up-down controls
             txtboxKaiName.Text = "";
@@ -211,7 +249,7 @@ namespace Kaioordinate
                     || cmboxEvent.Text == ""
                     ||  numericQuantity.Text == ""
                     || numericTime.Text == ""
-                    || Convert.ToInt32(numericQuantity.Text) <= 0
+                    || Convert.ToInt32(numericQuantity.Text) < 0
                     || Convert.ToInt32(numericTime.Text) < 0)
                 {
                     // if any of the required fields are empty or invalid, show an error message
@@ -220,7 +258,15 @@ namespace Kaioordinate
                 else
                 {
                     // if all fields are valid, set the values for the new row and add it to the kai table
-                    newRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                    if (cmboxEvent.SelectedValue == null)
+                    {
+                        newRow["EventID"] = DBNull.Value;
+                    }
+                    else
+                    {
+                        newRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                    }
+                    
                     newRow["KaiName"] = txtboxKaiName.Text;
                     newRow["PreparationRequired"] = ckboxPreparation.Checked;
                     newRow["PreparationMinutes"] = numericTime.Value;
@@ -238,7 +284,7 @@ namespace Kaioordinate
                     || cmboxEvent.Text == ""
                     || numericQuantity.Text == ""
                     || numericTime.Text == ""
-                    || Convert.ToInt32(numericQuantity.Text) <= 0
+                    || Convert.ToInt32(numericQuantity.Text) < 0
                     || Convert.ToInt32(numericTime.Text) < 0)
                 {
                     // if any of the required fields are empty or invalid, show an error message
@@ -247,7 +293,14 @@ namespace Kaioordinate
                 else
                 {
                     // if all fields are valid, set the values for the update row and save the changes
-                    updateRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                    if (cmboxEvent.SelectedValue != null)
+                    {
+                        updateRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                    }
+                    else
+                    {
+                        updateRow["EventID"] = DBNull.Value;
+                    }
                     updateRow["KaiName"] = txtboxKaiName.Text;
                     updateRow["PreparationRequired"] = ckboxPreparation.Checked;
                     updateRow["PreparationMinutes"] = numericTime.Value;
@@ -257,6 +310,10 @@ namespace Kaioordinate
                     DM.UpdateKai();
                     MessageBox.Show("Kai updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
             }
         }
 
@@ -268,14 +325,16 @@ namespace Kaioordinate
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DataRow deleteow = DM.kaiTable.Rows[currencyManager.Position];
-            //if (txtBox_event.Text != "")
-            //{
-            //    MessageBox.Show("You may only delete kai that have no event relation", "Error");
-            //}
-            //else
+            if (txtboxEvent.Text != "")
+            {
+                //must delete the event firstly.
+                MessageBox.Show("You may only delete kai that have no event relation", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     deleteow.Delete();
                     DM.UpdateKai();

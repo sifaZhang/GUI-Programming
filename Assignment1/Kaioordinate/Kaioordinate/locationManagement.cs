@@ -260,6 +260,10 @@ namespace Kaioordinate
                     MessageBox.Show("Location updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            else
+            {
+                MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -310,6 +310,10 @@ namespace Kaioordinate
                     MessageBox.Show("Whanau updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            else
+            {
+                MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

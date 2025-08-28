@@ -252,6 +252,10 @@ namespace Kaioordinate
                     MessageBox.Show("Event updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            else
+            {
+                MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
