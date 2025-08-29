@@ -41,10 +41,11 @@
             this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.SignOut;
             this.btnReturn.IconColor = System.Drawing.Color.Black;
             this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReturn.IconSize = 150;
-            this.btnReturn.Location = new System.Drawing.Point(791, 60);
+            this.btnReturn.IconSize = 80;
+            this.btnReturn.Location = new System.Drawing.Point(396, 29);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(280, 301);
+            this.btnReturn.Size = new System.Drawing.Size(156, 144);
             this.btnReturn.TabIndex = 75;
             this.btnReturn.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
             this.btnReturn.UseVisualStyleBackColor = false;
@@ -57,10 +58,11 @@
             this.btnEventReport.IconChar = FontAwesome.Sharp.IconChar.Print;
             this.btnEventReport.IconColor = System.Drawing.Color.Black;
             this.btnEventReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEventReport.IconSize = 150;
-            this.btnEventReport.Location = new System.Drawing.Point(75, 60);
+            this.btnEventReport.IconSize = 80;
+            this.btnEventReport.Location = new System.Drawing.Point(38, 29);
+            this.btnEventReport.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnEventReport.Name = "btnEventReport";
-            this.btnEventReport.Size = new System.Drawing.Size(280, 301);
+            this.btnEventReport.Size = new System.Drawing.Size(156, 144);
             this.btnEventReport.TabIndex = 76;
             this.btnEventReport.Text = "\r\n\r\n\r\n\r\n\r\nGENERATE\r\nREPORT";
             this.btnEventReport.UseVisualStyleBackColor = false;
@@ -73,10 +75,11 @@
             this.btnParticipationRreport.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
             this.btnParticipationRreport.IconColor = System.Drawing.Color.Black;
             this.btnParticipationRreport.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnParticipationRreport.IconSize = 150;
-            this.btnParticipationRreport.Location = new System.Drawing.Point(433, 60);
+            this.btnParticipationRreport.IconSize = 80;
+            this.btnParticipationRreport.Location = new System.Drawing.Point(216, 29);
+            this.btnParticipationRreport.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnParticipationRreport.Name = "btnParticipationRreport";
-            this.btnParticipationRreport.Size = new System.Drawing.Size(295, 301);
+            this.btnParticipationRreport.Size = new System.Drawing.Size(156, 144);
             this.btnParticipationRreport.TabIndex = 77;
             this.btnParticipationRreport.Text = "\r\n\r\n\r\n\r\n\r\nPARTICIPATION\r\nREPORT";
             this.btnParticipationRreport.UseVisualStyleBackColor = false;
@@ -84,13 +87,14 @@
             // 
             // reportPreview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 451);
+            this.ClientSize = new System.Drawing.Size(584, 208);
             this.Controls.Add(this.btnParticipationRreport);
             this.Controls.Add(this.btnEventReport);
             this.Controls.Add(this.btnReturn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "reportPreview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Report Preview";
