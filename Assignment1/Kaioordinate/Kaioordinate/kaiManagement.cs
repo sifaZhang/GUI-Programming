@@ -114,7 +114,7 @@ namespace Kaioordinate
             eventList.Clear();
 
             // add default item
-            eventList.Add(new EventItem { EventName = "Please select", EventID = null });
+            eventList.Add(new EventItem { EventName = "Please select(null)", EventID = null });
 
             // add real data
             foreach (DataRow row in DM.dsKaioordinate.Tables["Event"].Rows)
