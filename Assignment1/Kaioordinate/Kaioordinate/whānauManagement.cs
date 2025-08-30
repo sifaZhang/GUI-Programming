@@ -28,6 +28,7 @@ namespace Kaioordinate
         private DataModule DM;
         private CurrencyManager currencyManager;
         private EventAction eventAction = EventAction.none;
+        private string fullname = "FullName";
 
         /// <summary>
         /// constructor for the whānauManagement class.
@@ -55,14 +56,14 @@ namespace Kaioordinate
             txtboxAddressShow.DataBindings.Add("Text", DM.dsKaioordinate, "Whanau.Address");
 
             // Check if the FullName column exists, if not, create it
-            if (!DM.dsKaioordinate.Tables["Whanau"].Columns.Contains("FullName"))
+            if (!DM.dsKaioordinate.Tables["Whanau"].Columns.Contains(fullname))
             {
-                DM.dsKaioordinate.Tables["Whanau"].Columns.Add("FullName", typeof(string), "FirstName + ' ' + LastName");
+                DM.dsKaioordinate.Tables["Whanau"].Columns.Add(fullname, typeof(string), "FirstName + ' ' + LastName");
             }
 
             // Set the data source for the ListBox
             lstboxWhanauName.DataSource = DM.dsKaioordinate;
-            lstboxWhanauName.DisplayMember = "Whanau.FullName";
+            lstboxWhanauName.DisplayMember = "Whanau." + fullname;
             lstboxWhanauName.ValueMember = "Whanau.WhanauID";
 
             // Initialize the CurrencyManager for the Whanau table
@@ -112,6 +113,12 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnReturn_Click(object sender, EventArgs e)
         {
+            // Check if the FullName column exists, if yes, delete it
+            if (DM.dsKaioordinate.Tables["Whanau"].Columns.Contains(fullname))
+            {
+                DM.dsKaioordinate.Tables["Whanau"].Columns.Remove(fullname);
+            }
+
             this.Close();
         }
 
@@ -123,6 +130,17 @@ namespace Kaioordinate
         private void whānauManagementFrm_Load(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.Color.FromArgb(6, 73, 41);
+
+            // Check if the FullName column exists, if not, create it
+            if (!DM.dsKaioordinate.Tables["Whanau"].Columns.Contains(fullname))
+            {
+                DM.dsKaioordinate.Tables["Whanau"].Columns.Add(fullname, typeof(string), "FirstName + ' ' + LastName");
+            }
+
+            // Set the data source for the ListBox
+            lstboxWhanauName.DataSource = DM.dsKaioordinate;
+            lstboxWhanauName.DisplayMember = "Whanau." + fullname;
+            lstboxWhanauName.ValueMember = "Whanau.WhanauID";
         }
 
         /// <summary>
