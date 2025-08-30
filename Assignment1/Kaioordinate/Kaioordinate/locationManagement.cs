@@ -46,18 +46,33 @@ namespace Kaioordinate
         /// </summary>
         public void BindControls()
         {
-            // Bind the text boxes to the data source
-            txtboxLocationID.DataBindings.Add("Text", DM.dsKaioordinate, "Location.LocationID");
-            txtboxLocationNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "Location.LocationName");
-            txboxAddressShow.DataBindings.Add("Text", DM.dsKaioordinate, "Location.Address");
+            try
+            {
+                // Bind the text boxes to the data source
+                txtboxLocationID.DataBindings.Add("Text", DM.dsKaioordinate, "Location.LocationID");
+                txtboxLocationNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "Location.LocationName");
+                txboxAddressShow.DataBindings.Add("Text", DM.dsKaioordinate, "Location.Address");
 
-            // Bind the list box to the data source
-            lstboxLocationName.DataSource = DM.dsKaioordinate;
-            lstboxLocationName.DisplayMember = "Location.LocationName";
-            lstboxLocationName.ValueMember = "Location.LocationID";
+                // Bind the list box to the data source
+                lstboxLocationName.DataSource = DM.dsKaioordinate;
+                lstboxLocationName.DisplayMember = "Location.LocationName";
+                lstboxLocationName.ValueMember = "Location.LocationID";
 
-            // Initialize the CurrencyManager for the Location table
-            currencyManager = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "Location"];
+                // Initialize the CurrencyManager for the Location table
+                currencyManager = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "Location"];
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -192,23 +207,42 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Check if the CurrencyManager is at the first position, if so, disable the delete button
-            DataRow deleteow = DM.locationTable.Rows[currencyManager.Position];
-            DataRow[] dsRow = DM.eventTable.Select("LocationID = " + txtboxLocationID.Text);
-            if (dsRow.Length != 0)
+            try
             {
-                // If there are events associated with the location, show an error message
-                MessageBox.Show("You may only delete locations that have no events", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                // If there are no events associated with the location, prompt the user for confirmation before deleting
-                if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                // Check if the CurrencyManager is at the first position, if so, disable the delete button
+                DataRow deleteow = DM.locationTable.Rows[currencyManager.Position];
+                DataRow[] dsRow = DM.eventTable.Select("LocationID = " + txtboxLocationID.Text);
+                if (dsRow.Length != 0)
                 {
-                    deleteow.Delete();
-                    DM.UpdateLocation();
+                    // If there are events associated with the location, show an error message
+                    MessageBox.Show("You may only delete locations that have no events", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    // If there are no events associated with the location, prompt the user for confirmation before deleting
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        deleteow.Delete();
+                        DM.UpdateLocation();
+                    }
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -219,50 +253,69 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Check if the eventAction is none, if so, show an error message
-            if (eventAction == EventAction.Add)
+            try
             {
-                DataRow newRow = DM.locationTable.NewRow();
-                if (txtboxLocationName.Text == ""
-                    || txtboxAddress.Text == "")
+                // Check if the eventAction is none, if so, show an error message
+                if (eventAction == EventAction.Add)
                 {
-                    // If the text boxes are empty, show an error message
-                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DataRow newRow = DM.locationTable.NewRow();
+                    if (txtboxLocationName.Text == ""
+                        || txtboxAddress.Text == "")
+                    {
+                        // If the text boxes are empty, show an error message
+                        MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // If the text boxes are not empty, add a new row to the location table
+                        newRow["LocationName"] = txtboxLocationName.Text;
+                        newRow["Address"] = txtboxAddress.Text;
+
+                        DM.locationTable.Rows.Add(newRow);
+                        MessageBox.Show("Location added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DM.UpdateLocation();
+                    }
+                }
+                else if (eventAction == EventAction.Update)
+                {
+                    DataRow updateRow = DM.locationTable.Rows[currencyManager.Position];
+                    if (txtboxLocationName.Text == ""
+                        || txtboxAddress.Text == "")
+                    {
+                        // If the text boxes are empty, show an error message
+                        MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // If the text boxes are not empty, update the current row in the location table
+                        updateRow["LocationName"] = txtboxLocationName.Text;
+                        updateRow["Address"] = txtboxAddress.Text;
+
+                        currencyManager.EndCurrentEdit();
+                        DM.UpdateLocation();
+                        MessageBox.Show("Location updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    // If the text boxes are not empty, add a new row to the location table
-                    newRow["LocationName"] = txtboxLocationName.Text;
-                    newRow["Address"] = txtboxAddress.Text;
-
-                    DM.locationTable.Rows.Add(newRow);
-                    MessageBox.Show("Location added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DM.UpdateLocation();
+                    MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (eventAction == EventAction.Update)
+            catch (FormatException ex)
             {
-                DataRow updateRow = DM.locationTable.Rows[currencyManager.Position];
-                if (txtboxLocationName.Text == ""
-                    || txtboxAddress.Text == "")
-                {
-                    // If the text boxes are empty, show an error message
-                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    // If the text boxes are not empty, update the current row in the location table
-                    updateRow["LocationName"] = txtboxLocationName.Text;
-                    updateRow["Address"] = txtboxAddress.Text;
-
-                    currencyManager.EndCurrentEdit();
-                    DM.UpdateLocation();
-                    MessageBox.Show("Location updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            catch (IndexOutOfRangeException ex)
             {
-                MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

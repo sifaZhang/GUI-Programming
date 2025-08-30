@@ -48,30 +48,46 @@ namespace Kaioordinate
         /// </summary>
         public void BindControls()
         {
-            // Bind the text boxes to the event data
-            txtboxEventID.DataBindings.Add("Text", DM.dsKaioordinate, "EVENT.EventID");
-            txtboxEventNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "EVENT.EventName");
-            txtboxLocation.DataBindings.Add("Text", DM.dsKaioordinate, "EVENT.LocationID");
-
-            // Bind the date control with a custom format
-            System.Windows.Forms.Binding binding = new System.Windows.Forms.Binding("Text", DM.dsKaioordinate, "EVENT.EventDate");
-            binding.Format += (s, e) =>
+            try
             {
-                if (e.DesiredType == typeof(string) && e.Value != DBNull.Value)
+                // Bind the text boxes to the event data
+                txtboxEventID.DataBindings.Add("Text", DM.dsKaioordinate, "EVENT.EventID");
+                txtboxEventNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "EVENT.EventName");
+                txtboxLocation.DataBindings.Add("Text", DM.dsKaioordinate, "EVENT.LocationID");
+
+                // Bind the date control with a custom format
+                System.Windows.Forms.Binding binding = new System.Windows.Forms.Binding("Text", DM.dsKaioordinate, "EVENT.EventDate");
+                // The function will be invoked when the data show on the control
+                binding.Format += (s, e) =>
                 {
-                    DateTime dateValue = (DateTime)e.Value;
-                    e.Value = dateValue.ToString("yyyy-MM-dd"); // only the date part
-                }
-            };
-            txtboxDate.DataBindings.Add(binding);
+                    if (e.DesiredType == typeof(string) && e.Value != DBNull.Value)
+                    {
+                        DateTime dateValue = (DateTime)e.Value;
+                        e.Value = dateValue.ToString("MM-dd-yyyy"); // only the date part
+                    }
+                };
+                txtboxDate.DataBindings.Add(binding);
 
-            // Bind the date time picker to the event date
-            lstboxEventName.DataSource = DM.dsKaioordinate;
-            lstboxEventName.DisplayMember = "EVENT.EventName";
-            lstboxEventName.ValueMember = "EVENT.EventName";
+                // Bind the date time picker to the event date
+                lstboxEventName.DataSource = DM.dsKaioordinate;
+                lstboxEventName.DisplayMember = "EVENT.EventName";
+                lstboxEventName.ValueMember = "EVENT.EventName";
 
-            // Bind the list box to the event name
-            currencyManager = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "EVENT"];
+                // Bind the list box to the event name
+                currencyManager = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "EVENT"];
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -207,54 +223,73 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Check the action type and perform add or update accordingly
-            if (eventAction == EventAction.Add)
+            try
             {
-                DataRow newEvent = DM.eventTable.NewRow();
-                if ((txtboxEventName.Text == "") 
-                    || (datepickerDate.Text == "") 
-                    || cmboxLocation.Text == "")
+                // Check the action type and perform add or update accordingly
+                if (eventAction == EventAction.Add)
                 {
-                    // Show an error message if any field is empty
-                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DataRow newEvent = DM.eventTable.NewRow();
+                    if ((txtboxEventName.Text == "")
+                        || (datepickerDate.Text == "")
+                        || cmboxLocation.Text == "")
+                    {
+                        // Show an error message if any field is empty
+                        MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // Add the new event with the provided details
+                        newEvent["EventName"] = txtboxEventName.Text;
+                        newEvent["LocationID"] = Convert.ToInt32(cmboxLocation.SelectedValue);
+                        newEvent["EventDate"] = datepickerDate.Value.Date;
+
+                        DM.eventTable.Rows.Add(newEvent);
+                        MessageBox.Show("Event added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DM.UpdateEvent();
+                    }
+                }
+                else if (eventAction == EventAction.Update)
+                {
+                    DataRow updateEvent = DM.eventTable.Rows[currencyManager.Position];
+                    if ((txtboxEventName.Text == "")
+                        || (datepickerDate.Text == "")
+                        || cmboxLocation.Text == "")
+                    {
+                        // Show an error message if any field is empty
+                        MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        // Update the existing event with the new details
+                        updateEvent["EventName"] = txtboxEventName.Text;
+                        updateEvent["LocationID"] = Convert.ToInt32(cmboxLocation.SelectedValue);
+                        updateEvent["EventDate"] = datepickerDate.Value.Date;
+
+                        currencyManager.EndCurrentEdit();
+                        DM.UpdateEvent();
+                        MessageBox.Show("Event updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    // Add the new event with the provided details
-                    newEvent["EventName"] = txtboxEventName.Text;
-                    newEvent["LocationID"] = Convert.ToInt32(cmboxLocation.SelectedValue);
-                    newEvent["EventDate"] = datepickerDate.Value.Date;
-
-                    DM.eventTable.Rows.Add(newEvent);
-                    MessageBox.Show("Event added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DM.UpdateEvent();
+                    MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (eventAction == EventAction.Update)
+            catch (FormatException ex)
             {
-                DataRow updateEvent = DM.eventTable.Rows[currencyManager.Position];
-                if ((txtboxEventName.Text == "") 
-                    || (datepickerDate.Text == "") 
-                    || cmboxLocation.Text == "")
-                {
-                    // Show an error message if any field is empty
-                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    // Update the existing event with the new details
-                    updateEvent["EventName"] = txtboxEventName.Text;
-                    updateEvent["LocationID"] = Convert.ToInt32(cmboxLocation.SelectedValue);
-                    updateEvent["EventDate"] = datepickerDate.Value.Date;
-
-                    currencyManager.EndCurrentEdit();
-                    DM.UpdateEvent();
-                    MessageBox.Show("Event updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            catch (IndexOutOfRangeException ex)
             {
-                MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -265,25 +300,40 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Check if the current event can be deleted
-            DataRow deleteEventRow = DM.eventTable.Rows[currencyManager.Position];
-            DataRow[] dsRow = DM.kaiTable.Select("EventID = " + txtboxEventID.Text);
-            DataRow[] dsRegisterRow = DM.registrationTable.Select("EventID = " + txtboxEventID.Text);
-            if (dsRow.Length != 0 && dsRegisterRow.Length != 0)
+            try
             {
-                // Show an error message if the event has associated kai or registrations
-                MessageBox.Show("You may only delete an event that has no kai and register", "Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                // Confirm deletion and remove the event
-                if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                // Check if the current event can be deleted
+                DataRow deleteEventRow = DM.eventTable.Rows[currencyManager.Position];
+                DataRow[] dsRow = DM.kaiTable.Select("EventID = " + txtboxEventID.Text);
+                DataRow[] dsRegisterRow = DM.registrationTable.Select("EventID = " + txtboxEventID.Text);
+                if (dsRow.Length != 0 && dsRegisterRow.Length != 0)
                 {
-                    deleteEventRow.Delete();
-                    DM.UpdateEvent();
+                    // Show an error message if the event has associated kai or registrations
+                    MessageBox.Show("You may only delete an event that has no kai and register", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    // Confirm deletion and remove the event
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        deleteEventRow.Delete();
+                        DM.UpdateEvent();
+                    }
+                }
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

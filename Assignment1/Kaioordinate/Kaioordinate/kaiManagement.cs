@@ -54,21 +54,36 @@ namespace Kaioordinate
         /// </summary>
         public void BindControls()
         {
-            // bind the text boxes to the corresponding fields in the data source
-            txtboxKaiID.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiID");
-            txtboxKaiNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiName");
-            txtboxPreparation.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationRequired");
-            txtboxTme.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationMinutes");
-            txtboxQuantity.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.ServeQuantity");
-            txtboxEvent.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.EventName");
+            try
+            {
+                // bind the text boxes to the corresponding fields in the data source
+                txtboxKaiID.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiID");
+                txtboxKaiNameShow.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.KaiName");
+                txtboxPreparation.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationRequired");
+                txtboxTme.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.PreparationMinutes");
+                txtboxQuantity.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.ServeQuantity");
+                txtboxEvent.DataBindings.Add("Text", DM.dsKaioordinate, "Kai.EventName");
 
-            // set the data source for the list box to the kai records in the data source
-            lstboxKaiName.DataSource = DM.dsKaioordinate;
-            lstboxKaiName.DisplayMember = "Kai.KaiName";
-            lstboxKaiName.ValueMember = "Kai.KaiName";
+                // set the data source for the list box to the kai records in the data source
+                lstboxKaiName.DataSource = DM.dsKaioordinate;
+                lstboxKaiName.DisplayMember = "Kai.KaiName";
+                lstboxKaiName.ValueMember = "Kai.KaiName";
 
-            // create a currency manager to manage the current position in the kai records
-            currencyManager = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "Kai"];
+                // create a currency manager to manage the current position in the kai records
+                currencyManager = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "Kai"];
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -241,79 +256,98 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // if the event action is none, do nothing
-            if (eventAction == EventAction.Add)
+            try
             {
-                DataRow newRow = DM.kaiTable.NewRow();
-                if (txtboxKaiName.Text == ""
-                    || cmboxEvent.Text == ""
-                    ||  numericQuantity.Text == ""
-                    || numericTime.Text == ""
-                    || Convert.ToInt32(numericQuantity.Text) < 0
-                    || Convert.ToInt32(numericTime.Text) < 0)
+                // if the event action is none, do nothing
+                if (eventAction == EventAction.Add)
                 {
-                    // if any of the required fields are empty or invalid, show an error message
-                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    // if all fields are valid, set the values for the new row and add it to the kai table
-                    if (cmboxEvent.SelectedValue == null)
+                    DataRow newRow = DM.kaiTable.NewRow();
+                    if (txtboxKaiName.Text == ""
+                        || cmboxEvent.Text == ""
+                        || numericQuantity.Text == ""
+                        || numericTime.Text == ""
+                        || Convert.ToInt32(numericQuantity.Text) < 0
+                        || Convert.ToInt32(numericTime.Text) < 0)
                     {
-                        newRow["EventID"] = DBNull.Value;
+                        // if any of the required fields are empty or invalid, show an error message
+                        MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        newRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
-                    }
-                    
-                    newRow["KaiName"] = txtboxKaiName.Text;
-                    newRow["PreparationRequired"] = ckboxPreparation.Checked;
-                    newRow["PreparationMinutes"] = numericTime.Value;
-                    newRow["ServeQuantity"] = numericQuantity.Value;
+                        // if all fields are valid, set the values for the new row and add it to the kai table
+                        if (cmboxEvent.SelectedValue == null)
+                        {
+                            newRow["EventID"] = DBNull.Value;
+                        }
+                        else
+                        {
+                            newRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                        }
 
-                    DM.kaiTable.Rows.Add(newRow);
-                    MessageBox.Show("Kai added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DM.UpdateKai();
+                        newRow["KaiName"] = txtboxKaiName.Text;
+                        newRow["PreparationRequired"] = ckboxPreparation.Checked;
+                        newRow["PreparationMinutes"] = numericTime.Value;
+                        newRow["ServeQuantity"] = numericQuantity.Value;
+
+                        DM.kaiTable.Rows.Add(newRow);
+                        MessageBox.Show("Kai added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DM.UpdateKai();
+                    }
                 }
-            }
-            else if (eventAction == EventAction.Update)
-            {
-                DataRow updateRow = DM.kaiTable.Rows[currencyManager.Position];
-                if (txtboxKaiName.Text == ""
-                    || cmboxEvent.Text == ""
-                    || numericQuantity.Text == ""
-                    || numericTime.Text == ""
-                    || Convert.ToInt32(numericQuantity.Text) < 0
-                    || Convert.ToInt32(numericTime.Text) < 0)
+                else if (eventAction == EventAction.Update)
                 {
-                    // if any of the required fields are empty or invalid, show an error message
-                    MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    // if all fields are valid, set the values for the update row and save the changes
-                    if (cmboxEvent.SelectedValue != null)
+                    DataRow updateRow = DM.kaiTable.Rows[currencyManager.Position];
+                    if (txtboxKaiName.Text == ""
+                        || cmboxEvent.Text == ""
+                        || numericQuantity.Text == ""
+                        || numericTime.Text == ""
+                        || Convert.ToInt32(numericQuantity.Text) < 0
+                        || Convert.ToInt32(numericTime.Text) < 0)
                     {
-                        updateRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                        // if any of the required fields are empty or invalid, show an error message
+                        MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        updateRow["EventID"] = DBNull.Value;
-                    }
-                    updateRow["KaiName"] = txtboxKaiName.Text;
-                    updateRow["PreparationRequired"] = ckboxPreparation.Checked;
-                    updateRow["PreparationMinutes"] = numericTime.Value;
-                    updateRow["ServeQuantity"] = numericQuantity.Value;
+                        // if all fields are valid, set the values for the update row and save the changes
+                        if (cmboxEvent.SelectedValue != null)
+                        {
+                            updateRow["EventID"] = Convert.ToInt32(cmboxEvent.SelectedValue);
+                        }
+                        else
+                        {
+                            updateRow["EventID"] = DBNull.Value;
+                        }
+                        updateRow["KaiName"] = txtboxKaiName.Text;
+                        updateRow["PreparationRequired"] = ckboxPreparation.Checked;
+                        updateRow["PreparationMinutes"] = numericTime.Value;
+                        updateRow["ServeQuantity"] = numericQuantity.Value;
 
-                    currencyManager.EndCurrentEdit();
-                    DM.UpdateKai();
-                    MessageBox.Show("Kai updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        currencyManager.EndCurrentEdit();
+                        DM.UpdateKai();
+                        MessageBox.Show("Kai updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch (FormatException ex)
             {
-                MessageBox.Show("Select update or add firstly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -324,21 +358,40 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataRow deleteow = DM.kaiTable.Rows[currencyManager.Position];
-            if (txtboxEvent.Text != "")
+            try
             {
-                //must delete the event firstly.
-                MessageBox.Show("You may only delete kai that have no event relation", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
-                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                DataRow deleteow = DM.kaiTable.Rows[currencyManager.Position];
+                if (txtboxEvent.Text != "")
                 {
-                    deleteow.Delete();
-                    DM.UpdateKai();
+                    //must delete the event firstly.
+                    MessageBox.Show("You may only delete kai that have no event relation", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        deleteow.Delete();
+                        DM.UpdateKai();
+                    }
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

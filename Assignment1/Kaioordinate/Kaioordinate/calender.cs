@@ -29,7 +29,6 @@ namespace Kaioordinate
             InitializeComponent();
 
             DM = dM;
-            //BindControls();
         }
 
         /// <summary>
@@ -48,65 +47,81 @@ namespace Kaioordinate
         /// <param name="selectedDate"></param>
         private void loadCalender(DateTime selectedDate)
         {
-            // Clear the text box before loading new events
-            txtboxEvents.Clear();
-
-            // Filter the event table for the selected date
-            DM.eventTable.DefaultView.RowFilter = $"EventDate = #{selectedDate:MM/dd/yyyy}#";
-            DataTable dtEvents = DM.eventTable.DefaultView.ToTable();
-
-            // loop through the filtered events and display their details
-            foreach (DataRow row in dtEvents.Rows)
+            try
             {
-                string eventInfo = $"EventName: {row["EventName"]}\r\n";
+                // Clear the text box before loading new events
+                txtboxEvents.Clear();
 
-                DateTime raw = Convert.ToDateTime(row["EventDate"]);
-                string eventDate = raw.Date.ToString("MM-dd-yyyy");
-                eventInfo += $"EventDate: {eventDate}\r\n";
+                // Filter the event table for the selected date
+                DM.eventTable.DefaultView.RowFilter = $"EventDate = #{selectedDate:MM/dd/yyyy}#";
+                DataTable dtEvents = DM.eventTable.DefaultView.ToTable();
 
-                DataRow[] locationRow = DM.locationTable.Select("locationID = " + row["locationID"]);
-                if (locationRow.Length > 0)
+                // loop through the filtered events and display their details
+                foreach (DataRow row in dtEvents.Rows)
                 {
-                    string locationName = locationRow[0]["LocationName"].ToString();
-                    eventInfo += $"Location: {locationName}\r\n";
+                    string eventInfo = $"EventName: {row["EventName"]}\r\n";
 
-                    string address = locationRow[0]["Address"].ToString();
-                    eventInfo += $"Address: {address}\r\n";
-                }
+                    DateTime raw = Convert.ToDateTime(row["EventDate"]);
+                    string eventDate = raw.Date.ToString("MM-dd-yyyy");
+                    eventInfo += $"EventDate: {eventDate}\r\n";
 
-                eventInfo += "Attendees:\r\n";
-
-                // Get the registrations for the event
-                DataRow[] registrationRows = DM.registrationTable.Select("EventID = " + row["eventID"]);
-                foreach (DataRow task in registrationRows)
-                {
-                    string WhanauID = task["WhanauID"].ToString();
-                    DataRow[] whanauRows = DM.whanauTable.Select("WhanauID = " + WhanauID);
-                    if (whanauRows.Length > 0)
+                    DataRow[] locationRow = DM.locationTable.Select("locationID = " + row["locationID"]);
+                    if (locationRow.Length > 0)
                     {
-                        string firstName = whanauRows[0]["FirstName"].ToString();
-                        string lastName = whanauRows[0]["LastName"].ToString();
-                        string phone = whanauRows[0]["Phone"].ToString();
-                        string helper = registrationRows[0]["KaiPreparation"].ToString() == "True" ? "Kai Preparetion" : "No";
-                        eventInfo += $"  {firstName} {lastName}, {phone}, {helper}";
-                        eventInfo += "\r\n";
+                        string locationName = locationRow[0]["LocationName"].ToString();
+                        eventInfo += $"Location: {locationName}\r\n";
+
+                        string address = locationRow[0]["Address"].ToString();
+                        eventInfo += $"Address: {address}\r\n";
                     }
+
+                    eventInfo += "Attendees:\r\n";
+
+                    // Get the registrations for the event
+                    DataRow[] registrationRows = DM.registrationTable.Select("EventID = " + row["eventID"]);
+                    foreach (DataRow task in registrationRows)
+                    {
+                        string WhanauID = task["WhanauID"].ToString();
+                        DataRow[] whanauRows = DM.whanauTable.Select("WhanauID = " + WhanauID);
+                        if (whanauRows.Length > 0)
+                        {
+                            string firstName = whanauRows[0]["FirstName"].ToString();
+                            string lastName = whanauRows[0]["LastName"].ToString();
+                            string phone = whanauRows[0]["Phone"].ToString();
+                            string helper = registrationRows[0]["KaiPreparation"].ToString() == "True" ? "Kai Preparetion" : "No";
+                            eventInfo += $"  {firstName} {lastName}, {phone}, {helper}";
+                            eventInfo += "\r\n";
+                        }
+                    }
+
+                    // Add a separator for readability
+                    eventInfo += "\r\n";
+
+                    // Append the event information to the text box
+                    txtboxEvents.Text += eventInfo;
                 }
 
-                // Add a separator for readability
-                eventInfo += "\r\n";
+                // If no events are found, display a message
+                if (dtEvents.Rows.Count == 0)
+                {
+                    txtboxEvents.Text = "No events on this day.";
+                }
 
-                // Append the event information to the text box
-                txtboxEvents.Text += eventInfo;
+                DM.eventTable.DefaultView.RowFilter = null;
+
             }
-
-            // If no events are found, display a message
-            if (dtEvents.Rows.Count == 0)
+            catch (FormatException ex)
             {
-                txtboxEvents.Text = "No events on this day.";
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            DM.eventTable.DefaultView.RowFilter = null;
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

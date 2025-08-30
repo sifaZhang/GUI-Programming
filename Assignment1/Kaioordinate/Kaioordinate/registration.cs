@@ -39,26 +39,41 @@ namespace Kaioordinate
         /// </summary>
         private void BindControls()
         {
-            // Set the data source for the DataGridViews and their CurrencyManagers
-            dgEvent.DataSource = DM.dsKaioordinate.Tables["Event"].DefaultView;
-            dgEvent.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dgEvent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgEvent.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            cmEvent = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["Event"].DefaultView];
+            try
+            {
+                // Set the data source for the DataGridViews and their CurrencyManagers
+                dgEvent.DataSource = DM.dsKaioordinate.Tables["Event"].DefaultView;
+                dgEvent.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+                dgEvent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgEvent.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                cmEvent = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["Event"].DefaultView];
 
-            // Set the data source for the Whanau and Registration DataGridViews
-            dgWhanau.DataSource = DM.dsKaioordinate.Tables["Whanau"].DefaultView;
-            dgWhanau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dgWhanau.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgWhanau.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            cmWhanau = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["Whanau"].DefaultView];
+                // Set the data source for the Whanau and Registration DataGridViews
+                dgWhanau.DataSource = DM.dsKaioordinate.Tables["Whanau"].DefaultView;
+                dgWhanau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+                dgWhanau.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgWhanau.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                cmWhanau = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["Whanau"].DefaultView];
 
-            // Set the data source for the Registration DataGridView
-            dgRegistration.DataSource = DM.dsKaioordinate.Tables["EventRegister"].DefaultView;
-            dgRegistration.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dgRegistration.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgRegistration.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            cmRegistration = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["EventRegister"].DefaultView];
+                // Set the data source for the Registration DataGridView
+                dgRegistration.DataSource = DM.dsKaioordinate.Tables["EventRegister"].DefaultView;
+                dgRegistration.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+                dgRegistration.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgRegistration.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                cmRegistration = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["EventRegister"].DefaultView];
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -88,33 +103,52 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            DataRowView currentEventRowView = (DataRowView)cmEvent.Current;
-            DataRow eventRow = currentEventRowView.Row;
-
-            DataRowView currentWhanauRowView = (DataRowView)cmWhanau.Current;
-            DataRow whanauRow = currentWhanauRowView.Row;
-
-            int eventID = Convert.ToInt32(eventRow["EventID"]);
-            int whanauID = Convert.ToInt32(whanauRow["WhanauID"]);
-
-            // Check if the whanau is already registered for the event
-            DataRow[] selectRow = DM.registrationTable.Select("EventID = " + eventID + " AND WhanauID = " + whanauID);
-            if (selectRow.Length > 0)
+            try
             {
-                MessageBox.Show("Whanau can only be registered to an event once.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DataRowView currentEventRowView = (DataRowView)cmEvent.Current;
+                DataRow eventRow = currentEventRowView.Row;
+
+                DataRowView currentWhanauRowView = (DataRowView)cmWhanau.Current;
+                DataRow whanauRow = currentWhanauRowView.Row;
+
+                int eventID = Convert.ToInt32(eventRow["EventID"]);
+                int whanauID = Convert.ToInt32(whanauRow["WhanauID"]);
+
+                // Check if the whanau is already registered for the event
+                DataRow[] selectRow = DM.registrationTable.Select("EventID = " + eventID + " AND WhanauID = " + whanauID);
+                if (selectRow.Length > 0)
+                {
+                    MessageBox.Show("Whanau can only be registered to an event once.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    // Create a new registration entry
+                    DataRow newRegistration = DM.registrationTable.NewRow();
+                    newRegistration["EventID"] = eventID;
+                    newRegistration["WhanauID"] = whanauID;
+                    newRegistration["KaiPreparation"] = ckboxPreparation.Checked;
+                    DM.registrationTable.Rows.Add(newRegistration);
+                    DM.UpdateRegistration();
+
+                    // Show success message
+                    MessageBox.Show("Entry added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (FormatException ex)
             {
-                // Create a new registration entry
-                DataRow newRegistration = DM.registrationTable.NewRow();
-                newRegistration["EventID"] = eventID;
-                newRegistration["WhanauID"] = whanauID;
-                newRegistration["KaiPreparation"] = ckboxPreparation.Checked;
-                DM.registrationTable.Rows.Add(newRegistration);
-                DM.UpdateRegistration();
-
-                // Show success message
-                MessageBox.Show("Entry added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -125,15 +159,34 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataRowView currentRegistrationRowView = (DataRowView)cmRegistration.Current;
-            DataRow deleteow = currentRegistrationRowView.Row;
-
-            // Check if the user confirms the deletion
-            if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
-            MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            try
             {
-                deleteow.Delete();
-                DM.UpdateRegistration();
+                DataRowView currentRegistrationRowView = (DataRowView)cmRegistration.Current;
+                DataRow deleteow = currentRegistrationRowView.Row;
+
+                // Check if the user confirms the deletion
+                if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    deleteow.Delete();
+                    DM.UpdateRegistration();
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Invalid data format: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Data position error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)  // 兜底
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
