@@ -310,6 +310,14 @@ namespace Kaioordinate
                         // Show an error message if the email is not valid
                         MessageBox.Show("Email is not valid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else if (txtboxFirstName.Text.Length > 255 
+                        || txtboxLastName.Text.Length > 255
+                        || txtboxPhone.Text.Length > 255
+                        || txtboxEmail.Text.Length > 255
+                        || txtboxAddress.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of all fields is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     else
                     {
                         // If all fields are valid, set the values and add the new row to the table
@@ -343,6 +351,14 @@ namespace Kaioordinate
                     {
                         // Show an error message if the email is not valid
                         MessageBox.Show("Email is not valid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (txtboxFirstName.Text.Length > 255
+                        || txtboxLastName.Text.Length > 255
+                        || txtboxPhone.Text.Length > 255
+                        || txtboxEmail.Text.Length > 255
+                        || txtboxAddress.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of all fields is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {

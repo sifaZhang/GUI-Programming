@@ -272,6 +272,10 @@ namespace Kaioordinate
                         // if any of the required fields are empty or invalid, show an error message
                         MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else if (txtboxKaiName.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of Kai name is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     else
                     {
                         // if all fields are valid, set the values for the new row and add it to the kai table
@@ -306,6 +310,10 @@ namespace Kaioordinate
                     {
                         // if any of the required fields are empty or invalid, show an error message
                         MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (txtboxKaiName.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of Kai name is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {

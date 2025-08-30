@@ -265,6 +265,10 @@ namespace Kaioordinate
                         // If the text boxes are empty, show an error message
                         MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else if (txtboxLocationName.Text.Length > 255 || txtboxAddress.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of Address and Name is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     else
                     {
                         // If the text boxes are not empty, add a new row to the location table
@@ -284,6 +288,10 @@ namespace Kaioordinate
                     {
                         // If the text boxes are empty, show an error message
                         MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (txtboxLocationName.Text.Length > 255 || txtboxAddress.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of Address and Name is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {

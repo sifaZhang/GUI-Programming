@@ -236,6 +236,10 @@ namespace Kaioordinate
                         // Show an error message if any field is empty
                         MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else if(txtboxEventName.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of event name is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     else
                     {
                         // Add the new event with the provided details
@@ -257,6 +261,10 @@ namespace Kaioordinate
                     {
                         // Show an error message if any field is empty
                         MessageBox.Show("You must type in all datas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (txtboxEventName.Text.Length > 255)
+                    {
+                        MessageBox.Show("The maximal length of event name is 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
