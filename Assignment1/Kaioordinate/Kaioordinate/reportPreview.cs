@@ -140,92 +140,130 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void DrawEventPage(object sender, PrintPageEventArgs e)
         {
+            // find if there is a event that has been registrated.
+            bool findCurrent = false;
+            bool findNext = false;
+            DataRow eventRow = null;
+            string eventID = "";
+            DataRow[] registrationRows = null;
+            for ( int i = currentEventIndex; i < DM.eventTable.Rows.Count; i++)
+            {
+                eventRow = DM.eventTable.Rows[i];
+                eventID = eventRow["EventID"].ToString();
+                registrationRows = DM.registrationTable.Select("EventID = " + eventID);
+
+                if( registrationRows.Length > 0 )
+                {
+                    // find one
+                    if (findCurrent)
+                    {
+                        // find the next event
+                        findNext = true;
+                        break;
+                    }
+                    else
+                    {
+                        // find the current event
+                        currentEventIndex = i;
+                        findCurrent = true;
+                    }  
+                }
+            }
+
             // Check if there are more events to print
-            if (currentEventIndex >= DM.eventTable.Rows.Count)
+            if (findCurrent)
+            {
+                eventRow = DM.eventTable.Rows[currentEventIndex];
+                eventID = eventRow["EventID"].ToString();
+                registrationRows = DM.registrationTable.Select("EventID = " + eventID);
+
+                // Check if there are any registrations for the current event
+                if (registrationRows.Length > 0)
+                {
+                    // Prepare the graphics and fonts for drawing
+                    Graphics g = e.Graphics;
+                    Font titleFont = new Font("Arial", 14, FontStyle.Bold);
+                    Font detailFont = new Font("Arial", 14);
+                    float y = 50;
+                    int column1StartPoint = 50;
+                    int column2StartPoint = 200;
+                    int column3StartPoint = 400;
+                    int column4StartPoint = 600;
+                    int rowHeight = 28;
+
+                    // Draw the summary
+                    g.DrawString($"Event ID:", titleFont, Brushes.Black, column1StartPoint, y);
+                    g.DrawString($"{eventID}", detailFont, Brushes.Black, column2StartPoint, y);
+                    y += rowHeight + rowHeight / 2;
+
+                    string eventName = eventRow["EventName"].ToString();
+                    g.DrawString($"EventName:", titleFont, Brushes.Black, column1StartPoint, y);
+                    g.DrawString($"{eventName}", detailFont, Brushes.Black, column2StartPoint, y);
+                    y += rowHeight;
+
+                    DateTime raw = Convert.ToDateTime(eventRow["EventDate"]);
+                    string eventDate = raw.Date.ToString("MM-dd-yyyy");
+                    g.DrawString($"Date:", titleFont, Brushes.Black, column1StartPoint, y);
+                    g.DrawString($"{eventDate}", detailFont, Brushes.Black, column2StartPoint, y);
+                    y += rowHeight;
+
+                    // Get the location information
+                    string locationID = eventRow["LocationID"].ToString(); ;
+                    DataRow[] locationRow = DM.locationTable.Select("locationID = " + locationID);
+                    if (locationRow.Length > 0)
+                    {
+                        string locationName = locationRow[0]["LocationName"].ToString();
+                        g.DrawString($"Location:", titleFont, Brushes.Black, column1StartPoint, y);
+                        g.DrawString($"{locationName}", detailFont, Brushes.Black, column2StartPoint, y);
+                        y += rowHeight;
+
+                        string address = locationRow[0]["Address"].ToString();
+                        g.DrawString($"Address:", titleFont, Brushes.Black, column1StartPoint, y);
+                        g.DrawString($"{address}", detailFont, Brushes.Black, column2StartPoint, y);
+                        y += rowHeight;
+                    }
+
+                    // Draw the attendees section
+                    y += rowHeight / 2;
+                    g.DrawString($"Attendees:", titleFont, Brushes.Black, column1StartPoint, y);
+                    y += rowHeight + rowHeight / 2;
+
+                    g.DrawString($"First Name", titleFont, Brushes.Black, column1StartPoint, y);
+                    g.DrawString($"Last Name", titleFont, Brushes.Black, column2StartPoint, y);
+                    g.DrawString($"Phone No.", titleFont, Brushes.Black, column3StartPoint, y);
+                    g.DrawString($"Helper", titleFont, Brushes.Black, column4StartPoint, y);
+                    y += rowHeight;
+
+                    // Draw whanaus registered for the event
+                    foreach (DataRow task in registrationRows)
+                    {
+                        string WhanauID = task["WhanauID"].ToString();
+                        DataRow[] whanauRows = DM.whanauTable.Select("WhanauID = " + WhanauID);
+                        if (whanauRows.Length > 0)
+                        {
+                            string firstName = whanauRows[0]["FirstName"].ToString();
+                            g.DrawString($"{firstName}", detailFont, Brushes.Black, column1StartPoint, y);
+                            string lastName = whanauRows[0]["LastName"].ToString();
+                            g.DrawString($"{lastName}", detailFont, Brushes.Black, column2StartPoint, y);
+                            string phone = whanauRows[0]["Phone"].ToString();
+                            g.DrawString($"{phone}", detailFont, Brushes.Black, column3StartPoint, y);
+                            string helper = registrationRows[0]["KaiPreparation"].ToString();
+                            g.DrawString($"{helper}", detailFont, Brushes.Black, column4StartPoint, y);
+
+                            y += rowHeight;
+                        }
+                    }
+                }
+
+                currentEventIndex++;
+                // do not print the next page if there is no more events to print
+                e.HasMorePages = findNext;
+            }
+            else
             {
                 e.HasMorePages = false;
                 return;
             }
-
-            // Prepare the graphics and fonts for drawing
-            Graphics g = e.Graphics;
-            Font titleFont = new Font("Arial", 14, FontStyle.Bold);
-            Font detailFont = new Font("Arial", 14);
-            float y = 50;
-            int column1StartPoint = 50;
-            int column2StartPoint = 200;
-            int column3StartPoint = 400;
-            int column4StartPoint = 600;
-            int rowHeight = 28;
-
-            // Draw the summary
-            DataRow eventRow = DM.eventTable.Rows[currentEventIndex];
-            string eventID = eventRow["EventID"].ToString();
-            g.DrawString($"Event ID:", titleFont, Brushes.Black, column1StartPoint, y);
-            g.DrawString($"{eventID}", detailFont, Brushes.Black, column2StartPoint, y);
-            y += rowHeight + rowHeight / 2;
-
-            string eventName = eventRow["EventName"].ToString();
-            g.DrawString($"EventName:", titleFont, Brushes.Black, column1StartPoint, y);
-            g.DrawString($"{eventName}", detailFont, Brushes.Black, column2StartPoint, y);
-            y += rowHeight;
-
-            DateTime raw = Convert.ToDateTime(eventRow["EventDate"]);
-            string eventDate = raw.Date.ToString("MM-dd-yyyy");
-            g.DrawString($"Date:", titleFont, Brushes.Black, column1StartPoint, y);
-            g.DrawString($"{eventDate}", detailFont, Brushes.Black, column2StartPoint, y);
-            y += rowHeight;
-
-            // Get the location information
-            string locationID = eventRow["LocationID"].ToString(); ;
-            DataRow[] locationRow = DM.locationTable.Select("locationID = " + locationID);
-            if (locationRow.Length > 0)
-            {
-                string locationName = locationRow[0]["LocationName"].ToString();
-                g.DrawString($"Location:", titleFont, Brushes.Black, column1StartPoint, y);
-                g.DrawString($"{locationName}", detailFont, Brushes.Black, column2StartPoint, y);
-                y += rowHeight;
-
-                string address = locationRow[0]["Address"].ToString();
-                g.DrawString($"Address:", titleFont, Brushes.Black, column1StartPoint, y);
-                g.DrawString($"{address}", detailFont, Brushes.Black, column2StartPoint, y);
-                y += rowHeight;
-            }
-
-            // Draw the attendees section
-            y += rowHeight / 2;
-            g.DrawString($"Attendees:", titleFont, Brushes.Black, column1StartPoint, y);
-            y += rowHeight + rowHeight / 2;
-
-            g.DrawString($"First Name", titleFont, Brushes.Black, column1StartPoint, y);
-            g.DrawString($"Last Name", titleFont, Brushes.Black, column2StartPoint, y);
-            g.DrawString($"Phone No.", titleFont, Brushes.Black, column3StartPoint, y);
-            g.DrawString($"Helper", titleFont, Brushes.Black, column4StartPoint, y);
-            y += rowHeight;
-
-            // Draw whanaus registered for the event
-            DataRow[] registrationRows = DM.registrationTable.Select("EventID = " + eventID);
-            foreach (DataRow task in registrationRows)
-            {
-                string WhanauID = task["WhanauID"].ToString();
-                DataRow[] whanauRows = DM.whanauTable.Select("WhanauID = " + WhanauID);
-                if (whanauRows.Length > 0)
-                {
-                    string firstName = whanauRows[0]["FirstName"].ToString();
-                    g.DrawString($"{firstName}", detailFont, Brushes.Black, column1StartPoint, y);
-                    string lastName = whanauRows[0]["LastName"].ToString();
-                    g.DrawString($"{lastName}", detailFont, Brushes.Black, column2StartPoint, y);
-                    string phone = whanauRows[0]["Phone"].ToString();
-                    g.DrawString($"{phone}", detailFont, Brushes.Black, column3StartPoint, y);
-                    string helper = registrationRows[0]["KaiPreparation"].ToString();
-                    g.DrawString($"{helper}", detailFont, Brushes.Black, column4StartPoint, y);
-
-                    y += rowHeight;
-                }
-            }
-
-            currentEventIndex++;
-            e.HasMorePages = currentEventIndex < DM.eventTable.Rows.Count;
         }
 
         /// <summary>
@@ -248,6 +286,7 @@ namespace Kaioordinate
         /// <param name="e">An <see cref="EventArgs"/> object containing event data.</param>
         private void btnEventReport_Click(object sender, EventArgs e)
         {
+            currentEventIndex = 0;
             PrintEvents();
         }
 

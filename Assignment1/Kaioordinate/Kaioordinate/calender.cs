@@ -105,6 +105,8 @@ namespace Kaioordinate
             {
                 txtboxEvents.Text = "No events on this day.";
             }
+
+            DM.eventTable.DefaultView.RowFilter = null;
         }
 
         /// <summary>
