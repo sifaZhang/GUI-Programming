@@ -40,28 +40,25 @@ namespace Kaioordinate
         private void BindControls()
         {
             // Set the data source for the DataGridViews and their CurrencyManagers
-            dgEvent.DataSource = DM.dsKaioordinate;
-            dgEvent.DataMember = "Event";
+            dgEvent.DataSource = DM.dsKaioordinate.Tables["Event"].DefaultView;
             dgEvent.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dgEvent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgEvent.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            cmEvent = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "Event"];
+            cmEvent = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["Event"].DefaultView];
 
             // Set the data source for the Whanau and Registration DataGridViews
-            dgWhanau.DataSource = DM.dsKaioordinate;
-            dgWhanau.DataMember = "Whanau";
+            dgWhanau.DataSource = DM.dsKaioordinate.Tables["Whanau"].DefaultView;
             dgWhanau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dgWhanau.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgWhanau.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            cmWhanau = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "Whanau"];
+            cmWhanau = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["Whanau"].DefaultView];
 
             // Set the data source for the Registration DataGridView
-            dgRegistration.DataSource = DM.dsKaioordinate;
-            dgRegistration.DataMember = "EventRegister";
+            dgRegistration.DataSource = DM.dsKaioordinate.Tables["EventRegister"].DefaultView;
             dgRegistration.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dgRegistration.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgRegistration.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            cmRegistration = (CurrencyManager)this.BindingContext[DM.dsKaioordinate, "EventRegister"];
+            cmRegistration = (CurrencyManager)this.BindingContext[DM.dsKaioordinate.Tables["EventRegister"].DefaultView];
         }
 
         /// <summary>
@@ -91,8 +88,11 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            DataRow eventRow = DM.eventTable.Rows[cmEvent.Position];
-            DataRow whanauRow = DM.whanauTable.Rows[cmWhanau.Position];
+            DataRowView currentEventRowView = (DataRowView)cmEvent.Current;
+            DataRow eventRow = currentEventRowView.Row;
+
+            DataRowView currentWhanauRowView = (DataRowView)cmWhanau.Current;
+            DataRow whanauRow = currentWhanauRowView.Row;
 
             int eventID = Convert.ToInt32(eventRow["EventID"]);
             int whanauID = Convert.ToInt32(whanauRow["WhanauID"]);
@@ -125,7 +125,8 @@ namespace Kaioordinate
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataRow deleteow = DM.registrationTable.Rows[cmRegistration.Position];
+            DataRowView currentRegistrationRowView = (DataRowView)cmRegistration.Current;
+            DataRow deleteow = currentRegistrationRowView.Row;
 
             // Check if the user confirms the deletion
             if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",

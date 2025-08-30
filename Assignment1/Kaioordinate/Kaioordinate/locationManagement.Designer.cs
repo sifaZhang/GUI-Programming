@@ -60,7 +60,7 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Location = new System.Drawing.Point(350, 4);
+            this.panel1.Location = new System.Drawing.Point(351, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 278);
@@ -151,6 +151,7 @@
             this.txboxAddressShow.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txboxAddressShow.Multiline = true;
             this.txboxAddressShow.Name = "txboxAddressShow";
+            this.txboxAddressShow.ReadOnly = true;
             this.txboxAddressShow.Size = new System.Drawing.Size(336, 98);
             this.txboxAddressShow.TabIndex = 86;
             // 
@@ -172,6 +173,7 @@
             this.txtboxLocationNameShow.Location = new System.Drawing.Point(538, 87);
             this.txtboxLocationNameShow.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxLocationNameShow.Name = "txtboxLocationNameShow";
+            this.txtboxLocationNameShow.ReadOnly = true;
             this.txtboxLocationNameShow.Size = new System.Drawing.Size(336, 28);
             this.txtboxLocationNameShow.TabIndex = 78;
             // 
@@ -193,6 +195,7 @@
             this.txtboxLocationID.Location = new System.Drawing.Point(538, 19);
             this.txtboxLocationID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxLocationID.Name = "txtboxLocationID";
+            this.txtboxLocationID.ReadOnly = true;
             this.txtboxLocationID.Size = new System.Drawing.Size(336, 28);
             this.txtboxLocationID.TabIndex = 76;
             // 

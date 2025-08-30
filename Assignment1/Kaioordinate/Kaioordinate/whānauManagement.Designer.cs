@@ -70,6 +70,7 @@
             this.txtboxWhanauID.Location = new System.Drawing.Point(519, 25);
             this.txtboxWhanauID.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxWhanauID.Name = "txtboxWhanauID";
+            this.txtboxWhanauID.ReadOnly = true;
             this.txtboxWhanauID.Size = new System.Drawing.Size(336, 28);
             this.txtboxWhanauID.TabIndex = 48;
             // 
@@ -205,6 +206,7 @@
             this.txtboxAddressShow.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxAddressShow.Multiline = true;
             this.txtboxAddressShow.Name = "txtboxAddressShow";
+            this.txtboxAddressShow.ReadOnly = true;
             this.txtboxAddressShow.Size = new System.Drawing.Size(336, 57);
             this.txtboxAddressShow.TabIndex = 66;
             // 
@@ -226,6 +228,7 @@
             this.txtboxPhoneShow.Location = new System.Drawing.Point(519, 178);
             this.txtboxPhoneShow.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxPhoneShow.Name = "txtboxPhoneShow";
+            this.txtboxPhoneShow.ReadOnly = true;
             this.txtboxPhoneShow.Size = new System.Drawing.Size(336, 28);
             this.txtboxPhoneShow.TabIndex = 64;
             // 
@@ -235,6 +238,7 @@
             this.txtboxEmailShow.Location = new System.Drawing.Point(519, 139);
             this.txtboxEmailShow.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxEmailShow.Name = "txtboxEmailShow";
+            this.txtboxEmailShow.ReadOnly = true;
             this.txtboxEmailShow.Size = new System.Drawing.Size(336, 28);
             this.txtboxEmailShow.TabIndex = 63;
             // 
@@ -244,6 +248,7 @@
             this.txtboxLastNameShow.Location = new System.Drawing.Point(519, 100);
             this.txtboxLastNameShow.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxLastNameShow.Name = "txtboxLastNameShow";
+            this.txtboxLastNameShow.ReadOnly = true;
             this.txtboxLastNameShow.Size = new System.Drawing.Size(336, 28);
             this.txtboxLastNameShow.TabIndex = 62;
             // 
@@ -289,6 +294,7 @@
             this.txtboxFirstNameShow.Location = new System.Drawing.Point(519, 61);
             this.txtboxFirstNameShow.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtboxFirstNameShow.Name = "txtboxFirstNameShow";
+            this.txtboxFirstNameShow.ReadOnly = true;
             this.txtboxFirstNameShow.Size = new System.Drawing.Size(336, 28);
             this.txtboxFirstNameShow.TabIndex = 58;
             // 
@@ -318,7 +324,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtboxFirstName);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(356, 2);
+            this.panel1.Location = new System.Drawing.Point(351, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(569, 296);
