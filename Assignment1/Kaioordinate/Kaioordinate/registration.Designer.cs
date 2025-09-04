@@ -52,10 +52,10 @@
             this.btnReturn.IconColor = System.Drawing.Color.Black;
             this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReturn.IconSize = 80;
-            this.btnReturn.Location = new System.Drawing.Point(787, 431);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnReturn.Location = new System.Drawing.Point(1574, 898);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(140, 134);
+            this.btnReturn.Size = new System.Drawing.Size(280, 279);
             this.btnReturn.TabIndex = 49;
             this.btnReturn.Text = "\r\n\r\n\r\n\r\n\r\nRETURN";
             this.btnReturn.UseVisualStyleBackColor = false;
@@ -69,10 +69,10 @@
             this.btnDelete.IconColor = System.Drawing.Color.Black;
             this.btnDelete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDelete.IconSize = 80;
-            this.btnDelete.Location = new System.Drawing.Point(628, 431);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnDelete.Location = new System.Drawing.Point(1256, 898);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(140, 134);
+            this.btnDelete.Size = new System.Drawing.Size(280, 279);
             this.btnDelete.TabIndex = 48;
             this.btnDelete.Text = "\r\n\r\n\r\n\r\n\r\nDELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -86,10 +86,10 @@
             this.btnAdd.IconColor = System.Drawing.Color.Black;
             this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdd.IconSize = 80;
-            this.btnAdd.Location = new System.Drawing.Point(484, 431);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnAdd.Location = new System.Drawing.Point(968, 898);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(140, 134);
+            this.btnAdd.Size = new System.Drawing.Size(280, 279);
             this.btnAdd.TabIndex = 47;
             this.btnAdd.Text = "\r\n\r\n\r\n\r\n\r\nADD";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -100,24 +100,26 @@
             this.dgEvent.AllowUserToAddRows = false;
             this.dgEvent.AllowUserToDeleteRows = false;
             this.dgEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgEvent.Location = new System.Drawing.Point(12, 31);
-            this.dgEvent.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.dgEvent.Location = new System.Drawing.Point(24, 65);
+            this.dgEvent.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dgEvent.Name = "dgEvent";
             this.dgEvent.ReadOnly = true;
             this.dgEvent.RowHeadersWidth = 82;
             this.dgEvent.RowTemplate.Height = 33;
-            this.dgEvent.Size = new System.Drawing.Size(442, 244);
+            this.dgEvent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgEvent.Size = new System.Drawing.Size(884, 508);
             this.dgEvent.TabIndex = 50;
+            this.dgEvent.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEvent_RowEnter);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(186, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(372, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 24);
+            this.label1.Size = new System.Drawing.Size(133, 42);
             this.label1.TabIndex = 51;
             this.label1.Text = "Events";
             // 
@@ -126,12 +128,14 @@
             this.dgWhanau.AllowUserToAddRows = false;
             this.dgWhanau.AllowUserToDeleteRows = false;
             this.dgWhanau.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgWhanau.Location = new System.Drawing.Point(484, 31);
-            this.dgWhanau.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.dgWhanau.Location = new System.Drawing.Point(968, 65);
+            this.dgWhanau.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dgWhanau.Name = "dgWhanau";
+            this.dgWhanau.ReadOnly = true;
             this.dgWhanau.RowHeadersWidth = 82;
             this.dgWhanau.RowTemplate.Height = 33;
-            this.dgWhanau.Size = new System.Drawing.Size(442, 244);
+            this.dgWhanau.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgWhanau.Size = new System.Drawing.Size(884, 508);
             this.dgWhanau.TabIndex = 52;
             // 
             // dgRegistration
@@ -139,13 +143,14 @@
             this.dgRegistration.AllowUserToAddRows = false;
             this.dgRegistration.AllowUserToDeleteRows = false;
             this.dgRegistration.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgRegistration.Location = new System.Drawing.Point(12, 321);
-            this.dgRegistration.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.dgRegistration.Location = new System.Drawing.Point(24, 669);
+            this.dgRegistration.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dgRegistration.Name = "dgRegistration";
             this.dgRegistration.ReadOnly = true;
             this.dgRegistration.RowHeadersWidth = 82;
             this.dgRegistration.RowTemplate.Height = 33;
-            this.dgRegistration.Size = new System.Drawing.Size(442, 244);
+            this.dgRegistration.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgRegistration.Size = new System.Drawing.Size(884, 508);
             this.dgRegistration.TabIndex = 53;
             // 
             // label2
@@ -153,10 +158,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(638, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(1276, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 24);
+            this.label2.Size = new System.Drawing.Size(158, 42);
             this.label2.TabIndex = 54;
             this.label2.Text = "Whanau";
             // 
@@ -165,10 +170,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(186, 297);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(372, 619);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 24);
+            this.label3.Size = new System.Drawing.Size(236, 42);
             this.label3.TabIndex = 55;
             this.label3.Text = "Registrations";
             // 
@@ -177,19 +182,19 @@
             this.ckboxPreparation.AutoSize = true;
             this.ckboxPreparation.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckboxPreparation.ForeColor = System.Drawing.Color.White;
-            this.ckboxPreparation.Location = new System.Drawing.Point(484, 357);
-            this.ckboxPreparation.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.ckboxPreparation.Location = new System.Drawing.Point(968, 744);
+            this.ckboxPreparation.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.ckboxPreparation.Name = "ckboxPreparation";
-            this.ckboxPreparation.Size = new System.Drawing.Size(234, 28);
+            this.ckboxPreparation.Size = new System.Drawing.Size(469, 46);
             this.ckboxPreparation.TabIndex = 56;
             this.ckboxPreparation.Text = "Kai Preparation Assistant";
             this.ckboxPreparation.UseVisualStyleBackColor = true;
             // 
             // registrationFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 585);
+            this.ClientSize = new System.Drawing.Size(1888, 1219);
             this.Controls.Add(this.ckboxPreparation);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -201,7 +206,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "registrationFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration Maintenance";

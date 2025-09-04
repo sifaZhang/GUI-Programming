@@ -132,6 +132,11 @@ namespace Kaioordinate
 
                     // Show success message
                     MessageBox.Show("Entry added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    DataView filteredView = new DataView(DM.dsKaioordinate.Tables["EventRegister"]);
+                    filteredView.RowFilter = "EventID = " + eventID;
+                    dgRegistration.DataSource = filteredView;
+                    cmRegistration = (CurrencyManager)this.BindingContext[filteredView];
                 }
             }
             catch (FormatException ex)
@@ -187,6 +192,25 @@ namespace Kaioordinate
             catch (Exception ex)  // 兜底
             {
                 MessageBox.Show("Unexpected error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// filter the data from registrattion table by eventid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgEvent_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && !dgEvent.Rows[e.RowIndex].IsNewRow)
+            {
+                var row = dgEvent.Rows[e.RowIndex];
+                int eventID = Convert.ToInt32(row.Cells["EventID"].Value);
+
+                DataView filteredView = new DataView(DM.dsKaioordinate.Tables["EventRegister"]);
+                filteredView.RowFilter = "EventID = " + eventID;
+                dgRegistration.DataSource = filteredView;
+                cmRegistration = (CurrencyManager)this.BindingContext[filteredView];
             }
         }
     }
