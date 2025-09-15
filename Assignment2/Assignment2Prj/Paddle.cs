@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,62 @@ namespace Assignment2Prj
         /// </summary>
         private PictureBox picPaddle;
         private int paddleSpeed;
+        private int boxNumber = 6;
 
         public Paddle(PictureBox picPaddle, int paddleSpeed)
         {
             this.picPaddle = picPaddle;
             this.paddleSpeed = paddleSpeed;
+            this.picPaddle.BackColor = Color.Gray; // 设置背景为黑色
+            picPaddle.Height = 16;
+            this.picPaddle.Width = boxNumber * picPaddle.Height;
+        }
+
+        public void MoveLeft()
+        {
+            if (picPaddle.Left - paddleSpeed >= 0)
+            {
+                picPaddle.Left -= paddleSpeed;
+            }
+            else
+            {
+                picPaddle.Left = 0;
+            }
+        }
+
+        public void MoveRight()
+        {
+            if (picPaddle.Right + paddleSpeed <= picPaddle.Parent.ClientSize.Width)
+            {
+                picPaddle.Left += paddleSpeed;
+            }
+            else
+            {
+                picPaddle.Left = picPaddle.Parent.ClientSize.Width - picPaddle.Width;
+            }
+        }
+
+        public void Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            float blockWidth = (float)picPaddle.ClientSize.Width / boxNumber;
+            int blockHeight = picPaddle.ClientSize.Height;
+
+            using (Pen pen = new Pen(Color.White, 2))
+            {
+                for (int i = 0; i < boxNumber; i++)
+                {
+                    int x = (int)Math.Round(i * blockWidth);
+                    int w = (int)Math.Round(blockWidth);
+                    Rectangle rect = new Rectangle(x, 0, w, blockHeight);
+                    g.DrawRectangle(pen, rect);
+                }
+            }
+        }
+
+        public bool IsCollided(Rectangle ballRect)
+        {
+            return picPaddle.Bounds.IntersectsWith(ballRect);
         }
     }
 }

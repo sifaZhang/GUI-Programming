@@ -36,10 +36,10 @@ namespace Assignment2Prj
         {
             InitializeComponent();
             //Adjust these numbers 
-            this.verticalSpeed = 5;
-            this.horizontalSpeed = 5;
-            this.bricksRows = 5;
-            this.bricksCols = 8;
+            this.verticalSpeed = 3;
+            this.horizontalSpeed = 3;
+            this.bricksRows = 8;
+            this.bricksCols = 16;
             this.paddleSpeed = 5;
 
             //Create objects 
@@ -47,13 +47,42 @@ namespace Assignment2Prj
             this.paddle = new Paddle(picPaddle, paddleSpeed);
             this.bricks = new Bricks(bricksRows, bricksCols);
 
+            //MessageBox.Show(this.Width.ToString() + ", " +this.ClientSize.Width.ToString());
             this.mannger = new Mannger(bricks, ball, paddle);
-
+            bricks.AddToContainer(this);
         }
 
         private void Game_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void picPaddle_Paint(object sender, PaintEventArgs e)
+        {
+            paddle.Paint(sender, e);
+        }
+
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    paddle.MoveLeft();
+                    break;
+                case Keys.Right:
+                    paddle.MoveRight();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            mannger.OnTimer();
+
+            mannger.GetCurrentScore();
+            lblScore.Text = "Score: " + mannger.GetCurrentScore().ToString();
         }
     }
 }
