@@ -36,10 +36,10 @@ namespace Assignment2Prj
         {
             InitializeComponent();
             //Adjust these numbers 
-            this.verticalSpeed = 3;
+            this.verticalSpeed = -3;
             this.horizontalSpeed = 3;
             this.bricksRows = 8;
-            this.bricksCols = 16;
+            this.bricksCols = 12;
             this.paddleSpeed = 5;
 
             //Create objects 
@@ -59,7 +59,7 @@ namespace Assignment2Prj
 
         private void picPaddle_Paint(object sender, PaintEventArgs e)
         {
-            paddle.Paint(sender, e);
+            paddle.Paddle_Paint(sender, e);
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)

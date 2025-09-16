@@ -23,6 +23,12 @@ namespace Assignment2Prj
             this.verticalSpeed = verticalSpeed;
             this.horizontalSpeed = horizontalSpeed;
         }
+
+        public void GetSpeed(out int verticalSpeed, out int horizontalSpeed)
+        {
+            horizontalSpeed = this.horizontalSpeed;
+            verticalSpeed = this.verticalSpeed;
+        }
         
         public Rectangle GetRectangle()
         {
@@ -34,6 +40,11 @@ namespace Assignment2Prj
             verticalSpeed = -verticalSpeed;
         }
 
+        public Control GetParent()
+        {
+            return picBall.Parent;
+        }
+
         public void OnTimner()
         {
             // Move the ball
@@ -43,6 +54,12 @@ namespace Assignment2Prj
             if (picBall.Left <= 0 || picBall.Right >= picBall.Parent.ClientSize.Width)
             {
                 horizontalSpeed = -horizontalSpeed; // Reverse horizontal direction
+            }
+
+            // Check for collision with top wall
+            if (picBall.Top <= 0)
+            {
+                verticalSpeed = -verticalSpeed; // Reverse vertical direction
             }
         }
     }

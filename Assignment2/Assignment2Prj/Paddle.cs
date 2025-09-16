@@ -23,7 +23,7 @@ namespace Assignment2Prj
             this.picPaddle = picPaddle;
             this.paddleSpeed = paddleSpeed;
             this.picPaddle.BackColor = Color.Gray; // 设置背景为黑色
-            picPaddle.Height = 16;
+            this.picPaddle.Height = 16;
             this.picPaddle.Width = boxNumber * picPaddle.Height;
         }
 
@@ -51,7 +51,7 @@ namespace Assignment2Prj
             }
         }
 
-        public void Paint(object sender, PaintEventArgs e)
+        public void Paddle_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             float blockWidth = (float)picPaddle.ClientSize.Width / boxNumber;
@@ -72,6 +72,21 @@ namespace Assignment2Prj
         public bool IsCollided(Rectangle ballRect)
         {
             return picPaddle.Bounds.IntersectsWith(ballRect);
+        }
+
+        public void Expand()
+        {
+            if (boxNumber < 10)
+            {
+                boxNumber++;
+                int newWidth = boxNumber * picPaddle.Height;
+                if (picPaddle.Left + newWidth > picPaddle.Parent.ClientSize.Width)
+                {
+                    picPaddle.Left = picPaddle.Parent.ClientSize.Width - newWidth;
+                }
+                picPaddle.Width = newWidth;
+                picPaddle.Invalidate(); // 触发重绘
+            }
         }
     }
 }

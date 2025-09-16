@@ -18,28 +18,58 @@ namespace Assignment2Prj
         private Ball ball;
         private Paddle paddle;
         private int currentScore = 0;
+        private List<Ball> balls = new List<Ball>();
 
         public Mannger(Bricks bricks, Ball ball, Paddle paddle)
         {
             this.bricks = bricks;
             this.ball = ball;
+            this.balls.Add(ball);
             this.paddle = paddle;
         }
 
         public void OnTimer()
         {
-            //determine the collision with paddle
-            Rectangle ballRect = ball.GetRectangle();
-            int score = 0;
-            if (paddle.IsCollided(ballRect) || bricks.IsCollided(ballRect, out score))
+            foreach (var currentBall in balls.ToList())
             {
-                // 碰撞发生
-                ball.ChangeDirectionVertical();
+                //determine the collision with paddle
+                Rectangle ballRect = currentBall.GetRectangle();
+                int score = 0;
+                Bricks.BrickType collisionType = Bricks.BrickType.Normal;
+                if (paddle.IsCollided(ballRect))
+                {
+                    // 碰撞发生
+                    currentBall.ChangeDirectionVertical();
+                }
+                else if (bricks.CheckCollision(ballRect, out score, out collisionType))
+                {
+                    currentBall.ChangeDirectionVertical();
 
-                currentScore += score;
-            } 
+                    currentScore += score;
 
-            ball.OnTimner();
+                    if (collisionType == Bricks.BrickType.extra)
+                    {
+                        ball.GetSpeed(out int verticalSpeed, out int horizontalSpeed);
+                        PictureBox pb = new PictureBox();
+                        pb.Width = 18;
+                        pb.Height = 18;
+                        pb.Left = 350;
+                        pb.Top = 400;
+                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pb.Image = Properties.Resources.ball;
+                        pb.Parent = ball.GetParent();
+                        verticalSpeed = verticalSpeed > 0 ? verticalSpeed * -1 : verticalSpeed;
+                        balls.Add(new Ball(pb, verticalSpeed, horizontalSpeed));
+                    }
+                    else if (collisionType == Bricks.BrickType.Stetch)
+                    {
+                        paddle.Expand();
+                    }
+                }
+
+                currentBall.OnTimner();
+            }
+           
         }
 
         public int GetCurrentScore()
