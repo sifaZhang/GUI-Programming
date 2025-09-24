@@ -84,6 +84,37 @@ namespace Assignment2Prj
             }
         }
 
+        public void MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.X < 0)
+            {
+                picPaddle.Left = 0;
+            }
+            else if(e.X > picPaddle.Parent.ClientSize.Width - picPaddle.Width)
+            {
+                picPaddle.Left = picPaddle.Parent.ClientSize.Width - picPaddle.Width;
+            }
+            else
+            {
+                picPaddle.Left = e.X;
+            }
+        }
+
+        public void HandleKey(Keys key)
+        {
+            switch (key)
+            {
+                case Keys.Left:
+                    MoveLeft();
+                    break;
+                case Keys.Right:
+                    MoveRight();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public bool IsCollided(Rectangle ballRect, out bool verticalCollision)
         {
             verticalCollision = true;
@@ -123,7 +154,22 @@ namespace Assignment2Prj
                     picPaddle.Left = picPaddle.Parent.ClientSize.Width - newWidth;
                 }
                 picPaddle.Width = newWidth;
-                picPaddle.Invalidate(); // 触发重绘
+                picPaddle.Invalidate(); 
+            }
+        }
+
+        public void Shrink()
+        {
+            if (boxNumber > 2)
+            {
+                boxNumber--;
+                int newWidth = boxNumber * picPaddle.Height;
+                if (picPaddle.Left + newWidth > picPaddle.Parent.ClientSize.Width)
+                {
+                    picPaddle.Left = picPaddle.Parent.ClientSize.Width - newWidth;
+                }
+                picPaddle.Width = newWidth;
+                picPaddle.Invalidate(); 
             }
         }
     }

@@ -24,14 +24,17 @@ namespace Assignment2Prj
         private int bricksRows;
         private int bricksCols;
         private int paddleSpeed;
+        private bool isDragging;
+
+
 
         public Game()
         {
             InitializeComponent();
 
             //Adjust these numbers 
-            this.verticalSpeed = -4;
-            this.horizontalSpeed = 4;
+            this.verticalSpeed = -3 * PublicDatas.currentLevel;
+            this.horizontalSpeed = 3 * PublicDatas.currentLevel;
             this.bricksRows = 8;
             this.bricksCols = 12;
             this.paddleSpeed = 9;
@@ -44,11 +47,15 @@ namespace Assignment2Prj
             //MessageBox.Show(this.Width.ToString() + ", " +this.ClientSize.Width.ToString());
             this.manager = new Mannger(bricks, ball, paddle);
             this.bricks.AddToContainer(this);
+
+            isDragging = false;
         }
 
         private void Game_Load(object sender, EventArgs e)
         {
             timer.Enabled = true;
+
+            lblLevel.Text = "Level: " + PublicDatas.currentLevel.ToString();
         }
 
         private void picPaddle_Paint(object sender, PaintEventArgs e)
@@ -60,17 +67,7 @@ namespace Assignment2Prj
         {
             if (!timer.Enabled) return;
 
-            switch (key)
-            {
-                case Keys.Left:
-                    paddle.MoveLeft();
-                    break;
-                case Keys.Right:
-                    paddle.MoveRight();
-                    break;
-                default:
-                    break;
-            }
+            paddle.HandleKey(key);
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
@@ -85,6 +82,7 @@ namespace Assignment2Prj
             lblScore.Text = "Score: " + manager.GetCurrentScore().ToString();
 
             bool bOver = false;
+            bool bWin = false;
             if (manager.IsGameOver())
             {
                 bOver = true;
@@ -94,22 +92,22 @@ namespace Assignment2Prj
 
             if(manager.IsGameWin())
             {
-                bOver = true;
+                bWin = true;
                 SoundPlayer player = new SoundPlayer(Properties.Resources.goodjob);
                 player.Play();
             }
 
-            if (bOver)
+            if (bOver || bWin)
             {
                 timer.Stop();
 
-                PublicDatas.currentScore = manager.GetCurrentScore();
+                PublicDatas.currentScore += manager.GetCurrentScore();
                 PublicDatas.UpdateScores();
 
                 this.Close();
                 this.Dispose();
 
-                Result result = new Result();
+                Result result = new Result(bWin);
                 result.Show();
             }
         }
@@ -132,6 +130,26 @@ namespace Assignment2Prj
         {
             HandleKey(keyData);
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void Game_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!timer.Enabled) return;
+
+            if (isDragging)
+            {
+                paddle.MouseMove(sender, e);
+            }
+        }
+
+        private void Game_MouseDown(object sender, MouseEventArgs e)
+        {
+            isDragging = true;
+        }
+
+        private void Game_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
         }
     }
 }

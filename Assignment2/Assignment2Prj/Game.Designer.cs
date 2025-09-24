@@ -34,6 +34,7 @@
             this.btnPause = new FontAwesome.Sharp.IconButton();
             this.picPaddle = new System.Windows.Forms.PictureBox();
             this.picBall = new System.Windows.Forms.PictureBox();
+            this.lblLevel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picPaddle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBall)).BeginInit();
             this.SuspendLayout();
@@ -49,9 +50,9 @@
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.Location = new System.Drawing.Point(8, 494);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(55, 20);
+            this.lblScore.Size = new System.Drawing.Size(54, 20);
             this.lblScore.TabIndex = 3;
-            this.lblScore.Text = "Score:";
+            this.lblScore.Text = "Level: ";
             // 
             // btnPause
             // 
@@ -91,6 +92,16 @@
             this.picBall.TabIndex = 1;
             this.picBall.TabStop = false;
             // 
+            // lblLevel
+            // 
+            this.lblLevel.AutoSize = true;
+            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.Location = new System.Drawing.Point(425, 494);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(54, 20);
+            this.lblLevel.TabIndex = 6;
+            this.lblLevel.Text = "Level: ";
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -98,6 +109,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(960, 528);
+            this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.picPaddle);
@@ -111,6 +123,9 @@
             this.Text = "Breakout";
             this.Load += new System.EventHandler(this.Game_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Game_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Game_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Game_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.picPaddle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBall)).EndInit();
             this.ResumeLayout(false);
@@ -125,6 +140,7 @@
         private System.Windows.Forms.PictureBox picPaddle;
         private System.Windows.Forms.Label lblScore;
         private FontAwesome.Sharp.IconButton btnPause;
+        private System.Windows.Forms.Label lblLevel;
     }
 }
 

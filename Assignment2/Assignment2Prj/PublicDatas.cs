@@ -22,6 +22,8 @@ namespace Assignment2Prj
 
     internal static class PublicDatas
     {
+        public static int maxLevel = 5;
+        public static int currentLevel = 1;
         public static string currentUserName = "";
         public static int currentScore = 0;
         public static Ranking ranking = new Ranking();
@@ -29,6 +31,14 @@ namespace Assignment2Prj
         public static List<ScoreEntry> topUsers = new List<ScoreEntry>();
         public static string filePath = Application.StartupPath + "\\topUsers.csv";
         public static int topUsersCount = 10;
+
+        public static void AddLevel()
+        {
+            if (currentLevel < maxLevel)
+            {
+                currentLevel++;
+            }
+        }
 
         public static void LoadTopUsersFromFile()
         {

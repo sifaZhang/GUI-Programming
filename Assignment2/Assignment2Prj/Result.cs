@@ -12,9 +12,12 @@ namespace Assignment2Prj
 {
     public partial class Result : Form
     {
-        public Result()
+        private bool bWin;
+        public Result(bool bWin)
         {
             InitializeComponent();
+
+            this.bWin = bWin;
         }
 
         private void btnRanking_Click(object sender, EventArgs e)
@@ -34,6 +37,9 @@ namespace Assignment2Prj
         {
             this.Hide();
 
+            PublicDatas.currentLevel = 1;
+            PublicDatas.currentScore = 0;
+
             Game game = new Game();
             game.Show();
         }
@@ -43,8 +49,32 @@ namespace Assignment2Prj
             int ranking = -1;
             int topScore = PublicDatas.GetMyTopScore(out ranking);
 
-            lblResult.Text = "Game Over! \r\n" + PublicDatas.currentUserName + ", your final score is: "  + PublicDatas.currentScore + "\r\n"
-                + "Your best ranking is " + ranking + " with score(" + topScore + ")";
+            if(PublicDatas.currentLevel < PublicDatas.maxLevel && bWin)
+            {
+               btnNext.Enabled = true;
+            }
+            else
+            {
+                btnNext.Enabled = false;
+            }
+
+            if(bWin)
+                lblResult.Text = "Congratulations! \r\n" + PublicDatas.currentUserName + ", you have completed level " + PublicDatas.currentLevel + "\r\n"
+                    + "Your current score is: " + PublicDatas.currentScore + "\r\n"
+                    + "Your best ranking is " + ranking + " with score(" + topScore + ")";
+            else
+                lblResult.Text = "Game Over! \r\n" + PublicDatas.currentUserName + ", your final score is: " + PublicDatas.currentScore + "\r\n"
+                    + "Your best ranking is " + ranking + " with score(" + topScore + ")";
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            PublicDatas.AddLevel();
+
+            Game game = new Game();
+            game.Show();
         }
     }
 }

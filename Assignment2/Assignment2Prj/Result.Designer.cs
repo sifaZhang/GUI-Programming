@@ -32,6 +32,7 @@
             this.btnQuit = new FontAwesome.Sharp.IconButton();
             this.btnStart = new FontAwesome.Sharp.IconButton();
             this.btnRanking = new FontAwesome.Sharp.IconButton();
+            this.btnNext = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // lblResult
@@ -50,7 +51,7 @@
             this.btnQuit.IconChar = FontAwesome.Sharp.IconChar.SignOut;
             this.btnQuit.IconColor = System.Drawing.Color.Black;
             this.btnQuit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnQuit.Location = new System.Drawing.Point(369, 291);
+            this.btnQuit.Location = new System.Drawing.Point(427, 296);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(140, 120);
             this.btnQuit.TabIndex = 9;
@@ -65,7 +66,7 @@
             this.btnStart.IconChar = FontAwesome.Sharp.IconChar.Redo;
             this.btnStart.IconColor = System.Drawing.Color.Black;
             this.btnStart.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnStart.Location = new System.Drawing.Point(211, 291);
+            this.btnStart.Location = new System.Drawing.Point(147, 296);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(140, 120);
             this.btnStart.TabIndex = 8;
@@ -80,7 +81,7 @@
             this.btnRanking.IconChar = FontAwesome.Sharp.IconChar.Users;
             this.btnRanking.IconColor = System.Drawing.Color.Black;
             this.btnRanking.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRanking.Location = new System.Drawing.Point(53, 291);
+            this.btnRanking.Location = new System.Drawing.Point(287, 296);
             this.btnRanking.Name = "btnRanking";
             this.btnRanking.Size = new System.Drawing.Size(140, 120);
             this.btnRanking.TabIndex = 7;
@@ -88,11 +89,27 @@
             this.btnRanking.UseVisualStyleBackColor = false;
             this.btnRanking.Click += new System.EventHandler(this.btnRanking_Click);
             // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnNext.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.Forward;
+            this.btnNext.IconColor = System.Drawing.Color.Black;
+            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNext.Location = new System.Drawing.Point(7, 296);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(140, 120);
+            this.btnNext.TabIndex = 10;
+            this.btnNext.Text = "\r\n\r\n\r\nNext";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // Result
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 450);
+            this.ClientSize = new System.Drawing.Size(575, 450);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnRanking);
@@ -113,5 +130,6 @@
         private FontAwesome.Sharp.IconButton btnRanking;
         private FontAwesome.Sharp.IconButton btnStart;
         private FontAwesome.Sharp.IconButton btnQuit;
+        private FontAwesome.Sharp.IconButton btnNext;
     }
 }

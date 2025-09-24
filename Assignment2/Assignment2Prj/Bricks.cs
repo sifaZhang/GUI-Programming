@@ -19,6 +19,7 @@ namespace Assignment2Prj
             Score30,
             Bomb,
             Stetch,
+            Shrink,
             extra
         }
 
@@ -106,7 +107,10 @@ namespace Assignment2Prj
                             e.Graphics.DrawImage(Properties.Resources.bomb, destRect);
                             break;
                         case BrickType.Stetch:
-                            e.Graphics.DrawImage(Properties.Resources.expand, destRect);
+                            e.Graphics.DrawImage(Properties.Resources.Stretch, destRect);
+                            break;
+                        case BrickType.Shrink:
+                            e.Graphics.DrawImage(Properties.Resources.shrink, destRect);
                             break;
                         case BrickType.extra:
                             e.Graphics.DrawImage(Properties.Resources.plus, destRect);
@@ -232,7 +236,7 @@ namespace Assignment2Prj
                 bricks[score30.X, score30.Y].SetBrickType(Brick.BrickType.Score30);
             }
 
-            for (int i = 0; i < rows / 2; i++)
+            for (int i = 0; i < rows / (2 * PublicDatas.currentLevel); i++)
             {
                 Point stretch = new Point(rand.Next(0, rows), rand.Next(0, cols));
                 while (bricks[stretch.X, stretch.Y].GetBrickType() != Brick.BrickType.Normal)
@@ -240,6 +244,16 @@ namespace Assignment2Prj
                     stretch.Y = (stretch.Y + 1) % cols;
                 }
                 bricks[stretch.X, stretch.Y].SetBrickType(Brick.BrickType.Stetch);
+            }
+
+            for (int i = 0; i < rows && i < PublicDatas.currentLevel * 2; i++)
+            {
+                Point stretch = new Point(rand.Next(0, rows), rand.Next(0, cols));
+                while (bricks[stretch.X, stretch.Y].GetBrickType() != Brick.BrickType.Normal)
+                {
+                    stretch.Y = (stretch.Y + 1) % cols;
+                }
+                bricks[stretch.X, stretch.Y].SetBrickType(Brick.BrickType.Shrink);
             }
 
             for (int i = 0; i < rows / 2; i++)

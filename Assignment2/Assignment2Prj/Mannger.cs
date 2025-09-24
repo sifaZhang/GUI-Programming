@@ -21,12 +21,13 @@ namespace Assignment2Prj
         private int currentScore = 0;
         private List<Ball> balls = new List<Ball>();
         private SoundPlayer hit2Player = new SoundPlayer(Properties.Resources.hit2);
-        private SoundPlayer hitStetchPlayer = new SoundPlayer(Properties.Resources.yeah);
+        private SoundPlayer hitStetchPlayer = new SoundPlayer(Properties.Resources.scratch);
+        private SoundPlayer hitShinkPlayer = new SoundPlayer(Properties.Resources.narrow);
         private SoundPlayer hit1Player = new SoundPlayer(Properties.Resources.hit1);
         private SoundPlayer hitBombPlayer = new SoundPlayer(Properties.Resources.explosion);
         private SoundPlayer hit10Player = new SoundPlayer(Properties.Resources.hitBrick);
         private SoundPlayer hit20Player = new SoundPlayer(Properties.Resources.nice);
-        private SoundPlayer hit30Player = new SoundPlayer(Properties.Resources.applause);
+        private SoundPlayer hit30Player = new SoundPlayer(Properties.Resources.yeah);
 
 
         public Mannger(Bricks bricks, Ball ball, Paddle paddle)
@@ -100,6 +101,12 @@ namespace Assignment2Prj
                         hitStetchPlayer.Play();
 
                         paddle.Expand();
+                    }
+                    else if (collisionType == Brick.BrickType.Shrink)
+                    {
+                        hitShinkPlayer.Play();
+
+                        paddle.Shrink();
                     }
                     else if (collisionType == Brick.BrickType.Bomb)
                     {
