@@ -27,6 +27,21 @@ namespace Assignment2Prj
             this.picPaddle.Width = boxNumber * picPaddle.Height;
         }
 
+        public Point GetPosition()
+        {
+            return new Point(picPaddle.Left, picPaddle.Top);
+        }
+
+        public int GetWidth()
+        {
+            return picPaddle.Width;
+        }
+
+        public int GetHeight()
+        {
+            return picPaddle.Height;
+        }
+
         public void MoveLeft()
         {
             if (picPaddle.Left - paddleSpeed >= 0)

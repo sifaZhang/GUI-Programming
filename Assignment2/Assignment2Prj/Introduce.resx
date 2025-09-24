@@ -119,8 +119,10 @@
   </resheader>
   <data name="label2.Text" xml:space="preserve">
     <value>Game Overview
-Brick Blaster is a fast-paced, visually engaging mini-game where players tap into strategy and reflexes to 
-break through a grid of animated bricks. Each brick may hide surprises—some rewarding, some explosive. 
+
+Brick Blaster is a fast-paced, visually engaging mini-game where players 
+tap into strategy and reflexes to break through a grid of animated bricks. 
+Each brick may hide surprises—some rewarding, some explosive. 
 Your goal? Rack up points and clear the board with precision.</value>
   </data>
 </root>

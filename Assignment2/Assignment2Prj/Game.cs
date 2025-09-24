@@ -1,9 +1,11 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,15 +14,10 @@ namespace Assignment2Prj
 {
     public partial class Game : Form
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-
         private Bricks bricks;
         private Ball ball;
         private Paddle paddle;
-        private Mannger mannger;
+        private Mannger manager;
 
         private int verticalSpeed;
         private int horizontalSpeed;
@@ -28,17 +25,14 @@ namespace Assignment2Prj
         private int bricksCols;
         private int paddleSpeed;
 
-
-
-
-
         public Game()
         {
             InitializeComponent();
+
             //Adjust these numbers 
             this.verticalSpeed = -3;
             this.horizontalSpeed = 3;
-            this.bricksRows = 8;
+            this.bricksRows = 1;
             this.bricksCols = 12;
             this.paddleSpeed = 5;
 
@@ -48,13 +42,13 @@ namespace Assignment2Prj
             this.bricks = new Bricks(bricksRows, bricksCols);
 
             //MessageBox.Show(this.Width.ToString() + ", " +this.ClientSize.Width.ToString());
-            this.mannger = new Mannger(bricks, ball, paddle);
-            bricks.AddToContainer(this);
+            this.manager = new Mannger(bricks, ball, paddle);
+            this.bricks.AddToContainer(this);
         }
 
         private void Game_Load(object sender, EventArgs e)
         {
-
+            timer.Enabled = true;
         }
 
         private void picPaddle_Paint(object sender, PaintEventArgs e)
@@ -62,9 +56,11 @@ namespace Assignment2Prj
             paddle.Paddle_Paint(sender, e);
         }
 
-        private void Game_KeyDown(object sender, KeyEventArgs e)
+        private void HandleKey(Keys key)
         {
-            switch (e.KeyCode)
+            if (!timer.Enabled) return;
+
+            switch (key)
             {
                 case Keys.Left:
                     paddle.MoveLeft();
@@ -77,12 +73,65 @@ namespace Assignment2Prj
             }
         }
 
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            HandleKey(e.KeyCode);
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
-            mannger.OnTimer();
+            manager.OnTimer();
 
-            mannger.GetCurrentScore();
-            lblScore.Text = "Score: " + mannger.GetCurrentScore().ToString();
+            lblScore.Text = "Score: " + manager.GetCurrentScore().ToString();
+
+            bool bOver = false;
+            if (manager.IsGameOver())
+            {
+                bOver = true;
+                SoundPlayer player = new SoundPlayer(Properties.Resources.death);
+                player.Play();
+            }
+
+            if(manager.IsGameWin())
+            {
+                bOver = true;
+                SoundPlayer player = new SoundPlayer(Properties.Resources.goodjob);
+                player.Play();
+            }
+
+            if (bOver)
+            {
+                timer.Stop();
+
+                PublicDatas.currentScore = manager.GetCurrentScore();
+                PublicDatas.UpdateScores();
+
+                this.Close();
+                this.Dispose();
+
+                Result result = new Result();
+                result.Show();
+            }
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (timer.Enabled)
+            {
+                btnPause.IconChar = FontAwesome.Sharp.IconChar.Play;
+                timer.Enabled = false;
+            }
+            else
+            {
+                btnPause.IconChar = FontAwesome.Sharp.IconChar.Pause;
+                timer.Enabled = true;
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            HandleKey(keyData);
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

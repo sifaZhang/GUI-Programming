@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace Assignment2Prj
 {
-    public partial class Introduce : Form
+    public partial class Result : Form
     {
-        public Introduce()
+        public Result()
         {
             InitializeComponent();
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            if(string.IsNullOrWhiteSpace(txtboxName.Text))
-            {
-                MessageBox.Show("Please enter your name before starting the game.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            this.Hide();
-            PublicDatas.currentUserName = txtboxName.Text;
-
-            Game game = new Game();
-            game.Show();
         }
 
         private void btnRanking_Click(object sender, EventArgs e)
@@ -43,6 +28,23 @@ namespace Assignment2Prj
         {
             this.Close();
             Application.Exit();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Game game = new Game();
+            game.Show();
+        }
+
+        private void Result_Load(object sender, EventArgs e)
+        {
+            int ranking = -1;
+            int topScore = PublicDatas.GetMyTopScore(out ranking);
+
+            lblResult.Text = "Game Over! \r\n" + PublicDatas.currentUserName + ", your final score is: "  + PublicDatas.currentScore + "\r\n"
+                + "Your best ranking is " + ranking + " with score(" + topScore + ")";
         }
     }
 }
