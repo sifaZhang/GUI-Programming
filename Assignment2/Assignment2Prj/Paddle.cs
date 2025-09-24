@@ -84,9 +84,32 @@ namespace Assignment2Prj
             }
         }
 
-        public bool IsCollided(Rectangle ballRect)
+        public bool IsCollided(Rectangle ballRect, out bool verticalCollision)
         {
-            return picPaddle.Bounds.IntersectsWith(ballRect);
+            verticalCollision = true;
+            if (picPaddle.Bounds.IntersectsWith(ballRect))
+            {
+                Point ballCenter = new Point(ballRect.X + ballRect.Width / 2, ballRect.Y + ballRect.Height / 2);
+
+                if (ballCenter.Y < picPaddle.Bounds.Top)
+                {
+                    verticalCollision = true;
+                }
+                else if (ballCenter.X < picPaddle.Bounds.Left)
+                {
+                    verticalCollision = false;
+                }
+                else if (ballCenter.X > picPaddle.Bounds.Right)
+                {
+                    verticalCollision = false;
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Expand()

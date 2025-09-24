@@ -20,7 +20,7 @@ namespace Assignment2Prj
         private int verticalSpeed, horizontalSpeed;
         private bool isLost;
 
-        private static SoundPlayer player = new SoundPlayer(Properties.Resources.hitWall);
+        private static SoundPlayer player = new SoundPlayer(Properties.Resources.hit2);
 
         public Ball(PictureBox picBall, int verticalSpeed, int horizontalSpeed)
         {
@@ -78,6 +78,10 @@ namespace Assignment2Prj
         public Rectangle GetRectangle()
         {
             return new Rectangle(picBall.Left, picBall.Top, picBall.Width, picBall.Height);
+        }
+        public void MoveUp()
+        {
+            verticalSpeed = -1 * Math.Abs(verticalSpeed);
         }
 
         public void ChangeDirectionVertical()

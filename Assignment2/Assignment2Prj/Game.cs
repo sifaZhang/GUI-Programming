@@ -30,11 +30,11 @@ namespace Assignment2Prj
             InitializeComponent();
 
             //Adjust these numbers 
-            this.verticalSpeed = -3;
-            this.horizontalSpeed = 3;
-            this.bricksRows = 1;
+            this.verticalSpeed = -4;
+            this.horizontalSpeed = 4;
+            this.bricksRows = 8;
             this.bricksCols = 12;
-            this.paddleSpeed = 5;
+            this.paddleSpeed = 9;
 
             //Create objects 
             this.ball = new Ball(picBall, verticalSpeed, horizontalSpeed);

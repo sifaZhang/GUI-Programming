@@ -52,12 +52,18 @@ namespace Assignment2Prj
                 int score = 0;
                 bool verticalCollision = true;
                 Brick.BrickType collisionType = Brick.BrickType.Normal;
-                if (paddle.IsCollided(ballRect))
+                if (paddle.IsCollided(ballRect, out verticalCollision))
                 {
                     hit2Player.Play();
 
-                    // 碰撞发生
-                    currentBall.ChangeDirectionVertical();
+                    if (verticalCollision)
+                    {
+                        currentBall.MoveUp();
+                    }
+                    else
+                    {
+                        currentBall.ChangeDirectionHorizontal();
+                    }
                 }
                 else if (bricks.CheckCollision(ballRect, out score, out collisionType, out verticalCollision))
                 {

@@ -28,26 +28,28 @@ namespace Assignment2Prj
 
         public static List<ScoreEntry> topUsers = new List<ScoreEntry>();
         public static string filePath = Application.StartupPath + "\\topUsers.csv";
-        public static int topUsersCount = 6;
+        public static int topUsersCount = 10;
 
         public static void LoadTopUsersFromFile()
         {
-            topUsers.Clear();
-            if (System.IO.File.Exists(filePath))
+            if(topUsers.Count == 0)
             {
-                var lines = System.IO.File.ReadAllLines(filePath);
-                foreach (var line in lines)
+                if (System.IO.File.Exists(filePath))
                 {
-                    var parts = line.Split(',');
-                    if (parts.Length == 2 && int.TryParse(parts[1], out int score))
+                    var lines = System.IO.File.ReadAllLines(filePath);
+                    foreach (var line in lines)
                     {
-                        topUsers.Add(new ScoreEntry(parts[0], score));
+                        var parts = line.Split(',');
+                        if (parts.Length == 2 && int.TryParse(parts[1], out int score))
+                        {
+                            topUsers.Add(new ScoreEntry(parts[0], score));
+                        }
                     }
                 }
-            }
 
-            // Sort and keep only top 5
-            topUsers = topUsers.OrderByDescending(entry => entry.Score).Take(topUsersCount).ToList();
+                // Sort and keep only top 5
+                topUsers = topUsers.OrderByDescending(entry => entry.Score).Take(topUsersCount).ToList();
+            }
         }
 
         public static void UpdateScores()
