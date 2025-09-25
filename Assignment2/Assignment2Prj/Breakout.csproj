@@ -7,7 +7,7 @@
     <ProjectGuid>{D5C201A2-7BA6-42DC-9303-4F0FF47E152E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Assignment2Prj</RootNamespace>
-    <AssemblyName>Assignment2Prj</AssemblyName>
+    <AssemblyName>Breakout</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

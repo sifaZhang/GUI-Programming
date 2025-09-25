@@ -59,12 +59,12 @@ namespace Assignment2Prj
             }
 
             if(bWin)
-                lblResult.Text = "Congratulations! \r\n" + PublicDatas.currentUserName + ", you have completed level " + PublicDatas.currentLevel + "\r\n"
-                    + "Your current score is: " + PublicDatas.currentScore + "\r\n"
+                lblResult.Text = "Congratulations! \r\n" + PublicDatas.currentUserName + "You have completed level " + PublicDatas.currentLevel + ".\r\n"
+                    + "Your current score is: " + PublicDatas.currentScore + ".\r\n"
                     + "Your best ranking is " + ranking + " with score(" + topScore + ")";
             else
-                lblResult.Text = "Game Over! \r\n" + PublicDatas.currentUserName + ", your final score is: " + PublicDatas.currentScore + "\r\n"
-                    + "Your best ranking is " + ranking + " with score(" + topScore + ")";
+                lblResult.Text = "Game Over! \r\n" + PublicDatas.currentUserName + ", your final score is: " + PublicDatas.currentScore + ".\r\n"
+                    + "Your best ranking is " + ranking + " with score(" + topScore + ").";
         }
 
         private void btnNext_Click(object sender, EventArgs e)
