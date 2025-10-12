@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author: Sifa Zhang
+//Studeng ID: 1606796
+//Date: 2025/10/13
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Assignment2Prj
 {
-    class Paddle
+    public class Paddle
     {
         /// <summary>
         /// Your Paddle class must have following attributes 
@@ -18,30 +22,64 @@ namespace Assignment2Prj
         private int paddleSpeed;
         private int boxNumber = 6;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="picPaddle"></param>
+        /// <param name="paddleSpeed"></param>
         public Paddle(PictureBox picPaddle, int paddleSpeed)
         {
-            this.picPaddle = picPaddle;
-            this.paddleSpeed = paddleSpeed;
-            this.picPaddle.BackColor = Color.Gray; // 设置背景为黑色
-            this.picPaddle.Height = 16;
-            this.picPaddle.Width = boxNumber * picPaddle.Height;
+            try
+            {
+                this.picPaddle = picPaddle;
+                this.paddleSpeed = paddleSpeed;
+                this.picPaddle.BackColor = Color.Gray; // 设置背景为黑色
+                this.picPaddle.Height = 16;
+                this.picPaddle.Width = boxNumber * picPaddle.Height;
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show($"Initialization failed: {ex.Message}", "Null Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing Paddle: {ex.Message}", "Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Optionally rethrow or log
+                throw;
+            }
         }
 
-        public Point GetPosition()
+        /// <summary>
+        /// get the position of the paddle
+        /// </summary>
+        /// <returns></returns>
+        virtual public Point GetPosition()
         {
             return new Point(picPaddle.Left, picPaddle.Top);
         }
 
-        public int GetWidth()
+        /// <summary>
+        /// get the width of the paddle
+        /// </summary>
+        /// <returns></returns>
+        virtual public int GetWidth()
         {
             return picPaddle.Width;
         }
 
-        public int GetHeight()
+        /// <summary>
+        /// get the height of the paddle
+        /// </summary>
+        /// <returns></returns>
+        virtual public int GetHeight()
         {
             return picPaddle.Height;
         }
 
+        /// <summary>
+        /// move the paddle to left
+        /// </summary>
         public void MoveLeft()
         {
             if (picPaddle.Left - paddleSpeed >= 0)
@@ -54,6 +92,9 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// move the paddle to right
+        /// </summary>
         public void MoveRight()
         {
             if (picPaddle.Right + paddleSpeed <= picPaddle.Parent.ClientSize.Width)
@@ -66,6 +107,11 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// handle the paint event of the paddle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Paddle_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -84,8 +130,14 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// mouse move event to control the paddle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void MouseMove(object sender, MouseEventArgs e)
         {
+            // Ensure the paddle stays within the bounds of its parent container
             if (e.X < 0)
             {
                 picPaddle.Left = 0;
@@ -100,6 +152,10 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// handle the key event to control the paddle
+        /// </summary>
+        /// <param name="key"></param>
         public void HandleKey(Keys key)
         {
             switch (key)
@@ -115,6 +171,12 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// determine whether the ball is collided with the paddle
+        /// </summary>
+        /// <param name="ballRect"></param>
+        /// <param name="verticalCollision"></param>
+        /// <returns></returns>
         public bool IsCollided(Rectangle ballRect, out bool verticalCollision)
         {
             verticalCollision = true;
@@ -122,17 +184,24 @@ namespace Assignment2Prj
             {
                 Point ballCenter = new Point(ballRect.X + ballRect.Width / 2, ballRect.Y + ballRect.Height / 2);
 
+                // top collision
                 if (ballCenter.Y < picPaddle.Bounds.Top)
                 {
                     verticalCollision = true;
                 }
+                // left collision
                 else if (ballCenter.X < picPaddle.Bounds.Left)
                 {
                     verticalCollision = false;
                 }
+                // right collision
                 else if (ballCenter.X > picPaddle.Bounds.Right)
                 {
                     verticalCollision = false;
+                }
+                else
+                {
+                    // bottom collision is not considered
                 }
 
                 return true;
@@ -143,6 +212,9 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// expand the paddle
+        /// </summary>
         public void Expand()
         {
             if (boxNumber < 10)
@@ -158,6 +230,9 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// shrink the paddle
+        /// </summary>
         public void Shrink()
         {
             if (boxNumber > 2)

@@ -29,41 +29,44 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Introduce));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.txtboxName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblIntroduction = new System.Windows.Forms.Label();
             this.btnRanking = new FontAwesome.Sharp.IconButton();
             this.btnStart = new FontAwesome.Sharp.IconButton();
             this.btnQuit = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(175, 261);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 27);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Name:";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(350, 502);
+            this.lblName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(166, 55);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Name:";
             // 
             // txtboxName
             // 
             this.txtboxName.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxName.Location = new System.Drawing.Point(266, 261);
+            this.txtboxName.Location = new System.Drawing.Point(532, 502);
+            this.txtboxName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtboxName.Name = "txtboxName";
-            this.txtboxName.Size = new System.Drawing.Size(264, 35);
+            this.txtboxName.Size = new System.Drawing.Size(524, 63);
             this.txtboxName.TabIndex = 2;
             // 
-            // label2
+            // lblIntroduction
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(705, 150);
-            this.label2.TabIndex = 3;
-            this.label2.Text = resources.GetString("label2.Text");
+            this.lblIntroduction.AutoSize = true;
+            this.lblIntroduction.Font = new System.Drawing.Font("Arial", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntroduction.Location = new System.Drawing.Point(26, 33);
+            this.lblIntroduction.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblIntroduction.Name = "lblIntroduction";
+            this.lblIntroduction.Size = new System.Drawing.Size(1423, 294);
+            this.lblIntroduction.TabIndex = 3;
+            this.lblIntroduction.Text = resources.GetString("lblIntroduction.Text");
             // 
             // btnRanking
             // 
@@ -72,9 +75,10 @@
             this.btnRanking.IconChar = FontAwesome.Sharp.IconChar.Users;
             this.btnRanking.IconColor = System.Drawing.Color.Black;
             this.btnRanking.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRanking.Location = new System.Drawing.Point(111, 331);
+            this.btnRanking.Location = new System.Drawing.Point(222, 637);
+            this.btnRanking.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnRanking.Name = "btnRanking";
-            this.btnRanking.Size = new System.Drawing.Size(140, 120);
+            this.btnRanking.Size = new System.Drawing.Size(280, 231);
             this.btnRanking.TabIndex = 6;
             this.btnRanking.Text = "\r\n\r\n\r\nRanking";
             this.btnRanking.UseVisualStyleBackColor = false;
@@ -87,9 +91,10 @@
             this.btnStart.IconChar = FontAwesome.Sharp.IconChar.Play;
             this.btnStart.IconColor = System.Drawing.Color.Black;
             this.btnStart.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnStart.Location = new System.Drawing.Point(286, 331);
+            this.btnStart.Location = new System.Drawing.Point(572, 637);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(140, 120);
+            this.btnStart.Size = new System.Drawing.Size(280, 231);
             this.btnStart.TabIndex = 5;
             this.btnStart.Text = "\r\n\r\n\r\nStart";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -102,9 +107,10 @@
             this.btnQuit.IconChar = FontAwesome.Sharp.IconChar.SignOut;
             this.btnQuit.IconColor = System.Drawing.Color.Black;
             this.btnQuit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnQuit.Location = new System.Drawing.Point(461, 331);
+            this.btnQuit.Location = new System.Drawing.Point(922, 637);
+            this.btnQuit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(140, 120);
+            this.btnQuit.Size = new System.Drawing.Size(280, 231);
             this.btnQuit.TabIndex = 10;
             this.btnQuit.Text = "\r\n\r\n\r\nQuit";
             this.btnQuit.UseVisualStyleBackColor = false;
@@ -112,16 +118,17 @@
             // 
             // Introduce
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 490);
+            this.ClientSize = new System.Drawing.Size(1488, 942);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnRanking);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblIntroduction);
             this.Controls.Add(this.txtboxName);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Introduce";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Introduce";
@@ -131,9 +138,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtboxName;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblIntroduction;
         private FontAwesome.Sharp.IconButton btnStart;
         private FontAwesome.Sharp.IconButton btnRanking;
         private FontAwesome.Sharp.IconButton btnQuit;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author: Sifa Zhang
+//Studeng ID: 1606796
+//Date: 2025/10/13
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,27 +14,39 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Assignment2Prj
 {
+    //define the Brick class
     public class Brick
     {
+        private PictureBox brick;
+        private BrickType brickType;
+
+        static private int defaultScore = 10;
+
+        //define the type of brick
         public enum BrickType
         {
             Normal,
             Score20,
             Score30,
             Bomb,
-            Stetch,
+            stretch,
             Shrink,
             extra
         }
 
+        /// <summary>
+        /// Gets the width of the brick.
+        /// </summary>
         public int Width { get { return brick.Width; } }
+
+        /// <summary>
+        /// Gets the height of the brick.
+        /// </summary>
         public int Height { get { return brick.Height; } }
 
-        private PictureBox brick;
-        private BrickType brickType;
-
-        static private int defaultScore = 10;
-
+        /// <summary>
+        /// constructor
+        /// </summary>
         public Brick()
         {
             this.brick = new PictureBox();
@@ -42,16 +58,29 @@ namespace Assignment2Prj
             brick.Paint += Brick_Paint;
         }
 
+        /// <summary>
+        /// Sets the type of the brick.
+        /// </summary>
+        /// <param name="type">The <see cref="BrickType"/> to assign to the brick. This value determines the brick's behavior and
+        /// appearance.</param>
         public void SetBrickType(BrickType type)
         {
             this.brickType = type;
         }
 
+        /// <summary>
+        /// gets the type of the brick.
+        /// </summary>
+        /// <returns></returns>
         public BrickType GetBrickType()
         {
             return this.brickType;
         }
 
+        /// <summary>
+        /// gets the score of the brick.
+        /// </summary>
+        /// <returns></returns>
         public int GetBrickScore()
         {
             switch (brickType)
@@ -65,11 +94,23 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// sets the background color of the brick.
+        /// </summary>
+        /// <param name="color"></param>
         public void SetBackgroundColor(Color color)
         {
             brick.BackColor = color;
         }
 
+        /// <summary>
+        /// Handles the painting of a brick in the game, rendering its appearance based on its type.
+        /// </summary>
+        /// <remarks>This method customizes the appearance of a brick based on its type, such as
+        /// displaying a score,  or rendering specific images for special brick types like bombs or power-ups. The
+        /// brick's type  is determined by its associated <see cref="BrickType"/> value.</remarks>
+        /// <param name="sender">The <see cref="PictureBox"/> that triggered the paint event.</param>
+        /// <param name="e">The <see cref="PaintEventArgs"/> containing the graphics context for drawing.</param>
         private void Brick_Paint(object sender, PaintEventArgs e)
         {
             PictureBox pic = sender as PictureBox;
@@ -81,15 +122,15 @@ namespace Assignment2Prj
                 using (Font font = new Font("Arial", 10, FontStyle.Bold))
                 using (Brush brush = new SolidBrush(Color.White))
                 {
-                    // 设置缩放后的尺寸
+                    // set desired size for the image
                     int desiredWidth = 18;
                     int desiredHeight = 18;
 
-                    // 计算居中位置
+                    // set position to center the image
                     int centerX = (pic.Width - desiredWidth) / 2;
                     int centerY = (pic.Height - desiredHeight) / 2;
 
-                    // 创建目标矩形区域
+                    // create destination rectangle
                     Rectangle destRect = new Rectangle(centerX, centerY, desiredWidth, desiredHeight);
 
                     string scoreText = "";
@@ -106,7 +147,7 @@ namespace Assignment2Prj
                         case BrickType.Bomb:
                             e.Graphics.DrawImage(Properties.Resources.bomb, destRect);
                             break;
-                        case BrickType.Stetch:
+                        case BrickType.stretch:
                             e.Graphics.DrawImage(Properties.Resources.Stretch, destRect);
                             break;
                         case BrickType.Shrink:
@@ -122,11 +163,18 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// adds the brick to the specified container control.
+        /// </summary>
+        /// <param name="container"></param>
         public void AddToContainer(Control container)
         {
             container.Controls.Add(brick);
         }
 
+        /// <summary>
+        /// removes the brick from its parent container, if it has one.
+        /// </summary>
         public void RemoveFromContainer()
         {
             if (brick.Parent != null)
@@ -135,17 +183,32 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// sets the position of the brick.
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="top"></param>
         public void SetPosition(int left, int top)
         {
             brick.Left = left;
             brick.Top = top;
         }
 
+        /// <summary>
+        /// sets the tag of the brick.
+        /// </summary>
+        /// <param name="tag"></param>
         public void SetTag(object tag)
         {
             brick.Tag = tag;
         }
 
+        /// <summary>
+        /// determines whether the brick intersects with the specified rectangle, indicating a collision.
+        /// </summary>
+        /// <param name="ballRect"></param>
+        /// <param name="verticalCollision"></param>
+        /// <returns></returns>
         public bool IntersectsWith(Rectangle ballRect, out bool verticalCollision)
         {
             verticalCollision = true;
@@ -179,7 +242,8 @@ namespace Assignment2Prj
         }
     }
 
-    class Bricks
+    //define the Bricks class
+    public class Bricks
     {
         /// <summary>
         /// Your Brick class must have following attributes 
@@ -190,6 +254,11 @@ namespace Assignment2Prj
         private int cols;
         private Random rand = new Random();
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="rows"></param>
+        /// <param name="cols"></param>
         public Bricks(int rows, int cols)
         {
             this.rows = rows;
@@ -211,11 +280,13 @@ namespace Assignment2Prj
                 }
             }
 
+            //Randomly assign special brick types
             for (int r = 0; r < rows; r++)
             {
                 bricks[r, rand.Next(0, cols)].SetBrickType(Brick.BrickType.Score20);
             }
 
+            // Ensure unique positions for bomb bricks
             for (int i = 0; i < rows / 2; i++)
             {
                 Point PointBomb = new Point(rand.Next(0, rows), rand.Next(0, cols));
@@ -226,6 +297,7 @@ namespace Assignment2Prj
                 bricks[PointBomb.X, PointBomb.Y].SetBrickType(Brick.BrickType.Bomb);
             }
 
+            // Ensure unique positions for score30 bricks
             for (int i = 0; i < rows / 2; i++)
             {
                 Point score30 = new Point(rand.Next(0, rows), rand.Next(0, cols));
@@ -236,6 +308,7 @@ namespace Assignment2Prj
                 bricks[score30.X, score30.Y].SetBrickType(Brick.BrickType.Score30);
             }
 
+            // Ensure unique positions for stretch bricks
             for (int i = 0; i < rows / (2 * PublicDatas.currentLevel); i++)
             {
                 Point stretch = new Point(rand.Next(0, rows), rand.Next(0, cols));
@@ -243,9 +316,10 @@ namespace Assignment2Prj
                 {
                     stretch.Y = (stretch.Y + 1) % cols;
                 }
-                bricks[stretch.X, stretch.Y].SetBrickType(Brick.BrickType.Stetch);
+                bricks[stretch.X, stretch.Y].SetBrickType(Brick.BrickType.stretch);
             }
 
+            // Ensure unique positions for shrink bricks
             for (int i = 0; i < rows && i < PublicDatas.currentLevel * 2; i++)
             {
                 Point stretch = new Point(rand.Next(0, rows), rand.Next(0, cols));
@@ -256,6 +330,7 @@ namespace Assignment2Prj
                 bricks[stretch.X, stretch.Y].SetBrickType(Brick.BrickType.Shrink);
             }
 
+            // Ensure unique positions for extra ball bricks
             for (int i = 0; i < rows / 2; i++)
             {
                 Point extraBall = new Point(rand.Next(0, rows), rand.Next(0, cols));
@@ -267,8 +342,11 @@ namespace Assignment2Prj
             }
         }
 
-        //Add methods 
-        public bool IsAllBricksBreakout()
+        /// <summary>
+        /// determines whether all bricks have been broken.
+        /// </summary>
+        /// <returns></returns>
+        virtual public bool IsAllBricksBreakout()
         {
             bool allBroken = true;
             for (int i = 0; i < rows; i++)
@@ -289,6 +367,13 @@ namespace Assignment2Prj
             return allBroken;
         }
 
+        /// <summary>
+        /// generates a Color from HSV values.
+        /// </summary>
+        /// <param name="hue"></param>
+        /// <param name="saturation"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public Color ColorFromHSV(double hue, double saturation, double value)
         {
             int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
@@ -317,6 +402,10 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// adds all bricks to the specified container control.
+        /// </summary>
+        /// <param name="container"></param>
         public void AddToContainer(Control container)
         {
             for (int i = 0; i < rows; i++)
@@ -328,7 +417,15 @@ namespace Assignment2Prj
             }
         }
 
-        public bool CheckCollision(Rectangle ballRect, out int score, out Brick.BrickType collisionType, out bool verticalCollision)
+        /// <summary>
+        /// checks for collisions between the ball and the bricks, updating the score and brick states accordingly.
+        /// </summary>
+        /// <param name="ballRect"></param>
+        /// <param name="score"></param>
+        /// <param name="collisionType"></param>
+        /// <param name="verticalCollision"></param>
+        /// <returns></returns>
+        virtual public bool CheckCollision(Rectangle ballRect, out int score, out Brick.BrickType collisionType, out bool verticalCollision)
         {
             score = 0;
             collisionType = Brick.BrickType.Normal;
@@ -343,9 +440,12 @@ namespace Assignment2Prj
                         collisionType = bricks[i, j].GetBrickType();
 
                         score = bricks[i, j].GetBrickScore();
+
+                        // If the brick is a bomb, remove adjacent bricks as well
                         if (collisionType == Brick.BrickType.Bomb)
                         {
-                            if(i > 0 && bricks[i - 1, j] != null) // 上
+                            // up
+                            if (i > 0 && bricks[i - 1, j] != null)
                             {
                                 score += bricks[i - 1, j].GetBrickScore();
 
@@ -353,7 +453,8 @@ namespace Assignment2Prj
                                 bricks[i - 1, j] = null;
                             }
 
-                            if(i < rows - 1 && bricks[i + 1, j] != null) // 下
+                            // down
+                            if (i < rows - 1 && bricks[i + 1, j] != null) 
                             {
                                 score += bricks[i + 1, j].GetBrickScore();
 
@@ -361,7 +462,8 @@ namespace Assignment2Prj
                                 bricks[i + 1, j] = null;
                             }
 
-                            if (j > 0 && bricks[i, j - 1] != null) // 左
+                            // left
+                            if (j > 0 && bricks[i, j - 1] != null)
                             {
                                 score += bricks[i, j - 1].GetBrickScore();
 
@@ -369,7 +471,8 @@ namespace Assignment2Prj
                                 bricks[i, j - 1] = null;
                             }
 
-                            if(j < cols - 1 && bricks[i, j + 1] != null) // 右
+                            // right
+                            if (j < cols - 1 && bricks[i, j + 1] != null)
                             {
                                 score += bricks[i, j + 1].GetBrickScore();
 
@@ -387,6 +490,26 @@ namespace Assignment2Prj
             }
 
             return false; // No collision detected
+        }
+
+
+        //////for test purpose//////
+        /// <summary>
+        /// clears all bricks from the container and sets them to null.
+        /// </summary>
+        public void ClearBricks()
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (bricks[i, j] != null)
+                    {
+                        bricks[i, j].RemoveFromContainer();
+                        bricks[i, j] = null;
+                    }
+                }
+            }
         }
     }
 }

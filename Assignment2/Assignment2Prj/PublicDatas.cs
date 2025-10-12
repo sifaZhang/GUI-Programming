@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author: Sifa Zhang
+//Studeng ID: 1606796
+//Date: 2025/10/13
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,9 +14,17 @@ namespace Assignment2Prj
 {
     public class ScoreEntry
     {
+        /// <summary>
+        /// properties
+        /// </summary>
         public string Name { get; set; }
         public int Score { get; set; }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="score"></param>
         public ScoreEntry(string name, int score)
         {
             Name = name;
@@ -20,6 +32,9 @@ namespace Assignment2Prj
         }
     }
 
+    /// <summary>
+    /// public data class
+    /// </summary>
     internal static class PublicDatas
     {
         public static int maxLevel = 5;
@@ -32,6 +47,9 @@ namespace Assignment2Prj
         public static string filePath = Application.StartupPath + "\\topUsers.csv";
         public static int topUsersCount = 10;
 
+        /// <summary>
+        /// add a level
+        /// </summary>
         public static void AddLevel()
         {
             if (currentLevel < maxLevel)
@@ -40,56 +58,93 @@ namespace Assignment2Prj
             }
         }
 
+        /// <summary>
+        /// load top users from file
+        /// </summary>
         public static void LoadTopUsersFromFile()
         {
-            if(topUsers.Count == 0)
+            try
             {
-                if (System.IO.File.Exists(filePath))
+                if (topUsers.Count == 0)
                 {
-                    var lines = System.IO.File.ReadAllLines(filePath);
-                    foreach (var line in lines)
+                    if (System.IO.File.Exists(filePath))
                     {
-                        var parts = line.Split(',');
-                        if (parts.Length == 2 && int.TryParse(parts[1], out int score))
+                        var lines = System.IO.File.ReadAllLines(filePath);
+                        foreach (var line in lines)
                         {
-                            topUsers.Add(new ScoreEntry(parts[0], score));
+                            var parts = line.Split(',');
+                            if (parts.Length == 2 && int.TryParse(parts[1], out int score))
+                            {
+                                topUsers.Add(new ScoreEntry(parts[0], score));
+                            }
+                        }
+                    }
+
+                    // Sort and keep only top 5
+                    topUsers = topUsers.OrderByDescending(entry => entry.Score).Take(topUsersCount).ToList();
+                }
+            }
+            catch (IOException ioEx)
+            {
+                MessageBox.Show($"File error: {ioEx.Message}", "I/O Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// update scores and save to file if needed
+        /// </summary>
+        public static void UpdateScores()
+        {
+            try
+            {
+                bool saveNeeded = true;
+                if (topUsers.Count >= topUsersCount)
+                {
+                    ScoreEntry scoreEntry = topUsers[topUsersCount - 1];
+
+                    if (currentScore <= scoreEntry.Score)
+                    {
+                        saveNeeded = false;
+                    }
+                }
+
+                if (saveNeeded)
+                {
+                    topUsers.Add(new ScoreEntry(currentUserName, currentScore));
+                    topUsers = topUsers.OrderByDescending(entry => entry.Score).Take(topUsersCount).ToList();
+
+                    using (StreamWriter writer = new StreamWriter(filePath))
+                    {
+                        foreach (var entry in topUsers)
+                        {
+                            writer.WriteLine($"{entry.Name},{entry.Score}");
                         }
                     }
                 }
-
-                // Sort and keep only top 5
-                topUsers = topUsers.OrderByDescending(entry => entry.Score).Take(topUsersCount).ToList();
+            }
+            catch (IOException ioEx)
+            {
+                MessageBox.Show($"File error: {ioEx.Message}", "I/O Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentOutOfRangeException rangeEx)
+            {
+                MessageBox.Show($"Indexing error: {rangeEx.Message}", "Data Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public static void UpdateScores()
-        {
-            bool saveNeeded = true;
-            if (topUsers.Count >= topUsersCount)
-            {
-                ScoreEntry scoreEntry = topUsers[topUsersCount - 1];
-
-                if (currentScore <= scoreEntry.Score)
-                {
-                    saveNeeded = false;
-                }
-            }
-            
-            if(saveNeeded)
-            {
-                topUsers.Add(new ScoreEntry(currentUserName, currentScore));
-                topUsers = topUsers.OrderByDescending(entry => entry.Score).Take(topUsersCount).ToList();
-
-                using (StreamWriter writer = new StreamWriter(filePath))
-                {
-                    foreach (var entry in topUsers)
-                    {
-                        writer.WriteLine($"{entry.Name},{entry.Score}");
-                    }
-                }
-            }
-        }
-
+        /// <summary>
+        /// get my top score and ranking
+        /// </summary>
+        /// <param name="ranking"></param>
+        /// <returns></returns>
         public static int GetMyTopScore(out int ranking)
         {
             ranking = -1;
